@@ -1,0 +1,12 @@
+2026-02-26T18:50:26.146Z [console][warn] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold
+2026-02-26T18:50:26.279Z [console][log] __ORCHIDS_NAVIGATE__ http://localhost:3001/
+2026-02-26T18:50:52.993Z [console][error] Error in Send Flow: [object Object]
+2026-02-26T18:50:26.279Z [console][debug] __ORCHIDS_NAVIGATE__ http://localhost:3001/
+2026-02-26T18:50:52.993Z [console][error] Error in Send Flow: {"code":"23514","details":"Failing row contains (120273dd-5504-465f-b820-c7f1c60bf791, 6396266b-efca-4b3e-b035-3cb2fa01ace7, 0f965472-e48c-4a85-b815-61bc42d37675, 5000.00, USD, PENDING, null, 2026-02-26 18:50:52.945884+00).","hint":null,"message":"new row for relation \"transactions\" violates check constraint \"transactions_status_check\""}
+2026-02-26T18:50:27.647Z [network][GET 406] https://aakaetlitwjjnzsobzdq.supabase.co/rest/v1/transactions?select=*&order=created_at.desc&limit=1
+  response: {"code":"PGRST116","details":"The result contains 0 rows","hint":null,"message":"Cannot coerce the result to a single JSON object"}
+2026-02-26T18:50:28.062Z [network][GET 406] https://aakaetlitwjjnzsobzdq.supabase.co/rest/v1/transactions?select=*&order=created_at.desc&limit=1
+  response: {"code":"PGRST116","details":"The result contains 0 rows","hint":null,"message":"Cannot coerce the result to a single JSON object"}
+2026-02-26T18:51:14.798Z [network][POST 400] https://aakaetlitwjjnzsobzdq.supabase.co/rest/v1/transactions?columns=%22sender_id%22%2C%22recipient_id%22%2C%22amount%22%2C%22status%22&select=*
+  request: [{"sender_id":"6396266b-efca-4b3e-b035-3cb2fa01ace7","recipient_id":"0f965472-e48c-4a85-b815-61bc42d37675","amount":5000,"status":"PENDING"}]
+  response: {"code":"23514","details":"Failing row contains (120273dd-5504-465f-b820-c7f1c60bf791, 6396266b-efca-4b3e-b035-3cb2fa01ace7, 0f965472-e48c-4a85-b815-61bc42d37675, 5000.00, USD, PENDING, null, 2026-02-26 18:50:52.945884+00).","hint":null,"message":"new row for relation \"transactions\" violates check constraint \"transactions_status_check\""}

@@ -1,0 +1,19 @@
+{
+  "simulationId": "620f124d",
+  "timestamp": "2026-02-22T04:34:06.574Z",
+  "transaction": {
+    "id": "tx-620f124d",
+    "amount": 50000,
+    "currency": "USD",
+    "sender": "987b853cf829657747aa3551:d49bd262ea7a5b5e1695b0f4d14e769c:624ad8d5aa03e9f4",
+    "receiver": "5704fa77310e76b5979fde2e:01d413c0d0e96d0aae64062f650325b6:406244649aada6ef3713",
+    "type": "SWIFT_MT103"
+  },
+  "risk": {
+    "score": 0.98,
+    "riskLevel": "CRITICAL",
+    "ruleId": "RULE-RING-001",
+    "action": "BLOCK"
+  },
+  "defense": "ACCOUNT_FROZEN"
+}

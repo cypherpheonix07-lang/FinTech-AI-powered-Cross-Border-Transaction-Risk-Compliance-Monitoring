@@ -1,0 +1,41 @@
+name: Extended Platform CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  ecosystem-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          pnpm install
+          pip install pytest requests locust cryptography
+
+      - name: Backend Ecosystem Tests
+        run: pytest backend/tests/test_ecosystem.py
+
+      - name: Frontend Unit Tests
+        run: npm run test:unit -- --watchAll=false
+
+      - name: Threat Model Smoke Run
+        run: python scripts/threat_model/generate_report.py --env ci
+
+      - name: Synthetic Data Generation Check
+        run: python tools/synthetic/synthetic_generator.py

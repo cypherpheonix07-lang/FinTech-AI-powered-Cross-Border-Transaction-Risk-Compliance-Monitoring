@@ -1,0 +1,79 @@
+# Default values for transact-trace.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+global:
+  namespace: transacttrace-prod
+
+# API Gateway / Backend Service
+api:
+  name: api-gateway
+  image:
+    repository: ghcr.io/transacttrace/api-gateway
+    tag: latest
+    pullPolicy: Always
+  replicas: 2
+  port: 3000
+  resources:
+    requests:
+      cpu: 250m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+# ML Scoring Service
+ml:
+  name: ml-scoring
+  image:
+    repository: ghcr.io/transacttrace/ml-scoring
+    tag: latest
+    pullPolicy: Always
+  replicas: 2
+  port: 8000
+  resources:
+    requests:
+      cpu: 500m
+      memory: 512Mi
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+  persistence:
+    claimName: ml-models-pvc
+
+# Databases
+postgres:
+  enabled: true
+  image: postgres:15-alpine
+  storage: 10Gi
+  resources:
+    requests:
+      cpu: 250m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+redis:
+  enabled: true
+  image: redis:7-alpine
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 250m
+      memory: 256Mi
+
+neo4j:
+  enabled: true
+  image: neo4j:5-community
+  persistence:
+    claimName: neo4j-data-pvc
+  resources:
+    requests:
+      cpu: 250m
+      memory: 512Mi
+    limits:
+      cpu: 500m
+      memory: 1Gi

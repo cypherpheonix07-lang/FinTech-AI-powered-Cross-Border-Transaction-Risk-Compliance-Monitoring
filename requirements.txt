@@ -1,0 +1,27 @@
+# Kubera Trace - Python Dependencies
+
+# Core Framework
+fastapi==0.115.0
+uvicorn==0.30.0
+pydantic==2.5.0
+
+# Data Processing
+requests==2.31.0
+aiokafka==0.10.0
+
+# ML & Intelligence
+torch==2.1.0
+numpy==1.24.0
+
+# Security & Privacy
+cryptography==43.0.0
+
+# Testing & QA
+pytest==7.4.0
+pytest-asyncio==0.21.0
+
+# Performance Testing
+locust==2.20.0
+
+# Utilities
+python-dotenv==1.0.0

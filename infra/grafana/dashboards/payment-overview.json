@@ -1,0 +1,38 @@
+{
+  "annotations": { "list": [] },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "title": "Global Transaction Throughput (Kafka)",
+      "type": "graph",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+      "targets": [{ "expr": "rate(kafka_consumer_messages_total[1m])" }]
+    },
+    {
+      "title": "Model Inference Latency (99th Percentile)",
+      "type": "stat",
+      "gridPos": { "h": 8, "w": 4, "x": 12, "y": 0 },
+      "targets": [{ "expr": "histogram_quantile(0.99, rate(api_latency_seconds_bucket[5m]))" }]
+    },
+    {
+      "title": "Critical Risk Alerts (Real-time)",
+      "type": "table",
+      "gridPos": { "h": 8, "w": 8, "x": 16, "y": 0 },
+      "targets": [{ "expr": "kubera_risk_alerts_count > 0.8" }]
+    }
+  ],
+  "schemaVersion": 36,
+  "style": "dark",
+  "tags": ["enterprise", "risk"],
+  "templating": { "list": [] },
+  "time": { "from": "now-6h", "to": "now" },
+  "title": "Kubera Trace: Enterprise Payment Overview",
+  "uid": "kubera-payment-overview",
+  "version": 1,
+  "weekStart": ""
+}

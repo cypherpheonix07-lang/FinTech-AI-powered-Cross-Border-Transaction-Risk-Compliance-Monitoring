@@ -1,0 +1,47 @@
+type User @table {
+  displayName: String!
+  email: String!
+  createdAt: Timestamp!
+  organizationName: String
+  contactNumber: String
+}
+
+type Account @table {
+  user: User!
+  accountName: String!
+  accountNumber: String!
+  balance: Float!
+  currency: String!
+  createdAt: Timestamp!
+  accountType: String
+}
+
+type Transaction @table {
+  sourceAccount: Account!
+  destinationAccount: Account!
+  transactionAmount: Float!
+  transactionDate: Date!
+  transactionType: String!
+  createdAt: Timestamp!
+  description: String
+  category: Category
+  status: String
+}
+
+type Alert @table {
+  user: User!
+  transaction: Transaction!
+  alertType: String!
+  severity: String!
+  message: String!
+  createdAt: Timestamp!
+  status: String
+  reviewerNotes: String
+}
+
+type Category @table {
+  user: User!
+  categoryName: String!
+  createdAt: Timestamp!
+  description: String
+}

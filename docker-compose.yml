@@ -1,0 +1,83 @@
+services:
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: fintech_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: fintech
+      POSTGRES_PASSWORD: fintech123
+      POSTGRES_DB: transacttrace
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  neo4j:
+    image: neo4j:5
+    container_name: fintech_neo4j
+    restart: always
+    environment:
+      NEO4J_AUTH: neo4j/password
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+
+  redis:
+    image: redis:7-alpine
+    container_name: fintech_redis
+    ports:
+      - "6381:6379"
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+    ports:
+      - "9092:9092"
+
+  backend:
+    build: ./backend
+    depends_on:
+      - postgres
+      - redis
+      - neo4j
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - DATABASE_URL=postgresql://fintech:fintech123@postgres:5432/transacttrace?schema=public
+      - REDIS_URL=redis://redis:6379
+      - ML_SERVICE_URL=http://fraud-ml:8000
+      - FRONTEND_URL=http://localhost:8080
+      - NODE_ENV=development
+      - JWT_ACCESS_SECRET=i3+NQ3nS4ncumRnHO0mcnbZWsK8XNQa077H9iwCMZyuf569nkSX9p1kJSnDK6GL//zN2yEtJEwg53evp8PdmRg==
+      - JWT_REFRESH_SECRET=i3+NQ3nS4ncumRnHO0mcnbZWsK8XNQa077H9iwCMZyuf569nkSX9p1kJSnDK6GL//zN2yEtJEwg53evp8PdmRg==
+      - JWT_ACCESS_EXPIRY=15m
+      - JWT_REFRESH_EXPIRY=7d
+      - SUPABASE_URL=https://ivrbpglzldxfpwdslonh.supabase.co
+      - SUPABASE_ANON_KEY=sb_publishable__sTBE6pq-77V5AVmc6FaPw_jnVP7QEF
+      - SUPABASE_SERVICE_ROLE_KEY=sb_secret_placeholder_replace_me
+
+  fraud-ml:
+    build: ./fraud-ml-service
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:

@@ -1,0 +1,66 @@
+{
+  "info": {
+    "name": "TransactTrace API",
+    "_postman_id": "transacttrace-collection",
+    "description": "Basic collection for TransactTrace backend endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register Admin",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"tenantName\":\"DemoCorp\",\"email\":\"admin@demo.com\",\"password\":\"Passw0rd!\"}"
+        },
+        "url": { "raw": "http://localhost:4000/api/auth/register", "protocol":"http","host":["localhost"],"port":"4000","path":["api","auth","register"] }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body": { "mode":"raw", "raw":"{\"email\":\"admin@demo.com\",\"password\":\"Passw0rd!\"}" },
+        "url": { "raw":"http://localhost:4000/api/auth/login","protocol":"http","host":["localhost"],"port":"4000","path":["api","auth","login"] }
+      }
+    },
+    {
+      "name": "Create Transaction",
+      "request": {
+        "method": "POST",
+        "header":[{"key":"Content-Type","value":"application/json"},{"key":"Authorization","value":"Bearer {{accessToken}}"}],
+        "body": { "mode":"raw", "raw":"{\"accountId\":\"acct_1001\",\"senderCountry\":\"IN\",\"receiverCountry\":\"US\",\"amount\":1200.50,\"currency\":\"USD\",\"identifier\":\"phone_1001\",\"frequency_per_hour\":1}" },
+        "url": { "raw":"http://localhost:4000/api/transactions","protocol":"http","host":["localhost"],"port":"4000","path":["api","transactions"] }
+      }
+    },
+    {
+      "name": "Fraud ML Check (direct)",
+      "request": {
+        "method": "POST",
+        "header":[{"key":"Content-Type","value":"application/json"}],
+        "body": { "mode":"raw", "raw":"{\"transaction_id\":\"tx_test\",\"account_number\":\"1000001\",\"amount\":10000,\"frequency_per_hour\":2,\"identifier\":\"phone_1001\",\"sender_country\":\"IN\",\"receiver_country\":\"US\"}" },
+        "url": { "raw":"http://localhost:8000/api/fraud/check","protocol":"http","host":["localhost"],"port":"8000","path":["api","fraud","check"] }
+      }
+    },
+    {
+      "name": "Trigger Retrain",
+      "request": {
+        "method": "POST",
+        "header":[{"key":"Content-Type","value":"application/json"},{"key":"Authorization","value":"Bearer {{accessToken}}"}],
+        "url": { "raw":"http://localhost:4000/api/risk/train","protocol":"http","host":["localhost"],"port":"4000","path":["api","risk","train"] }
+      }
+    },
+    {
+      "name": "Start Simulation",
+      "request": {
+        "method": "POST",
+        "header":[{"key":"Content-Type","value":"application/json"},{"key":"Authorization","value":"Bearer {{accessToken}}"}],
+        "body":{"mode":"raw","raw":"{\"ratePerSecond\":5,\"durationSec\":30,\"mode\":\"suspicious\"}"},
+        "url": {"raw":"http://localhost:4000/api/simulation/start","protocol":"http","host":["localhost"],"port":"4000","path":["api","simulation","start"]}
+      }
+    }
+  ]
+}

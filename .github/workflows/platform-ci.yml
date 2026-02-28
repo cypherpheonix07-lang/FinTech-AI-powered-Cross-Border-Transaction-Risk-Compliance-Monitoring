@@ -1,0 +1,38 @@
+name: Kubera Enterprise CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  frontend-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with: { version: 8 }
+      - run: pnpm install
+      - run: pnpm lint
+      - run: pnpm test
+      - run: pnpm build
+
+  backend-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with: { python-version: '3.10' }
+      - run: pip install pytest fastapi uvicorn aiokafka requests
+      - run: pytest backend/tests
+
+  e2e-enterprise:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: pnpm install
+      - run: |
+          node scripts/mock-platform-server.js &
+          sleep 5
+          pnpm cypress run --spec cypress/e2e/enterprise-flow.cy.js

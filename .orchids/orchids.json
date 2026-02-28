@@ -1,0 +1,9 @@
+{
+  "projectId": "a986ee22-7a43-4830-8d80-ced0f76b85a0",
+  "createdAt": 1772134568666,
+  "startupCommands": [
+    "cd pathguard-frontend && npm run dev",
+    "cd pathguard-engine && go run main.go"
+  ],
+  "templateId": "any"
+}

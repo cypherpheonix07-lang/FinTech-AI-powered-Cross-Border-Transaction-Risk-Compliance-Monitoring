@@ -1,0 +1,6 @@
+[install]
+# Set the directory where bun will search for packages
+# (e.g., node_modules)
+# (empty defaults to node_modules)
+# (can also be a list of paths)
+# node_modules

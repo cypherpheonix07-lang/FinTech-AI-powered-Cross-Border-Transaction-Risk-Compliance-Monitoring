@@ -1,0 +1,16 @@
+# Environment ConfigMap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-config
+  namespace: transacttrace-prod
+data:
+  NODE_ENV: "production"
+  PORT: "3000"
+  ML_SERVICE_URL: "http://ml-scoring-svc:8000"
+  REDIS_URL: "redis://redis-svc:6379"
+  NEO4J_URI: "bolt://neo4j-svc:7687"
+  FRONTEND_URL: "https://app.transacttrace.io"
+  JWT_ACCESS_EXPIRY: "15m"
+  JWT_REFRESH_EXPIRY: "7d"
+  LOG_LEVEL: "info"

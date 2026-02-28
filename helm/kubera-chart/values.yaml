@@ -1,0 +1,39 @@
+# kubera-chart/values.yaml
+# Production Configuration for Enterprise Platform
+
+global:
+  environment: "production"
+  tenantIsolation: true
+
+backend:
+  replicaCount: 3
+  image:
+    repository: kubera/platform-api
+    tag: "latest"
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 2Gi
+  env:
+    DATABASE_URL: "postgresql://user:pass@postgresql-ha:5432/kubera"
+    REDIS_URL: "redis://redis-master:6379"
+    KAFKA_SERVERS: "kafka-0.kafka-headless:9092"
+
+frontend:
+  replicaCount: 2
+  image:
+    repository: kubera/trace-ui
+    tag: "latest"
+
+monitoring:
+  prometheus:
+    enabled: true
+  grafana:
+    enabled: true
+    dashboard:
+      provider: "kubera-provisioning"
+
+kafka:
+  enabled: true
+  replicaCount: 3
+  partitions: 12

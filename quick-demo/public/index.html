@@ -1,0 +1,91 @@
+<!-- public/index.html -->
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Quick Demo - Payment Risk</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 16px; }
+    .container { max-width: 900px; margin: auto; }
+    input, button { padding: 8px; margin: 4px; }
+    .tx { border: 1px solid #ddd; padding: 8px; margin: 8px 0; border-radius: 6px; }
+    .high { background: #ffe6e6; }
+    .medium { background: #fff7e6; }
+    .low { background: #e8fff0; }
+  </style>
+  <script src="https://cdn.socket.io/4.7.1/socket.io.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>TransactTrace — Quick Demo</h1>
+    <div>
+      <label>Amount: <input id="amount" value="1200" /></label>
+      <label>Identifier: <input id="identifier" value="phone_demo" /></label>
+      <button id="sendBtn">Send Transaction</button>
+      <button id="simBtn">Start Short Simulation</button>
+    </div>
+
+    <h3>Recent transactions</h3>
+    <div id="list"></div>
+  </div>
+
+  <script>
+    const API = 'http://localhost:4000';
+    const socket = io('http://localhost:4000');
+
+    socket.on('connect', () => { console.log('socket connected'); });
+    socket.on('transaction-created', (tx) => { addTx(tx); });
+    socket.on('risk-alert', (data) => { addAlert(data); });
+
+    function addTx(tx) {
+      const el = document.createElement('div');
+      el.className = 'tx ' + (tx.risk.risk_level || 'low').toLowerCase();
+      el.innerHTML = `
+        <b>ID:</b> ${tx.id}<br/>
+        <b>Amount:</b> ${tx.payload.amount} ${tx.payload.currency || ''}<br/>
+        <b>Risk:</b> ${tx.risk.final_risk_score} (${tx.risk.risk_level})<br/>
+        <b>Anomaly:</b> ${tx.risk.anomaly_score} <b>Supervised:</b> ${tx.risk.supervised_prob} <br/>
+        <pre style="font-size:11px">${JSON.stringify(tx.payload,null,2)}</pre>
+      `;
+      const list = document.getElementById('list');
+      list.prepend(el);
+    }
+
+    function addAlert(data) {
+      const tx = data.transaction;
+      alert(`RISK ALERT: tx ${tx.id} risk=${tx.risk.final_risk_score} level=${tx.risk.risk_level}`);
+    }
+
+    document.getElementById('sendBtn').onclick = async () => {
+      const amount = Number(document.getElementById('amount').value);
+      const identifier = document.getElementById('identifier').value;
+      const resp = await fetch(API + '/api/transactions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount, currency: 'USD', identifier })
+      });
+      const j = await resp.json();
+      console.log('tx created', j);
+    };
+
+    document.getElementById('simBtn').onclick = async () => {
+      // create 6 transactions quickly
+      for (let i=0;i<6;i++) {
+        const amt = Math.floor(Math.random()*120000);
+        await fetch(API + '/api/transactions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ amount: amt, currency: 'USD', identifier: (i%2===0?'ring_'+i:'phone_'+i) })
+        });
+      }
+    };
+
+    // initial load
+    (async () => {
+      const r = await fetch(API + '/api/transactions');
+      const j = await r.json();
+      j.data.forEach(addTx);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+mutation CreateDemoData @transaction @auth(level: USER, insecureReason: "This operation is for seeding data by an authenticated user.") {
+  user_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440000",
+      displayName: "Alice Smith",
+      email: "alice.smith@example.com",
+      createdAt: "2023-01-01T10:00:00Z",
+      organizationName: "Global Payments Inc.",
+      contactNumber: "111-222-3333"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440001",
+      displayName: "Bob Johnson",
+      email: "bob.johnson@example.com",
+      createdAt: "2023-01-02T11:00:00Z",
+      organizationName: "International Finance Group",
+      contactNumber: "444-555-6666"
+    }
+  ])
+  category_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440002",
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      categoryName: "Food",
+      description: "Daily food expenses",
+      createdAt: "2023-01-03T12:00:00Z"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440003",
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      categoryName: "Travel",
+      description: "Business and personal travel costs",
+      createdAt: "2023-01-04T13:00:00Z"
+    }
+  ])
+  account_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440004",
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      accountName: "Alice Checking",
+      accountNumber: "123456789",
+      balance: 1500.75,
+      currency: "USD",
+      createdAt: "2023-01-05T14:00:00Z",
+      accountType: "Checking"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440005",
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      accountName: "Bob Savings",
+      accountNumber: "987654321",
+      balance: 5000.00,
+      currency: "EUR",
+      createdAt: "2023-01-06T15:00:00Z",
+      accountType: "Savings"
+    }
+  ])
+  transaction_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440006",
+      sourceAccountId: "550e8400-e29b-41d4-a716-446655440004",
+      destinationAccountId: "550e8400-e29b-41d4-a716-446655440005",
+      transactionAmount: 100.00,
+      transactionDate: "2023-01-07",
+      transactionType: "Transfer",
+      createdAt: "2023-01-07T16:00:00Z",
+      description: "Internal transfer",
+      categoryId: null,
+      status: "Completed"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440007",
+      sourceAccountId: "550e8400-e29b-41d4-a716-446655440004",
+      destinationAccountId: "550e8400-e29b-41d4-a716-446655440004",
+      transactionAmount: 25.50,
+      transactionDate: "2023-01-08",
+      transactionType: "Purchase",
+      createdAt: "2023-01-08T17:00:00Z",
+      description: "Groceries",
+      categoryId: "550e8400-e29b-41d4-a716-446655440002",
+      status: "Completed"
+    }
+  ])
+  alert_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440008",
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      transactionId: "550e8400-e29b-41d4-a716-446655440006",
+      alertType: "Suspicious Activity",
+      severity: "High",
+      message: "Unusual transfer pattern detected.",
+      createdAt: "2023-01-07T16:05:00Z",
+      status: "New",
+      reviewerNotes: null
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440009",
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      transactionId: "550e8400-e29b-41d4-a716-446655440007",
+      alertType: "Category Mismatch",
+      severity: "Low",
+      message: "Transaction category differs from usual spending.",
+      createdAt: "2023-01-08T17:01:00Z",
+      status: "Acknowledged",
+      reviewerNotes: "Confirmed by user."
+    }
+  ])
+}

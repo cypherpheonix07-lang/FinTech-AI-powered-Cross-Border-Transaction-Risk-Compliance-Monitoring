@@ -1,0 +1,9 @@
+packages:
+  - 'backend'
+  - 'frontend'
+
+onlyBuiltDependencies:
+  - core-js
+  - cypress
+  - esbuild
+  - msw

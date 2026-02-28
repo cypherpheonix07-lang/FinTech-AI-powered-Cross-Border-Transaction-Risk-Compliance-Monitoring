@@ -1,0 +1,96 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.api.name }}
+  namespace: {{ .Values.global.namespace }}
+  labels:
+    app: {{ .Values.api.name }}
+    tier: backend
+spec:
+  replicas: {{ .Values.api.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.api.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.api.name }}
+        tier: backend
+    spec:
+      containers:
+        - name: {{ .Values.api.name }}
+          image: "{{ .Values.api.image.repository }}:{{ .Values.api.image.tag }}"
+          imagePullPolicy: {{ .Values.api.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.api.port }}
+          envFrom:
+            - configMapRef:
+                name: env-config
+            - secretRef:
+                name: app-secrets
+          resources:
+            {{- toYaml .Values.api.resources | nindent 12 }}
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: {{ .Values.api.port }}
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: {{ .Values.api.port }}
+            initialDelaySeconds: 30
+            periodSeconds: 30
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.ml.name }}
+  namespace: {{ .Values.global.namespace }}
+  labels:
+    app: {{ .Values.ml.name }}
+    tier: ml
+spec:
+  replicas: {{ .Values.ml.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.ml.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.ml.name }}
+        tier: ml
+    spec:
+      containers:
+        - name: {{ .Values.ml.name }}
+          image: "{{ .Values.ml.image.repository }}:{{ .Values.ml.image.tag }}"
+          imagePullPolicy: {{ .Values.ml.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.ml.port }}
+          envFrom:
+            - configMapRef:
+                name: env-config
+            - secretRef:
+                name: app-secrets
+          resources:
+            {{- toYaml .Values.ml.resources | nindent 12 }}
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: {{ .Values.ml.port }}
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: {{ .Values.ml.port }}
+            initialDelaySeconds: 45
+            periodSeconds: 30
+          volumeMounts:
+            - name: model-storage
+              mountPath: /app/models
+      volumes:
+        - name: model-storage
+          persistentVolumeClaim:
+            claimName: {{ .Values.ml.persistence.claimName }}

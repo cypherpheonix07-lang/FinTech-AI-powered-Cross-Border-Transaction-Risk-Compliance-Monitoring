@@ -1,0 +1,34 @@
+# Kubera API Gateway: Kong/Envoy Style Configuration
+# Assumptions:
+# - Targets internal k8s services.
+# - Enforces Auth0 JWT validation at the edge.
+
+gateway:
+  listen: 0.0.0.0:443
+  ssl:
+    enabled: true
+    cert_path: /etc/ssl/kubera.crt
+
+routes:
+  - name: ingestion-service
+    paths: [ /ingest ]
+    methods: [ POST ]
+    plugins:
+      - name: rate-limiting
+        config:
+          limit: 1000
+          window: 1 # per second
+          policy: local
+      - name: request-transformer
+        config:
+          add:
+            headers: [ "X-Internal-Cluster: US-EAST-1" ]
+
+  - name: trace-intelligence
+    paths: [ /trace, /explain ]
+    methods: [ GET ]
+    plugins:
+      - name: enterprise-billing
+        config:
+          metering_topic: "kubera.usage.events"
+          price_per_call: 0.05

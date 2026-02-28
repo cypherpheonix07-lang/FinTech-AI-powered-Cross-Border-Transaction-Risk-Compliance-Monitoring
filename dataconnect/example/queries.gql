@@ -1,0 +1,50 @@
+query ListAllCategories @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public as it only lists categories.") {
+  categories {
+    id
+    categoryName
+    description
+  }
+}
+
+query GetUserAccounts($userId: UUID!) @auth(level: USER, insecureReason: "This operation is safe to expose to all logged in users. The userId is provided by the client, but the server should enforce authorization.") {
+  accounts(where: {userId: {eq: $userId}}) {
+    id
+    accountName
+    accountNumber
+    balance
+    currency
+    accountType
+  }
+}
+
+mutation CreateNewTransaction($sourceAccountId: UUID!, $destinationAccountId: UUID!, $transactionAmount: Float!, $transactionDate: Date!, $transactionType: String!, $description: String, $categoryId: UUID) @auth(level: USER) {
+  transaction_insert(data: {
+    sourceAccountId: $sourceAccountId,
+    destinationAccountId: $destinationAccountId,
+    transactionAmount: $transactionAmount,
+    transactionDate: $transactionDate,
+    transactionType: $transactionType,
+    description: $description,
+    categoryId: $categoryId,
+    createdAt_expr: "request.time"
+  }) {
+    id
+  }
+}
+
+query GetAlertsForUser($userId: UUID!) @auth(level: USER, insecureReason: "This operation is safe to expose to all logged in users. The userId is provided by the client, but the server should enforce authorization.") {
+  alerts(where: {userId: {eq: $userId}}) {
+    id
+    alertType
+    severity
+    message
+    status
+    createdAt
+    transaction {
+      id
+      transactionAmount
+      transactionDate
+      transactionType
+    }
+  }
+}

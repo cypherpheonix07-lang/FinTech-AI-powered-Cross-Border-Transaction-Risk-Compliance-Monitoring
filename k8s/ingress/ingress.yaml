@@ -1,0 +1,36 @@
+# Ingress Configuration
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: transacttrace-ingress
+  namespace: transacttrace-prod
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/rate-limit: "100"
+    nginx.ingress.kubernetes.io/rate-limit-window: "1m"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - api.transacttrace.io
+      secretName: transacttrace-tls
+  rules:
+    - host: api.transacttrace.io
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: api-gateway-svc
+                port:
+                  number: 3000
+          - path: /ml
+            pathType: Prefix
+            backend:
+              service:
+                name: ml-scoring-svc
+                port:
+                  number: 8000
