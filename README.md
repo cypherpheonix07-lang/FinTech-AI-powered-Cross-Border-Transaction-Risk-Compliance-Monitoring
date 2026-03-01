@@ -116,6 +116,16 @@
 
 </div>
 
+<!-- RISK GRAPH SIMULATION -->
+<div style="background: #0d1117; padding: 30px; border-radius: 15px; border-left: 5px solid #22d3ee; margin-bottom: 30px;">
+<div align="center">
+  <img src="readme/assets/risk_graph_anim.svg" width="100%" alt="Risk Graph Animation">
+</div>
+
+<h2>📊 Live Risk Simulation Engine</h2>
+<p>PathGuard's <b>GNN Notary</b> analyzes the relationship between nodes in real-time, assigning weighted risk scores based on velocity, historical behavior, and path integrity. This simulation shows the sentinel flagging a high-risk hop (88) for human review.</p>
+</div>
+
 <!-- RESOURCES BENTO GRID -->
 <div style="background: #0f172a; padding: 30px; border-radius: 15px; border-left: 5px solid #22c55e; margin-bottom: 30px;">
 <div align="center">
@@ -126,19 +136,23 @@
 
 <table width="100%" style="text-align: center;">
   <tr>
-    <td width="25%"><a href="readme/whitepaper.md"><img src="https://img.shields.io/badge/📜_Whitepaper-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
-    <td width="25%"><a href="readme/pitch_deck.md"><img src="https://img.shields.io/badge/📈_Pitch_Deck-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
-    <td width="25%"><a href="readme/architecture.md"><img src="https://img.shields.io/badge/🏗️_Architecture-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
-    <td width="25%"><a href="readme/apple_style.md"><img src="https://img.shields.io/badge/🍏_Apple--Style-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
+    <td width="20%"><a href="readme/whitepaper.md"><img src="https://img.shields.io/badge/📜_Whitepaper-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
+    <td width="20%"><a href="readme/architecture.md"><img src="https://img.shields.io/badge/🏗️_Architecture-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
+    <td width="20%"><a href="readme/database.md"><img src="https://img.shields.io/badge/🗄️_Database-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
+    <td width="20%"><a href="readme/infrastructure.md"><img src="https://img.shields.io/badge/☁️_Infrastructure-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
+    <td width="20%"><a href="readme/api_reference.md"><img src="https://img.shields.io/badge/🔌_API_Specs-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
   </tr>
   <tr>
-    <td width="25%"><a href="readme/compliance.md"><img src="https://img.shields.io/badge/⚖️_Compliance-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
-    <td width="25%"><a href="readme/incident_response.md"><img src="https://img.shields.io/badge/🌪️_Incidents-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
-    <td width="25%"><a href="readme/roadmap.md"><img src="https://img.shields.io/badge/🗺️_Roadmap-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
-    <td width="25%"><a href="readme/api_reference.md"><img src="https://img.shields.io/badge/🔌_API_Specs-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
+    <td width="20%"><a href="readme/compliance.md"><img src="https://img.shields.io/badge/⚖️_Compliance-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
+    <td width="20%"><a href="readme/incident_response.md"><img src="https://img.shields.io/badge/🌪️_Incidents-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
+    <td width="20%"><a href="readme/simulations.md"><img src="https://img.shields.io/badge/🧪_Simulations-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
+    <td width="20%"><a href="readme/prompts.md"><img src="https://img.shields.io/badge/🧠_AI_Prompts-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
+    <td width="20%"><a href="readme/interfaces.md"><img src="https://img.shields.io/badge/📱_Interfaces-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
   </tr>
   <tr>
-    <td colspan="4"><a href="readme/tokenomics.md"><img src="https://img.shields.io/badge/🪙_Web3_Tokenomics-0f172a?style=for-the-badge&logo=Web3.js&logoColor=white" width="50%"></a></td>
+    <td width="33%"><a href="readme/pitch_deck.md"><img src="https://img.shields.io/badge/📈_VC_Pitch_Deck-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
+    <td width="34%"><a href="readme/tokenomics.md"><img src="https://img.shields.io/badge/🪙_Web3_Tokenomics-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
+    <td width="33%"><a href="readme/roadmap.md"><img src="https://img.shields.io/badge/🗺️_Full_Roadmap-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
   </tr>
 </table>
 </div>
