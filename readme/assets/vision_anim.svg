@@ -1,0 +1,49 @@
+<svg width="800" height="300" viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="cyberGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="1" />
+    </radialGradient>
+    <filter id="neon" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="300" fill="url(#cyberGlow)" rx="15" />
+
+  <!-- Global Network Lines -->
+  <g stroke="#ffffff" stroke-width="1" opacity="0.1">
+    <path d="M100 150 Q400 50 700 150" fill="none" />
+    <path d="M100 150 Q400 250 700 150" fill="none" />
+    <path d="M300 50 L500 250" fill="none" />
+    <path d="M500 50 L300 250" fill="none" />
+  </g>
+
+  <!-- Pulsing Nodes -->
+  <circle cx="100" cy="150" r="8" fill="#a855f7" filter="url(#neon)">
+    <animate attributeName="r" values="8;12;8" dur="3s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="400" cy="150" r="15" fill="#22d3ee" filter="url(#neon)">
+    <animate attributeName="r" values="15;20;15" dur="2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="700" cy="150" r="8" fill="#facc15" filter="url(#neon)">
+    <animate attributeName="r" values="8;12;8" dur="4s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Flow Particles -->
+  <circle cx="100" cy="150" r="4" fill="#ffffff">
+    <animateMotion path="M0 0 Q300 -100 600 0" dur="2.5s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="700" cy="150" r="4" fill="#ffffff">
+    <animateMotion path="M0 0 Q-300 100 -600 0" dur="3.5s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Central Title -->
+  <text x="400" y="155" font-family="Arial Black, sans-serif" font-size="24" text-anchor="middle" fill="#0f172a">VISIBLE</text>
+  <text x="400" y="155" font-family="Arial Black, sans-serif" font-size="24" text-anchor="middle" fill="#ffffff" opacity="0.9">VISIBLE</text>
+
+</svg>

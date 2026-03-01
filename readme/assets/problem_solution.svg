@@ -1,0 +1,52 @@
+<svg width="800" height="250" viewBox="0 0 800 250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="redNeon">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="greenNeon">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="250" fill="#0d1117" rx="10" />
+
+  <!-- Problem Side (Left) -->
+  <g transform="translate(150, 125)">
+    <rect x="-60" y="-40" width="120" height="80" rx="10" fill="none" stroke="#ef4444" stroke-width="3" filter="url(#redNeon)" />
+    <!-- Locked Shackle -->
+    <path d="M-30 -40 V-70 A30 30 0 0 1 30 -70 V-40" fill="none" stroke="#ef4444" stroke-width="8" />
+    <text x="0" y="10" font-family="monospace" font-size="18" fill="#ef4444" text-anchor="middle">OPAQUE</text>
+    <text x="0" y="30" font-family="monospace" font-size="14" fill="#7f1d1d" text-anchor="middle">THE BLACK BOX</text>
+  </g>
+
+  <!-- Arrow Transition -->
+  <g stroke="#ffffff" stroke-width="4" opacity="0.5">
+    <path d="M300 125 L450 125" />
+    <path d="M430 110 L450 125 L430 140" fill="none" />
+    <rect x="300" y="123" width="50" height="4" fill="#22d3ee">
+      <animate attributeName="x" values="300;400;300" dur="2s" repeatCount="indefinite" />
+    </rect>
+  </g>
+
+  <!-- Solution Side (Right) -->
+  <g transform="translate(600, 125)">
+    <rect x="-60" y="-40" width="120" height="80" rx="10" fill="none" stroke="#22c55e" stroke-width="3" filter="url(#greenNeon)">
+       <animate attributeName="stroke" values="#22c55e;#4ade80;#22c55e" dur="2s" repeatCount="indefinite" />
+    </rect>
+    <!-- Unlocked Shackle -->
+    <path d="M-30 -40 V-70 A30 30 0 0 1 30 -70 V-60" fill="none" stroke="#22c55e" stroke-width="8">
+      <animate attributeName="d" values="M-30 -40 V-70 A30 30 0 0 1 30 -70 V-60; M-30 -40 V-80 A30 30 0 0 1 30 -80 V-70; M-30 -40 V-70 A30 30 0 0 1 30 -70 V-60" dur="4s" repeatCount="indefinite" />
+    </path>
+    <text x="0" y="10" font-family="monospace" font-size="18" fill="#22c55e" text-anchor="middle">VERIFIED</text>
+    <text x="0" y="30" font-family="monospace" font-size="14" fill="#14532d" text-anchor="middle">PATHGUARD</text>
+  </g>
+
+</svg>

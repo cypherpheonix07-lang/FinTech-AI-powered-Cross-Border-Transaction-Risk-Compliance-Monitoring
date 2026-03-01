@@ -1,0 +1,41 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="stackGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#1e3a8a" stop-opacity="0.2" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="400" fill="#0f172a" rx="10" />
+
+  <!-- Base Layer (Database/Ledger) -->
+  <g transform="translate(150, 280)">
+    <polygon points="0,40 500,40 450,90 -50,90" fill="url(#stackGrad)" stroke="#60a5fa" stroke-width="2" />
+    <text x="250" y="70" font-family="monospace" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="bold">MERKLE LEDGER (PostgreSQL)</text>
+  </g>
+
+  <!-- Middle Layer (Intelligence) -->
+  <g transform="translate(150, 180)">
+    <polygon points="0,40 500,40 450,90 -50,90" fill="url(#stackGrad)" stroke="#a855f7" stroke-width="2">
+       <animate attributeName="stroke" values="#a855f7;#d8b4fe;#a855f7" dur="3s" repeatCount="indefinite" />
+    </polygon>
+    <text x="250" y="70" font-family="monospace" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="bold">AI SENTINEL (GNN + Llama3)</text>
+    
+    <!-- Pulse Links -->
+    <path d="M250 90 L250 140" stroke="#a855f7" stroke-width="2" stroke-dasharray="5,5">
+      <animate attributeName="stroke-dashoffset" values="10;0" dur="1s" repeatCount="indefinite" />
+    </path>
+  </g>
+
+  <!-- Top Layer (Ingestion/UI) -->
+  <g transform="translate(150, 80)">
+    <polygon points="0,40 500,40 450,90 -50,90" fill="url(#stackGrad)" stroke="#22d3ee" stroke-width="2" />
+    <text x="250" y="70" font-family="monospace" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="bold">EVENT FIREHOSE (Kafka/WSS)</text>
+    
+    <!-- Pulse Links -->
+    <path d="M250 90 L250 140" stroke="#22d3ee" stroke-width="2" stroke-dasharray="5,5">
+      <animate attributeName="stroke-dashoffset" values="10;0" dur="1s" repeatCount="indefinite" />
+    </path>
+  </g>
+
+</svg>
