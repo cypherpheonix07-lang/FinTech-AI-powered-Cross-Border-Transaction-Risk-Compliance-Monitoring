@@ -51,9 +51,13 @@ Choose your depth of insight:
 
 <div align="center">
 
-| [📜 Institutional Whitepaper](readme/whitepaper.md) | [📈 VC Pitch Deck](readme/pitch_deck.md) | [🪙 Web3 Tokenomics](readme/tokenomics.md) | [🍏 Apple-Style](readme/apple_style.md) |
+| [📜 Whitepaper](readme/whitepaper.md) | [📈 Pitch Deck](readme/pitch_deck.md) | [🪙 Tokenomics](readme/tokenomics.md) | [🍏 Apple-Style](readme/apple_style.md) |
 | :---: | :---: | :---: | :---: |
-| Technical deep-dive for regulators | Investor-ready vision & ROI | Incentivized Decentralized Trust | Premium simplicity |
+| Technical deep-dive | Investor-ready vision | Decentralized Trust | Premium simplicity |
+
+| [🏗️ Architecture](readme/architecture.md) | [⚖️ Compliance](readme/compliance.md) | [🌪️ Incident Response](readme/incident_response.md) | [🗺️ Roadmap](readme/roadmap.md) | [🔌 API Reference](readme/api_reference.md) |
+| :---: | :---: | :---: | :---: | :---: |
+| GNN & Pipelines | Regulatory Mapping | Crisis Management | Phased Vision | Integration Guide |
 
 </div>
 
