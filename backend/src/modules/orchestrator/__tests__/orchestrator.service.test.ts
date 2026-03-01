@@ -49,7 +49,7 @@ describe('OrchestratorService', () => {
       where: { id: 'tx-123' },
       include: { account: true, riskResult: true },
     });
-    expect(AdminService.freezeAccount).not.toHaveBeenCalled();
+    expect(AdminService.freezeAccount).toHaveBeenCalledWith('acc-456');
     expect(fs.writeFileSync).toHaveBeenCalled();
   });
 
