@@ -1,0 +1,68 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="shieldGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#4fd1c5; stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#4fd1c5; stop-opacity:0" />
+    </radialGradient>
+    <filter id="neon">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <style>
+    @keyframes pulse-ring {
+      0% { transform: scale(0.6); opacity: 0; }
+      50% { opacity: 0.5; }
+      100% { transform: scale(1.2); opacity: 0; }
+    }
+    @keyframes rotate-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .ring {
+      transform-origin: 200px 200px;
+      fill: none;
+      stroke: #4fd1c5;
+      stroke-width: 2;
+      animation: pulse-ring 3s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+    }
+    .ring-2 { animation-delay: 1s; }
+    .ring-3 { animation-delay: 2s; }
+    .shield-body {
+      fill: #1a202c;
+      stroke: #4fd1c5;
+      stroke-width: 4;
+      filter: url(#neon);
+      animation: float 4s ease-in-out infinite;
+    }
+    .core {
+      fill: #4fd1c5;
+      animation: float 4s ease-in-out infinite;
+      animation-delay: 0.5s;
+    }
+    .pattern {
+      stroke: #4fd1c5;
+      stroke-width: 1;
+      opacity: 0.3;
+      transform-origin: 200px 200px;
+      animation: rotate-slow 20s linear infinite;
+    }
+  </style>
+  <circle cx="200" cy="200" r="180" fill="url(#shieldGlow)" />
+  <circle class="ring ring-1" cx="200" cy="200" r="150" />
+  <circle class="ring ring-2" cx="200" cy="200" r="150" />
+  <circle class="ring ring-3" cx="200" cy="200" r="150" />
+  
+  <g class="pattern">
+     <circle cx="200" cy="200" r="120" fill="none" stroke-dasharray="10 20" />
+     <path d="M200 80 L200 120 M200 280 L200 320 M80 200 L120 200 M280 200 L320 200" />
+  </g>
+
+  <path class="shield-body" d="M200 60 C120 60 80 100 80 180 C80 280 200 340 200 340 C200 340 320 280 320 180 C320 100 280 60 200 60 Z" />
+  <path class="core" d="M200 120 L230 160 L200 200 L170 160 Z" />
+  <rect class="core" x="185" y="210" width="30" height="40" rx="5" />
+</svg>

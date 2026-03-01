@@ -1,0 +1,62 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <style>
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.1); }
+    }
+    @keyframes line-draw {
+      0% { stroke-dashoffset: 100; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes float-hologram {
+      0% { transform: translateY(0) rotateX(0deg); }
+      50% { transform: translateY(-15px) rotateX(10deg); }
+      100% { transform: translateY(0) rotateX(0deg); }
+    }
+    .node {
+      fill: #4fd1c5;
+      filter: url(#glow);
+      animation: pulse 3s infinite ease-in-out;
+    }
+    .line {
+      stroke: #4fd1c5;
+      stroke-width: 1;
+      stroke-dasharray: 10;
+      opacity: 0.2;
+      animation: line-draw 5s linear infinite;
+    }
+    .cluster {
+      transform-style: preserve-3d;
+      animation: float-hologram 8s infinite alternate ease-in-out;
+      transform-origin: center;
+    }
+  </style>
+  
+  <g class="cluster">
+    <!-- Connections -->
+    <line class="line" x1="200" y1="100" x2="100" y2="200" />
+    <line class="line" x1="200" y1="100" x2="300" y2="200" />
+    <line class="line" x1="100" y1="200" x2="200" y2="300" />
+    <line class="line" x1="300" y1="200" x2="200" y2="300" />
+    <line class="line" x1="200" y1="100" x2="200" y2="300" />
+    <line class="line" x1="100" y1="200" x2="300" y2="200" />
+
+    <!-- Nodes -->
+    <circle class="node" cx="200" cy="100" r="10" />
+    <circle class="node" cx="100" cy="200" r="10" style="animation-delay: 0.5s;" />
+    <circle class="node" cx="300" cy="200" r="10" style="animation-delay: 1s;" />
+    <circle class="node" cx="200" cy="300" r="10" style="animation-delay: 1.5s;" />
+    
+    <!-- Sub-nodes -->
+    <circle class="node" cx="150" cy="150" r="5" style="animation-delay: 0.2s;" />
+    <circle class="node" cx="250" cy="150" r="5" style="animation-delay: 0.7s;" />
+    <circle class="node" cx="150" cy="250" r="5" style="animation-delay: 1.2s;" />
+    <circle class="node" cx="250" cy="250" r="5" style="animation-delay: 1.7s;" />
+  </g>
+</svg>
