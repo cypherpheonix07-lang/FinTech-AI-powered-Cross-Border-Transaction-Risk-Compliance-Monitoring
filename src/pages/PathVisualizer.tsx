@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
+import PathSankeyChart from '../components/PathSankeyChart';
 
 interface PathHop {
   id: string;
@@ -174,6 +175,12 @@ export function PathVisualizer({ transactionId, onBack }: PathVisualizerProps) {
 
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
+            <Card className="mb-8">
+              <CardContent className="p-0 overflow-hidden">
+                <PathSankeyChart />
+              </CardContent>
+            </Card>
+
             <Card>
               <CardHeader>
                 <CardTitle>Interactive Path Timeline</CardTitle>
