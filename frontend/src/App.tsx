@@ -8,6 +8,7 @@ import CheckPayment from "./pages/CheckPayment";
 import ActivityPage from "./pages/ActivityPage";
 import AdvancedFeaturesPage from "./pages/AdvancedFeaturesPage";
 import IntelligenceTradingPage from "./pages/IntelligenceTradingPage";
+import WealthCrisisPage from "./pages/WealthCrisisPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="/advanced" element={<AdvancedFeaturesPage />} />
           <Route path="/intelligence" element={<IntelligenceTradingPage />} />
+          <Route path="/wealth" element={<WealthCrisisPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
