@@ -2,8 +2,8 @@ import { Request, Response } from "express";
 import { exec } from "child_process";
 import path from "path";
 import fs from "fs";
-import { prisma } from "../../config/database.js";
-import { logger } from "../../config/logger.js";
+import { prisma } from "../../config/database";
+import { logger } from "../../config/logger";
 
 // POST /api/risk/train  (ADMIN only)
 export const triggerRetrain = async (req: Request, res: Response) => {

@@ -41,7 +41,7 @@ JANE SMITH
             transactionRef: 'REF123',
             amount: 1000,
             currency: 'USD',
-            senderName: expect.stringContaining('enc_'),
+            senderName: 'enc_JOHN DOE',
         }), tenantId);
     });
 });

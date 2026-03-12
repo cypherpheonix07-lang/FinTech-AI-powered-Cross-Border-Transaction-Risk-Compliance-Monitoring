@@ -17,6 +17,8 @@ import escalationRoutes from './modules/escalation/escalation.routes';
 import complianceRoutes from './modules/compliance/compliance.routes';
 import analyticsRoutes from './modules/analytics/analytics.routes';
 import ingestionRoutes from './modules/ingestion/ingestion.routes';
+import web3BridgeRoutes from './modules/web3bridge/web3bridge.routes';
+import vanguardRoutes from './modules/vanguard/vanguard.routes';
 
 const app = express();
 
@@ -43,6 +45,8 @@ app.use('/api/escalations', escalationRoutes);
 app.use('/api/compliance', complianceRoutes);
 app.use('/api/v1/analytics', analyticsRoutes);
 app.use('/api/ingest', ingestionRoutes);
+app.use('/api/web3-bridge', web3BridgeRoutes);
+app.use('/api/vanguard', vanguardRoutes);
 
 // Health Endpoint
 app.get('/api/health', async (req, res) => {

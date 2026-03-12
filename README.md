@@ -150,9 +150,10 @@
     <td width="20%"><a href="readme/interfaces.md"><img src="https://img.shields.io/badge/📱_Interfaces-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
   </tr>
   <tr>
-    <td width="33%"><a href="readme/pitch_deck.md"><img src="https://img.shields.io/badge/📈_VC_Pitch_Deck-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
-    <td width="34%"><a href="readme/tokenomics.md"><img src="https://img.shields.io/badge/🪙_Web3_Tokenomics-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
-    <td width="33%"><a href="readme/roadmap.md"><img src="https://img.shields.io/badge/🗺️_Full_Roadmap-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
+    <td width="20%"><a href="readme/pitch_deck.md"><img src="https://img.shields.io/badge/📈_VC_Pitch_Deck-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
+    <td width="20%"><a href="readme/tokenomics.md"><img src="https://img.shields.io/badge/🪙_Web3_Tokenomics-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
+    <td width="20%"><a href="docs/pathguard_transparency_master_51_to_100.md"><img src="https://img.shields.io/badge/🛡️_Core_Transparency-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
+    <td width="20%"><a href="docs/pathguard_frontier_dimensions_101_to_170.md"><img src="https://img.shields.io/badge/🚀_Frontier_Tech-1e293b?style=for-the-badge&logoColor=white" width="100%"></a></td>
   </tr>
 </table>
 </div>

@@ -42,7 +42,7 @@ export class AuthController {
     const { refreshToken } = req.body;
 
     try {
-      const userId = await AuthService.verifyRefreshToken(refreshToken);
+      const { userId } = await AuthService.verifyRefreshToken(refreshToken);
       const user = await prisma.user.findUnique({ where: { id: userId } });
 
       if (!user) throw new Error('User not found');

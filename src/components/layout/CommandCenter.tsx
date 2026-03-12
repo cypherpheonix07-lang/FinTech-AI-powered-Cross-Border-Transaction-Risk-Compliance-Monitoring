@@ -64,21 +64,32 @@ export default function CommandCenter({ isOpen, onClose }: { isOpen: boolean, on
             onKeyDown={handleKeyDown}
           >
             {/* Search Input Area */}
-            <div className="p-6 flex items-center gap-4 border-b border-slate-100 bg-slate-50/50">
-               <div className="w-10 h-10 bg-blue-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-blue-600/20">
-                  <Command className="w-5 h-5" />
+            <div className="p-6 flex flex-col gap-4 border-b border-slate-100 bg-slate-50/50">
+               <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 bg-blue-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-blue-600/20 animate-pulse">
+                     <Command className="w-5 h-5" />
+                  </div>
+                  <input 
+                    ref={inputRef}
+                    type="text" 
+                    placeholder="Ask PathGuard anything (e.g. 'Show me suspicious hashes')..." 
+                    value={query}
+                    onChange={(e) => { setQuery(e.target.value); setSelectedIndex(0); }}
+                    className="flex-1 bg-transparent border-none outline-none text-xl font-bold text-slate-900 placeholder:text-slate-400"
+                  />
+                  <button onClick={onClose} className="p-2 text-slate-400 hover:text-slate-600 rounded-xl transition-all">
+                     <X className="w-5 h-5" />
+                  </button>
                </div>
-               <input 
-                 ref={inputRef}
-                 type="text" 
-                 placeholder="Search PathGuard (⌘K)..." 
-                 value={query}
-                 onChange={(e) => { setQuery(e.target.value); setSelectedIndex(0); }}
-                 className="flex-1 bg-transparent border-none outline-none text-xl font-bold text-slate-900 placeholder:text-slate-400"
-               />
-               <button onClick={onClose} className="p-2 text-slate-400 hover:text-slate-600 rounded-xl transition-all">
-                  <X className="w-5 h-5" />
-               </button>
+               
+               {/* Feature 01.03: AI Intent Awareness */}
+               <div className="flex items-center gap-2 px-1">
+                 <div className="flex items-center gap-1.5 px-2 py-1 bg-blue-50 border border-blue-100 rounded-lg">
+                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-ping" />
+                    <span className="text-[9px] font-black text-blue-600 uppercase tracking-tighter">AI Intent Awareness Active</span>
+                 </div>
+                 <span className="text-[10px] font-bold text-slate-400">Suggesting: {query ? "Refining matches..." : "Predicting workflow..."}</span>
+               </div>
             </div>
 
             {/* Results */}

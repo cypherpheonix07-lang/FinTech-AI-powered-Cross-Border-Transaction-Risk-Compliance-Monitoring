@@ -1,1 +1,0 @@
-import{a}from"./index-C0Zqfgkc.js";const t=a.create({baseURL:"http://localhost:8000",headers:{"Content-Type":"application/json"}});t.interceptors.response.use(e=>e.data,e=>{var o,s;const r=((s=(o=e.response)==null?void 0:o.data)==null?void 0:s.detail)||e.message||"An unexpected error occurred";return console.error("API Error:",r),Promise.reject(new Error(r))});export{t as a};

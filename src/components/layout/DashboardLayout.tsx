@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { Sidebar, SidebarContent } from './Sidebar';
-import { Header } from './Header';
+import Header from './Header';
 import CommandCenter from './CommandCenter';
 import { cn } from '@/lib/utils';
 import { X } from 'lucide-react';

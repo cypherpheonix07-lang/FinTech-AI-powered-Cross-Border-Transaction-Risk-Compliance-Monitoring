@@ -77,7 +77,7 @@ describe('OrchestratorService', () => {
             where: { id: 'tx-123' },
             include: { account: true, riskResult: true },
         });
-        expect(admin_service_1.AdminService.freezeAccount).not.toHaveBeenCalled();
+        expect(admin_service_1.AdminService.freezeAccount).toHaveBeenCalledWith('acc-456');
         expect(fs.writeFileSync).toHaveBeenCalled();
     });
     it('should not freeze if accountId is missing', async () => {

@@ -9,13 +9,13 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBZsaS0Q_DxlcHRA5-oZ0o3sq76jmpT0bI",
-  authDomain: "transacttrace-nexus-e2429.firebaseapp.com",
-  projectId: "transacttrace-nexus-e2429",
-  storageBucket: "transacttrace-nexus-e2429.firebasestorage.app",
-  messagingSenderId: "368835209510",
-  appId: "1:368835209510:web:234dae70aacab0ff82f9e7",
-  measurementId: "G-HF2FV96V31"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase

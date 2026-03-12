@@ -45,7 +45,7 @@ export default function FirebaseDemo() {
         action: "User viewed their dashboard",
         timestamp: new Date().toISOString(),
       });
-      console.log("Written securely with ID: ", docRef.id);
+
       fetchLogs(); // Refresh list immediately
     } catch (error) {
       console.error("Error adding document: ", error);

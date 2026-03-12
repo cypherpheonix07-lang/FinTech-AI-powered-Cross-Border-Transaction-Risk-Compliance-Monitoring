@@ -41,7 +41,7 @@ class AuthController {
     static async refresh(req, res) {
         const { refreshToken } = req.body;
         try {
-            const userId = await auth_service_1.AuthService.verifyRefreshToken(refreshToken);
+            const { userId } = await auth_service_1.AuthService.verifyRefreshToken(refreshToken);
             const user = await database_1.prisma.user.findUnique({ where: { id: userId } });
             if (!user)
                 throw new Error('User not found');

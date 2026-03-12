@@ -66,30 +66,25 @@ export class TransactionService {
     const updatedStatus = decision.decision === RiskDecision.BLOCK ? 'BLOCKED' : 
                           decision.decision === RiskDecision.FLAG ? 'FLAGGED' : 'APPROVED';
 
+    // Simulation: Generate Post-Quantum Signature for the approved/flagged transaction
+    let pqcSignature = null;
+    if (updatedStatus !== 'BLOCKED') {
+      const { quantumService } = await import('../../services/quantumService');
+      pqcSignature = quantumService.simulateDilithiumSignature(JSON.stringify({
+        id: transaction.id,
+        amount: transaction.amount,
+        sender: transaction.identifier
+      }));
+    }
+
     const updated = await prisma.transaction.update({
       where: { id: transaction.id },
       data: { status: updatedStatus },
       include: { riskResult: true },
     });
 
-    // Trigger Autonomous Defense for CRITICAL risks
-    if (riskResult.riskLevel === 'CRITICAL' as any) {
-      await OrchestratorService.triggerDefense(transaction.id);
-    }
-
-    if (decision.decision !== RiskDecision.APPROVE) {
-      await prisma.escalation.create({
-        data: {
-          transactionId: transaction.id,
-          tenantId,
-          status: 'PENDING',
-          notes: decision.reason,
-        },
-      });
-    }
-
     // 7. Emit WebSocket events
-    io.emit('transaction-created', updated);
+    io.emit('transaction-created', { ...updated, pqcSignature });
     
     if (updated.status !== 'APPROVED') {
       io.emit('risk-alert', {
@@ -100,7 +95,7 @@ export class TransactionService {
       });
     }
 
-    return updated;
+    return { ...updated, pqcSignature };
   }
 
   static async list(tenantId: string, filters: Record<string, unknown> = {}) {

@@ -1,0 +1,730 @@
+
+> vite-react-typescript-starter@0.0.0 lint C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring
+> node node_modules/eslint/bin/eslint.js .
+
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\backend\src\modules\audit\audit.service.ts
+  10:35  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\backend\src\modules\compliance\compliance.service.ts
+   64:29  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  101:29  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\backend\src\modules\risk\train.controller.ts
+  47:30  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\backend\src\modules\transaction\transaction.service.ts
+  56:48  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  57:51  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  63:66  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  76:48  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\cypress\e2e\cases.cy.js
+   3:5  error  'cy' is not defined  no-undef
+   4:5  error  'cy' is not defined  no-undef
+   5:5  error  'cy' is not defined  no-undef
+   6:5  error  'cy' is not defined  no-undef
+  10:5  error  'cy' is not defined  no-undef
+  11:5  error  'cy' is not defined  no-undef
+  12:5  error  'cy' is not defined  no-undef
+  13:5  error  'cy' is not defined  no-undef
+  14:5  error  'cy' is not defined  no-undef
+  15:5  error  'cy' is not defined  no-undef
+  19:5  error  'cy' is not defined  no-undef
+  20:5  error  'cy' is not defined  no-undef
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\cypress\e2e\enterprise-flow.cy.js
+   2:9  error  'TEST_TENANT' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   6:5  error  'cy' is not defined                               no-undef
+   7:5  error  'cy' is not defined                               no-undef
+   8:5  error  'cy' is not defined                               no-undef
+  13:5  error  'cy' is not defined                               no-undef
+  14:5  error  'cy' is not defined                               no-undef
+  16:5  error  'cy' is not defined                               no-undef
+  19:5  error  'cy' is not defined                               no-undef
+  20:5  error  'cy' is not defined                               no-undef
+  21:5  error  'cy' is not defined                               no-undef
+  24:5  error  'cy' is not defined                               no-undef
+  25:5  error  'cy' is not defined                               no-undef
+  26:5  error  'cy' is not defined                               no-undef
+  27:5  error  'cy' is not defined                               no-undef
+  30:5  error  'cy' is not defined                               no-undef
+  31:5  error  'cy' is not defined                               no-undef
+  32:5  error  'cy' is not defined                               no-undef
+  33:5  error  'cy' is not defined                               no-undef
+  36:5  error  'cy' is not defined                               no-undef
+  37:5  error  'cy' is not defined                               no-undef
+  38:5  error  'cy' is not defined                               no-undef
+  41:5  error  'cy' is not defined                               no-undef
+  42:5  error  'cy' is not defined                               no-undef
+  43:5  error  'cy' is not defined                               no-undef
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\cypress\e2e\geo.cy.js
+   3:5  error  'cy' is not defined  no-undef
+   4:5  error  'cy' is not defined  no-undef
+   5:5  error  'cy' is not defined  no-undef
+   6:5  error  'cy' is not defined  no-undef
+  11:5  error  'cy' is not defined  no-undef
+  12:5  error  'cy' is not defined  no-undef
+  15:5  error  'cy' is not defined  no-undef
+  18:5  error  'cy' is not defined  no-undef
+  19:5  error  'cy' is not defined  no-undef
+  20:5  error  'cy' is not defined  no-undef
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\cypress\e2e\sar.cy.js
+   5:5  error  'cy' is not defined  no-undef
+   6:5  error  'cy' is not defined  no-undef
+   7:5  error  'cy' is not defined  no-undef
+  11:5  error  'cy' is not defined  no-undef
+  12:5  error  'cy' is not defined  no-undef
+  13:5  error  'cy' is not defined  no-undef
+  14:5  error  'cy' is not defined  no-undef
+  16:5  error  'cy' is not defined  no-undef
+  19:5  error  'cy' is not defined  no-undef
+  20:5  error  'cy' is not defined  no-undef
+  24:5  error  'cy' is not defined  no-undef
+  25:5  error  'cy' is not defined  no-undef
+  26:5  error  'cy' is not defined  no-undef
+  27:5  error  'cy' is not defined  no-undef
+  29:5  error  'cy' is not defined  no-undef
+  30:5  error  'cy' is not defined  no-undef
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\cypress\e2e\trace.cy.js
+   3:5   error  'cy' is not defined       no-undef
+   4:5   error  'cy' is not defined       no-undef
+   5:5   error  'cy' is not defined       no-undef
+   6:5   error  'cy' is not defined       no-undef
+  11:5   error  'cy' is not defined       no-undef
+  12:5   error  'cy' is not defined       no-undef
+  13:17  error  'Cypress' is not defined  no-undef
+  18:5   error  'cy' is not defined       no-undef
+  19:5   error  'cy' is not defined       no-undef
+  21:5   error  'cy' is not defined       no-undef
+  22:5   error  'cy' is not defined       no-undef
+  25:5   error  'cy' is not defined       no-undef
+  26:5   error  'cy' is not defined       no-undef
+  27:5   error  'cy' is not defined       no-undef
+  30:5   error  'cy' is not defined       no-undef
+  31:5   error  'cy' is not defined       no-undef
+  32:5   error  'cy' is not defined       no-undef
+  34:5   error  'cy' is not defined       no-undef
+  35:5   error  'cy' is not defined       no-undef
+  38:5   error  'cy' is not defined       no-undef
+  39:5   error  'cy' is not defined       no-undef
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\gemini-supabase-connector\app.js
+  29:12  error  'err' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\scripts\deep_audit_simulation.ts
+  1:10  error  'TransactionService' is defined but never used  @typescript-eslint/no-unused-vars
+  3:10  error  'prisma' is defined but never used              @typescript-eslint/no-unused-vars
+  5:13  error  'fs' is defined but never used                  @typescript-eslint/no-unused-vars
+  6:13  error  'path' is defined but never used                @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\scripts\master_simulation.ts
+   3:10  error  'DecisionEngine' is defined but never used       @typescript-eslint/no-unused-vars
+   4:10  error  'OrchestratorService' is defined but never used  @typescript-eslint/no-unused-vars
+   5:10  error  'prisma' is defined but never used               @typescript-eslint/no-unused-vars
+   6:10  error  'logger' is defined but never used               @typescript-eslint/no-unused-vars
+  33:11  error  'rawSwift' is assigned a value but never used    @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\scripts\register_and_test.js
+   5:7   error  'fs' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  25:12  error  'e' is defined but never used            @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\scripts\supabase_automation.ts
+  1:10  error  'prisma' is defined but never used  @typescript-eslint/no-unused-vars
+  2:10  error  'logger' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\App.tsx
+  2:38  error  'Navigate' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\components\PathSankeyChart.tsx
+  21:45  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\components\auth\FirebaseDemo.tsx
+  43:13  error  'docRef' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\components\dashboard\ScheduledPayments.tsx
+  2:20  error  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+  2:39  error  'Trash2' is defined but never used      @typescript-eslint/no-unused-vars
+  3:10  error  'cn' is defined but never used          @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\components\layout\DashboardLayout.tsx
+  25:9  error  'handleLogout' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\components\layout\Header.tsx
+  5:3  error  'User' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\components\layout\NotificationCenter.tsx
+  3:3  error  'Bell' is defined but never used   @typescript-eslint/no-unused-vars
+  9:3  error  'Clock' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\components\transactions\TransactionModal.tsx
+   7:3  error  'Clock' is defined but never used         @typescript-eslint/no-unused-vars
+  11:3  error  'ExternalLink' is defined but never used  @typescript-eslint/no-unused-vars
+  12:3  error  'MapPin' is defined but never used        @typescript-eslint/no-unused-vars
+  13:3  error  'Building2' is defined but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\components\transfers\TransferWizard.tsx
+   5:3   error    'ArrowRight' is defined but never used            @typescript-eslint/no-unused-vars
+   9:3   error    'Building2' is defined but never used             @typescript-eslint/no-unused-vars
+  11:3   error    'Wallet' is defined but never used                @typescript-eslint/no-unused-vars
+  12:3   error    'Calendar' is defined but never used              @typescript-eslint/no-unused-vars
+  13:3   error    'AlertCircle' is defined but never used           @typescript-eslint/no-unused-vars
+  15:10  error    'cn' is defined but never used                    @typescript-eslint/no-unused-vars
+  32:62  warning  Unexpected any. Specify a different type          @typescript-eslint/no-explicit-any
+  34:10  error    'currency' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  34:20  error    'setCurrency' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\data\commands.ts
+  24:3  error    'LayoutDashboard' is defined but never used  @typescript-eslint/no-unused-vars
+  37:9  warning  Unexpected any. Specify a different type     @typescript-eslint/no-explicit-any
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\AICoachPage.tsx
+   3:3  error  'Sparkles' is defined but never used      @typescript-eslint/no-unused-vars
+   8:3  error  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+  11:3  error  'Clock' is defined but never used         @typescript-eslint/no-unused-vars
+  24:3  error  'BarChart' is defined but never used      @typescript-eslint/no-unused-vars
+  25:3  error  'Bar' is defined but never used           @typescript-eslint/no-unused-vars
+  26:3  error  'Cell' is defined but never used          @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\AdvancedAnalyticsPage.tsx
+   3:3   error  'BarChart3' is defined but never used      @typescript-eslint/no-unused-vars
+   4:3   error  'TrendingUp' is defined but never used     @typescript-eslint/no-unused-vars
+   6:3   error  'Target' is defined but never used         @typescript-eslint/no-unused-vars
+   8:3   error  'ChevronRight' is defined but never used   @typescript-eslint/no-unused-vars
+  10:3   error  'Activity' is defined but never used       @typescript-eslint/no-unused-vars
+  12:16  error  'LineChartIcon' is defined but never used  @typescript-eslint/no-unused-vars
+  13:19  error  'ScatterIcon' is defined but never used    @typescript-eslint/no-unused-vars
+  19:3   error  'LineChart' is defined but never used      @typescript-eslint/no-unused-vars
+  23:3   error  'CartesianGrid' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\AlgorithmicStablecoinPage.tsx
+  2:10  error  'Settings' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\AnalyticsPage.tsx
+   4:3   error  'TrendingDown' is defined but never used   @typescript-eslint/no-unused-vars
+   6:15  error  'PieChartIcon' is defined but never used   @typescript-eslint/no-unused-vars
+  16:3   error  'CartesianGrid' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\AutomationRulesPage.tsx
+   8:3  error  'MoreVertical' is defined but never used  @typescript-eslint/no-unused-vars
+  12:3  error  'Wallet' is defined but never used        @typescript-eslint/no-unused-vars
+  14:3  error  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\BCIFinancePage.tsx
+   1:17  error  'useState' is defined but never used       @typescript-eslint/no-unused-vars
+   7:3   error  'ArrowUpRight' is defined but never used   @typescript-eslint/no-unused-vars
+  11:3   error  'ChevronRight' is defined but never used   @typescript-eslint/no-unused-vars
+  12:3   error  'RefreshCw' is defined but never used      @typescript-eslint/no-unused-vars
+  13:3   error  'Globe2' is defined but never used         @typescript-eslint/no-unused-vars
+  17:3   error  'Link' is defined but never used           @typescript-eslint/no-unused-vars
+  18:3   error  'Maximize2' is defined but never used      @typescript-eslint/no-unused-vars
+  19:3   error  'Scan' is defined but never used           @typescript-eslint/no-unused-vars
+  20:3   error  'Compass' is defined but never used        @typescript-eslint/no-unused-vars
+  22:3   error  'TrendingUp' is defined but never used     @typescript-eslint/no-unused-vars
+  32:3   error  'YAxis' is defined but never used          @typescript-eslint/no-unused-vars
+  33:3   error  'CartesianGrid' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\BiometricCryptosystemsPage.tsx
+   2:42  error  'ArrowRight' is defined but never used             @typescript-eslint/no-unused-vars
+  12:10  error  'activeTab' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  12:21  error  'setActiveTab' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\BiometricSecurityPage.tsx
+   1:17  error  'useState' is defined but never used      @typescript-eslint/no-unused-vars
+   6:3   error  'Eye' is defined but never used           @typescript-eslint/no-unused-vars
+   8:3   error  'History' is defined but never used       @typescript-eslint/no-unused-vars
+  11:3   error  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+  15:3   error  'Settings2' is defined but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\BusinessAnalyticsPage.tsx
+    1:17  error    'useState' is defined but never used           @typescript-eslint/no-unused-vars
+    5:3   error    'PieChart' is defined but never used           @typescript-eslint/no-unused-vars
+    6:3   error    'TrendingUp' is defined but never used         @typescript-eslint/no-unused-vars
+    7:3   error    'Zap' is defined but never used                @typescript-eslint/no-unused-vars
+    8:3   error    'ShieldCheck' is defined but never used        @typescript-eslint/no-unused-vars
+    9:3   error    'ArrowUpRight' is defined but never used       @typescript-eslint/no-unused-vars
+   10:3   error    'History' is defined but never used            @typescript-eslint/no-unused-vars
+   11:3   error    'Lock' is defined but never used               @typescript-eslint/no-unused-vars
+   13:3   error    'ChevronRight' is defined but never used       @typescript-eslint/no-unused-vars
+   15:3   error    'Globe2' is defined but never used             @typescript-eslint/no-unused-vars
+   16:3   error    'Activity' is defined but never used           @typescript-eslint/no-unused-vars
+   19:3   error    'Link' is defined but never used               @typescript-eslint/no-unused-vars
+   20:3   error    'Maximize2' is defined but never used          @typescript-eslint/no-unused-vars
+   21:3   error    'Scan' is defined but never used               @typescript-eslint/no-unused-vars
+   22:3   error    'Compass' is defined but never used            @typescript-eslint/no-unused-vars
+   33:3   error    'YAxis' is defined but never used              @typescript-eslint/no-unused-vars
+   34:3   error    'CartesianGrid' is defined but never used      @typescript-eslint/no-unused-vars
+  231:7   error    'Treasury' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  231:26  warning  Unexpected any. Specify a different type       @typescript-eslint/no-explicit-any
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\CBDCIntegrationPage.tsx
+  2:52  error  'History' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\CardsPage.tsx
+   3:3   error  'CreditCard' is defined but never used    @typescript-eslint/no-unused-vars
+   6:3   error  'ShieldCheck' is defined but never used   @typescript-eslint/no-unused-vars
+  10:3   error  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+  12:15  error  'PieChartIcon' is defined but never used  @typescript-eslint/no-unused-vars
+  16:10  error  'Button' is defined but never used        @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\CollaborativeFinancePage.tsx
+   1:17  error  'useState' is defined but never used       @typescript-eslint/no-unused-vars
+   5:3   error  'Lock' is defined but never used           @typescript-eslint/no-unused-vars
+   6:3   error  'Settings2' is defined but never used      @typescript-eslint/no-unused-vars
+  10:3   error  'Calendar' is defined but never used       @typescript-eslint/no-unused-vars
+  11:3   error  'MessageSquare' is defined but never used  @typescript-eslint/no-unused-vars
+  13:3   error  'Suitcase' is defined but never used       @typescript-eslint/no-unused-vars
+  15:3   error  'ArrowUpRight' is defined but never used   @typescript-eslint/no-unused-vars
+  16:3   error  'TrendingUp' is defined but never used     @typescript-eslint/no-unused-vars
+  17:3   error  'Target' is defined but never used         @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\ComplianceSuitePage.tsx
+   6:3   error  'History' is defined but never used        @typescript-eslint/no-unused-vars
+   7:3   error  'Lock' is defined but never used           @typescript-eslint/no-unused-vars
+   9:3   error  'ChevronRight' is defined but never used   @typescript-eslint/no-unused-vars
+  10:3   error  'AlertCircle' is defined but never used    @typescript-eslint/no-unused-vars
+  15:15  error  'PieChartIcon' is defined but never used   @typescript-eslint/no-unused-vars
+  16:3   error  'Search' is defined but never used         @typescript-eslint/no-unused-vars
+  18:3   error  'Eye' is defined but never used            @typescript-eslint/no-unused-vars
+  19:3   error  'Zap' is defined but never used            @typescript-eslint/no-unused-vars
+  30:3   error  'CartesianGrid' is defined but never used  @typescript-eslint/no-unused-vars
+  33:3   error  'LineChart' is defined but never used      @typescript-eslint/no-unused-vars
+  34:3   error  'Line' is defined but never used           @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\CreditLoanPage.tsx
+   3:3   error  'CreditCard' is defined but never used      @typescript-eslint/no-unused-vars
+   4:3   error  'Wallet' is defined but never used          @typescript-eslint/no-unused-vars
+   5:3   error  'ArrowUpRight' is defined but never used    @typescript-eslint/no-unused-vars
+   6:3   error  'ArrowDownRight' is defined but never used  @typescript-eslint/no-unused-vars
+   7:3   error  'Activity' is defined but never used        @typescript-eslint/no-unused-vars
+  12:3   error  'Layers' is defined but never used          @typescript-eslint/no-unused-vars
+  13:3   error  'Briefcase' is defined but never used       @typescript-eslint/no-unused-vars
+  14:3   error  'Globe2' is defined but never used          @typescript-eslint/no-unused-vars
+  17:3   error  'DollarSign' is defined but never used      @typescript-eslint/no-unused-vars
+  18:3   error  'Maximize2' is defined but never used       @typescript-eslint/no-unused-vars
+  19:3   error  'Lock' is defined but never used            @typescript-eslint/no-unused-vars
+  21:3   error  'TrendingDown' is defined but never used    @typescript-eslint/no-unused-vars
+  22:3   error  'TrendingUp' is defined but never used      @typescript-eslint/no-unused-vars
+  24:3   error  'AlertCircle' is defined but never used     @typescript-eslint/no-unused-vars
+  25:3   error  'Clock' is defined but never used           @typescript-eslint/no-unused-vars
+  27:15  error  'PieChartIcon' is defined but never used    @typescript-eslint/no-unused-vars
+  28:3   error  'ShieldCheck' is defined but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\CrossChainInteroperabilityPage.tsx
+  2:64  error  'LayoutDashboard' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\CryptoAssetsPage.tsx
+   3:3  error  'Bitcoin' is defined but never used        @typescript-eslint/no-unused-vars
+   4:3  error  'Wallet' is defined but never used         @typescript-eslint/no-unused-vars
+   6:3  error  'TrendingDown' is defined but never used   @typescript-eslint/no-unused-vars
+   8:3  error  'ArrowDownLeft' is defined but never used  @typescript-eslint/no-unused-vars
+  11:3  error  'Activity' is defined but never used       @typescript-eslint/no-unused-vars
+  13:3  error  'History' is defined but never used        @typescript-eslint/no-unused-vars
+  15:3  error  'RefreshCw' is defined but never used      @typescript-eslint/no-unused-vars
+  18:3  error  'Lock' is defined but never used           @typescript-eslint/no-unused-vars
+  29:3  error  'CartesianGrid' is defined but never used  @typescript-eslint/no-unused-vars
+  32:3  error  'LineChart' is defined but never used      @typescript-eslint/no-unused-vars
+  33:3  error  'Line' is defined but never used           @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\DIDResolutionPage.tsx
+  13:10  error  'activeTab' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  13:21  error  'setActiveTab' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\DeveloperConsolePage.tsx
+    3:3   error    'Terminal' is defined but never used      @typescript-eslint/no-unused-vars
+    4:3   error    'Key' is defined but never used           @typescript-eslint/no-unused-vars
+    7:3   error    'ShieldCheck' is defined but never used   @typescript-eslint/no-unused-vars
+    8:3   error    'ArrowUpRight' is defined but never used  @typescript-eslint/no-unused-vars
+    9:3   error    'History' is defined but never used       @typescript-eslint/no-unused-vars
+   12:3   error    'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+   13:3   error    'RefreshCw' is defined but never used     @typescript-eslint/no-unused-vars
+   14:3   error    'Globe2' is defined but never used        @typescript-eslint/no-unused-vars
+   15:3   error    'Cpu' is defined but never used           @typescript-eslint/no-unused-vars
+   17:3   error    'Server' is defined but never used        @typescript-eslint/no-unused-vars
+   18:3   error    'Link' is defined but never used          @typescript-eslint/no-unused-vars
+   19:3   error    'Maximize2' is defined but never used     @typescript-eslint/no-unused-vars
+   20:3   error    'Scan' is defined but never used          @typescript-eslint/no-unused-vars
+   21:3   error    'Compass' is defined but never used       @typescript-eslint/no-unused-vars
+  211:26  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  212:22  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\ESGInvestingPage.tsx
+   1:17  error  'useState' is defined but never used       @typescript-eslint/no-unused-vars
+   3:3   error  'TreePine' is defined but never used       @typescript-eslint/no-unused-vars
+   5:3   error  'Droplets' is defined but never used       @typescript-eslint/no-unused-vars
+   7:3   error  'ShieldCheck' is defined but never used    @typescript-eslint/no-unused-vars
+   8:3   error  'TrendingUp' is defined but never used     @typescript-eslint/no-unused-vars
+  10:3   error  'ArrowDownLeft' is defined but never used  @typescript-eslint/no-unused-vars
+  11:3   error  'History' is defined but never used        @typescript-eslint/no-unused-vars
+  16:3   error  'Sparkles' is defined but never used       @typescript-eslint/no-unused-vars
+  17:3   error  'RefreshCw' is defined but never used      @typescript-eslint/no-unused-vars
+  18:3   error  'Heart' is defined but never used          @typescript-eslint/no-unused-vars
+  19:3   error  'Activity' is defined but never used       @typescript-eslint/no-unused-vars
+  20:3   error  'Award' is defined but never used          @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\EducationHubPage.tsx
+   1:17  error  'useState' is defined but never used      @typescript-eslint/no-unused-vars
+   7:3   error  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+  10:3   error  'TrendingUp' is defined but never used    @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\EmergencyCrisisPage.tsx
+   3:3   error  'AlertTriangle' is defined but never used          @typescript-eslint/no-unused-vars
+   4:3   error  'ShieldAlert' is defined but never used            @typescript-eslint/no-unused-vars
+   6:3   error  'Unlock' is defined but never used                 @typescript-eslint/no-unused-vars
+   7:3   error  'Activity' is defined but never used               @typescript-eslint/no-unused-vars
+   8:3   error  'History' is defined but never used                @typescript-eslint/no-unused-vars
+   9:3   error  'RefreshCw' is defined but never used              @typescript-eslint/no-unused-vars
+  10:3   error  'ArrowRight' is defined but never used             @typescript-eslint/no-unused-vars
+  13:3   error  'Zap' is defined but never used                    @typescript-eslint/no-unused-vars
+  19:3   error  'Clock' is defined but never used                  @typescript-eslint/no-unused-vars
+  29:10  error  'countdown' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  29:21  error  'setCountdown' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\GamificationPage.tsx
+    4:3   error    'Target' is defined but never used        @typescript-eslint/no-unused-vars
+   13:3   error    'Sparkles' is defined but never used      @typescript-eslint/no-unused-vars
+   26:9   warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   97:57  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  232:16  error    'History' is defined but never used       @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\GovernancePolicyPage.tsx
+   3:3   error  'ShieldCheck' is defined but never used   @typescript-eslint/no-unused-vars
+   5:3   error  'Activity' is defined but never used      @typescript-eslint/no-unused-vars
+   7:3   error  'Lock' is defined but never used          @typescript-eslint/no-unused-vars
+   9:3   error  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+  10:3   error  'AlertCircle' is defined but never used   @typescript-eslint/no-unused-vars
+  11:3   error  'Gavel' is defined but never used         @typescript-eslint/no-unused-vars
+  12:3   error  'Zap' is defined but never used           @typescript-eslint/no-unused-vars
+  16:3   error  'Filter' is defined but never used        @typescript-eslint/no-unused-vars
+  18:3   error  'UserCheck' is defined but never used     @typescript-eslint/no-unused-vars
+  23:10  error  'cn' is defined but never used            @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\HardwareSecurityPage.tsx
+   3:3   error  'Key' is defined but never used                  @typescript-eslint/no-unused-vars
+   7:3   error  'Activity' is defined but never used             @typescript-eslint/no-unused-vars
+   8:3   error  'History' is defined but never used              @typescript-eslint/no-unused-vars
+  12:3   error  'Zap' is defined but never used                  @typescript-eslint/no-unused-vars
+  13:3   error  'AlertCircle' is defined but never used          @typescript-eslint/no-unused-vars
+  15:3   error  'Link' is defined but never used                 @typescript-eslint/no-unused-vars
+  20:3   error  'ExternalLink' is defined but never used         @typescript-eslint/no-unused-vars
+  21:3   error  'Shield' is defined but never used               @typescript-eslint/no-unused-vars
+  22:3   error  'Search' is defined but never used               @typescript-eslint/no-unused-vars
+  38:19  error  'setDevices' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\IPDigitalRightsPage.tsx
+   1:17  error  'useState' is defined but never used       @typescript-eslint/no-unused-vars
+   6:3   error  'Zap' is defined but never used            @typescript-eslint/no-unused-vars
+   7:3   error  'ShieldCheck' is defined but never used    @typescript-eslint/no-unused-vars
+   8:3   error  'ArrowUpRight' is defined but never used   @typescript-eslint/no-unused-vars
+   9:3   error  'History' is defined but never used        @typescript-eslint/no-unused-vars
+  10:3   error  'Lock' is defined but never used           @typescript-eslint/no-unused-vars
+  12:3   error  'ChevronRight' is defined but never used   @typescript-eslint/no-unused-vars
+  13:3   error  'RefreshCw' is defined but never used      @typescript-eslint/no-unused-vars
+  14:3   error  'Globe2' is defined but never used         @typescript-eslint/no-unused-vars
+  17:3   error  'Hash' is defined but never used           @typescript-eslint/no-unused-vars
+  18:3   error  'Link' is defined but never used           @typescript-eslint/no-unused-vars
+  19:3   error  'Maximize2' is defined but never used      @typescript-eslint/no-unused-vars
+  20:3   error  'Scan' is defined but never used           @typescript-eslint/no-unused-vars
+  21:3   error  'Compass' is defined but never used        @typescript-eslint/no-unused-vars
+  23:3   error  'TrendingUp' is defined but never used     @typescript-eslint/no-unused-vars
+  27:10  error  'cn' is defined but never used             @typescript-eslint/no-unused-vars
+  32:3   error  'XAxis' is defined but never used          @typescript-eslint/no-unused-vars
+  33:3   error  'YAxis' is defined but never used          @typescript-eslint/no-unused-vars
+  34:3   error  'CartesianGrid' is defined but never used  @typescript-eslint/no-unused-vars
+  35:3   error  'Tooltip' is defined but never used        @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\IdentityProtectionPage.tsx
+   1:17  error  'useState' is defined but never used    @typescript-eslint/no-unused-vars
+   9:3   error  'History' is defined but never used     @typescript-eslint/no-unused-vars
+  10:3   error  'Plus' is defined but never used        @typescript-eslint/no-unused-vars
+  12:3   error  'RefreshCw' is defined but never used   @typescript-eslint/no-unused-vars
+  16:3   error  'Link' is defined but never used        @typescript-eslint/no-unused-vars
+  17:3   error  'Maximize2' is defined but never used   @typescript-eslint/no-unused-vars
+  19:3   error  'Compass' is defined but never used     @typescript-eslint/no-unused-vars
+  20:3   error  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\IdentityReputationPage.tsx
+  11:3   error  'FileText' is defined but never used   @typescript-eslint/no-unused-vars
+  13:10  error  'LineChart' is defined but never used  @typescript-eslint/no-unused-vars
+  13:21  error  'Line' is defined but never used       @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\InsuranceHubPage.tsx
+   1:17  error    'useState' is defined but never used      @typescript-eslint/no-unused-vars
+   3:3   error    'ShieldCheck' is defined but never used   @typescript-eslint/no-unused-vars
+  10:3   error    'Lock' is defined but never used          @typescript-eslint/no-unused-vars
+  13:3   error    'Zap' is defined but never used           @typescript-eslint/no-unused-vars
+  14:3   error    'RefreshCw' is defined but never used     @typescript-eslint/no-unused-vars
+  16:3   error    'FileText' is defined but never used      @typescript-eslint/no-unused-vars
+  17:3   error    'DollarSign' is defined but never used    @typescript-eslint/no-unused-vars
+  19:3   error    'Plane' is defined but never used         @typescript-eslint/no-unused-vars
+  21:3   error    'CheckCircle2' is defined but never used  @typescript-eslint/no-unused-vars
+  36:9   warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\InsuranceLinkedSecuritiesPage.tsx
+  1:17  error  'useState' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\InvestmentWealthPage.tsx
+   4:3   error  'BarChart3' is defined but never used       @typescript-eslint/no-unused-vars
+   5:15  error  'PieChartIcon' is defined but never used    @typescript-eslint/no-unused-vars
+   7:3   error  'ArrowUpRight' is defined but never used    @typescript-eslint/no-unused-vars
+   8:3   error  'ArrowDownRight' is defined but never used  @typescript-eslint/no-unused-vars
+   9:3   error  'Activity' is defined but never used        @typescript-eslint/no-unused-vars
+  10:3   error  'History' is defined but never used         @typescript-eslint/no-unused-vars
+  17:3   error  'Search' is defined but never used          @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\Layer2ScalingPage.tsx
+  23:10  error  'activeTab' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  23:21  error  'setActiveTab' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\LegacyPlanningPage.tsx
+   1:17  error  'useState' is defined but never used      @typescript-eslint/no-unused-vars
+   5:3   error  'ShieldCheck' is defined but never used   @typescript-eslint/no-unused-vars
+   6:3   error  'Zap' is defined but never used           @typescript-eslint/no-unused-vars
+   7:3   error  'ArrowUpRight' is defined but never used  @typescript-eslint/no-unused-vars
+   8:3   error  'History' is defined but never used       @typescript-eslint/no-unused-vars
+   9:3   error  'Lock' is defined but never used          @typescript-eslint/no-unused-vars
+  11:3   error  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+  12:3   error  'RefreshCw' is defined but never used     @typescript-eslint/no-unused-vars
+  13:3   error  'Globe2' is defined but never used        @typescript-eslint/no-unused-vars
+  16:3   error  'Link' is defined but never used          @typescript-eslint/no-unused-vars
+  17:3   error  'Maximize2' is defined but never used     @typescript-eslint/no-unused-vars
+  18:3   error  'Scan' is defined but never used          @typescript-eslint/no-unused-vars
+  19:3   error  'Compass' is defined but never used       @typescript-eslint/no-unused-vars
+  22:3   error  'Fingerprint' is defined but never used   @typescript-eslint/no-unused-vars
+  25:10  error  'cn' is defined but never used            @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\LightningNetworkPage.tsx
+   2:44  error  'ShieldCheck' is defined but never used            @typescript-eslint/no-unused-vars
+   2:80  error  'Wallet' is defined but never used                 @typescript-eslint/no-unused-vars
+  22:10  error  'activeTab' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  22:21  error  'setActiveTab' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\MPCWalletsPage.tsx
+   2:46  error  'ArrowRight' is defined but never used             @typescript-eslint/no-unused-vars
+  17:10  error  'activeTab' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  17:21  error  'setActiveTab' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\MerchantHubPage.tsx
+   1:17  error  'useState' is defined but never used      @typescript-eslint/no-unused-vars
+   4:3   error  'CreditCard' is defined but never used    @typescript-eslint/no-unused-vars
+   6:3   error  'Zap' is defined but never used           @typescript-eslint/no-unused-vars
+   7:3   error  'ShieldCheck' is defined but never used   @typescript-eslint/no-unused-vars
+   8:3   error  'ArrowUpRight' is defined but never used  @typescript-eslint/no-unused-vars
+   9:3   error  'History' is defined but never used       @typescript-eslint/no-unused-vars
+  10:3   error  'Lock' is defined but never used          @typescript-eslint/no-unused-vars
+  12:3   error  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+  13:3   error  'RefreshCw' is defined but never used     @typescript-eslint/no-unused-vars
+  14:3   error  'Globe2' is defined but never used        @typescript-eslint/no-unused-vars
+  16:3   error  'PieChart' is defined but never used      @typescript-eslint/no-unused-vars
+  17:3   error  'Users' is defined but never used         @typescript-eslint/no-unused-vars
+  19:3   error  'Maximize2' is defined but never used     @typescript-eslint/no-unused-vars
+  20:3   error  'Scan' is defined but never used          @typescript-eslint/no-unused-vars
+  21:3   error  'Compass' is defined but never used       @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\MetaverseBankingPage.tsx
+   3:3  error  'Box' is defined but never used           @typescript-eslint/no-unused-vars
+   5:3  error  'Zap' is defined but never used           @typescript-eslint/no-unused-vars
+   6:3  error  'ShieldCheck' is defined but never used   @typescript-eslint/no-unused-vars
+   7:3  error  'ArrowUpRight' is defined but never used  @typescript-eslint/no-unused-vars
+   8:3  error  'History' is defined but never used       @typescript-eslint/no-unused-vars
+   9:3  error  'Lock' is defined but never used          @typescript-eslint/no-unused-vars
+  11:3  error  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+  12:3  error  'RefreshCw' is defined but never used     @typescript-eslint/no-unused-vars
+  15:3  error  'Gamepad2' is defined but never used      @typescript-eslint/no-unused-vars
+  18:3  error  'Maximize2' is defined but never used     @typescript-eslint/no-unused-vars
+  20:3  error  'Compass' is defined but never used       @typescript-eslint/no-unused-vars
+  21:3  error  'Layout' is defined but never used        @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\NaturalResourcesPage.tsx
+   1:17  error  'useState' is defined but never used       @typescript-eslint/no-unused-vars
+   5:3   error  'Sun' is defined but never used            @typescript-eslint/no-unused-vars
+   6:3   error  'Zap' is defined but never used            @typescript-eslint/no-unused-vars
+   7:3   error  'ShieldCheck' is defined but never used    @typescript-eslint/no-unused-vars
+   8:3   error  'ArrowUpRight' is defined but never used   @typescript-eslint/no-unused-vars
+   9:3   error  'History' is defined but never used        @typescript-eslint/no-unused-vars
+  10:3   error  'Lock' is defined but never used           @typescript-eslint/no-unused-vars
+  12:3   error  'ChevronRight' is defined but never used   @typescript-eslint/no-unused-vars
+  14:3   error  'Globe2' is defined but never used         @typescript-eslint/no-unused-vars
+  18:3   error  'Link' is defined but never used           @typescript-eslint/no-unused-vars
+  19:3   error  'Maximize2' is defined but never used      @typescript-eslint/no-unused-vars
+  20:3   error  'Scan' is defined but never used           @typescript-eslint/no-unused-vars
+  21:3   error  'Compass' is defined but never used        @typescript-eslint/no-unused-vars
+  23:3   error  'TrendingUp' is defined but never used     @typescript-eslint/no-unused-vars
+  27:10  error  'cn' is defined but never used             @typescript-eslint/no-unused-vars
+  32:3   error  'XAxis' is defined but never used          @typescript-eslint/no-unused-vars
+  33:3   error  'YAxis' is defined but never used          @typescript-eslint/no-unused-vars
+  34:3   error  'CartesianGrid' is defined but never used  @typescript-eslint/no-unused-vars
+  35:3   error  'Tooltip' is defined but never used        @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\OpenBankingPage.tsx
+   4:3   error  'Link' is defined but never used               @typescript-eslint/no-unused-vars
+   7:3   error  'History' is defined but never used            @typescript-eslint/no-unused-vars
+   8:3   error  'Lock' is defined but never used               @typescript-eslint/no-unused-vars
+  10:3   error  'ChevronRight' is defined but never used       @typescript-eslint/no-unused-vars
+  19:3   error  'Shield' is defined but never used             @typescript-eslint/no-unused-vars
+  20:3   error  'Search' is defined but never used             @typescript-eslint/no-unused-vars
+  21:3   error  'CheckCircle2' is defined but never used       @typescript-eslint/no-unused-vars
+  22:3   error  'AlertCircle' is defined but never used        @typescript-eslint/no-unused-vars
+  38:17  error  'setBanks' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\PersonalizationHubPage.tsx
+   12:3   error    'Zap' is defined but never used           @typescript-eslint/no-unused-vars
+   15:3   error    'Plus' is defined but never used          @typescript-eslint/no-unused-vars
+   16:3   error    'ArrowRight' is defined but never used    @typescript-eslint/no-unused-vars
+   17:3   error    'ShieldCheck' is defined but never used   @typescript-eslint/no-unused-vars
+   18:3   error    'Eye' is defined but never used           @typescript-eslint/no-unused-vars
+   68:57  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  100:58  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\PreciousMetalsPage.tsx
+   6:3   error    'TrendingDown' is defined but never used   @typescript-eslint/no-unused-vars
+   7:3   error    'ArrowUpRight' is defined but never used   @typescript-eslint/no-unused-vars
+   8:3   error    'ArrowDownLeft' is defined but never used  @typescript-eslint/no-unused-vars
+  10:3   error    'Lock' is defined but never used           @typescript-eslint/no-unused-vars
+  13:3   error    'ChevronRight' is defined but never used   @typescript-eslint/no-unused-vars
+  14:3   error    'Sparkles' is defined but never used       @typescript-eslint/no-unused-vars
+  15:3   error    'RefreshCw' is defined but never used      @typescript-eslint/no-unused-vars
+  17:3   error    'MapPin' is defined but never used         @typescript-eslint/no-unused-vars
+  27:3   error    'CartesianGrid' is defined but never used  @typescript-eslint/no-unused-vars
+  75:63  warning  Unexpected any. Specify a different type   @typescript-eslint/no-explicit-any
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\PredictionMarketsPage.tsx
+  1:17  error  'useState' is defined but never used      @typescript-eslint/no-unused-vars
+  2:30  error  'TrendingDown' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\PrivacyCoinsPage.tsx
+   2:85  error  'Database' is defined but never used               @typescript-eslint/no-unused-vars
+  23:10  error  'activeTab' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  23:21  error  'setActiveTab' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\PrivacyShieldPage.tsx
+   5:3  error  'Lock' is defined but never used         @typescript-eslint/no-unused-vars
+   8:3  error  'Activity' is defined but never used     @typescript-eslint/no-unused-vars
+   9:3  error  'History' is defined but never used      @typescript-eslint/no-unused-vars
+  11:3  error  'Zap' is defined but never used          @typescript-eslint/no-unused-vars
+  13:3  error  'Fingerprint' is defined but never used  @typescript-eslint/no-unused-vars
+  14:3  error  'Users' is defined but never used        @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\QKDNetworksPage.tsx
+  12:10  error  'activeTab' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  12:21  error  'setActiveTab' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\QuantumCorePage.tsx
+   3:3  error  'ShieldCheck' is defined but never used   @typescript-eslint/no-unused-vars
+   4:3  error  'Lock' is defined but never used          @typescript-eslint/no-unused-vars
+   5:3  error  'Cpu' is defined but never used           @typescript-eslint/no-unused-vars
+   6:3  error  'Zap' is defined but never used           @typescript-eslint/no-unused-vars
+   7:3  error  'Activity' is defined but never used      @typescript-eslint/no-unused-vars
+   8:3  error  'History' is defined but never used       @typescript-eslint/no-unused-vars
+  11:3  error  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+  14:3  error  'Eye' is defined but never used           @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\RealEstatePage.tsx
+   1:17  error  'useState' is defined but never used       @typescript-eslint/no-unused-vars
+   3:3   error  'Building2' is defined but never used      @typescript-eslint/no-unused-vars
+   6:3   error  'TrendingDown' is defined but never used   @typescript-eslint/no-unused-vars
+   8:3   error  'ArrowDownLeft' is defined but never used  @typescript-eslint/no-unused-vars
+  12:3   error  'ChevronRight' is defined but never used   @typescript-eslint/no-unused-vars
+  14:3   error  'Search' is defined but never used         @typescript-eslint/no-unused-vars
+  15:3   error  'Home' is defined but never used           @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\RecipientsPage.tsx
+   3:3  error  'Users' is defined but never used  @typescript-eslint/no-unused-vars
+  14:3  error  'Lock' is defined but never used   @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\RiskParityPage.tsx
+  2:54  error  'ShieldCheck' is defined but never used  @typescript-eslint/no-unused-vars
+  3:61  error  'Legend' is defined but never used       @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\SSIManagementPage.tsx
+  12:10  error  'activeTab' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  12:21  error  'setActiveTab' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\SecuritySettingsPage.tsx
+  4:3  error  'Lock' is defined but never used     @typescript-eslint/no-unused-vars
+  9:3  error  'History' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\SocialBankingPage.tsx
+   3:3   error    'Users' is defined but never used         @typescript-eslint/no-unused-vars
+   8:3   error    'ArrowRight' is defined but never used    @typescript-eslint/no-unused-vars
+   9:3   error    'TrendingUp' is defined but never used    @typescript-eslint/no-unused-vars
+  13:3   error    'ShieldCheck' is defined but never used   @typescript-eslint/no-unused-vars
+  14:3   error    'Zap' is defined but never used           @typescript-eslint/no-unused-vars
+  15:3   error    'Clock' is defined but never used         @typescript-eslint/no-unused-vars
+  71:57  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\SpaceEconomyPage.tsx
+   1:17  error  'useState' is defined but never used       @typescript-eslint/no-unused-vars
+   4:3   error  'Orbit' is defined but never used          @typescript-eslint/no-unused-vars
+   5:3   error  'Zap' is defined but never used            @typescript-eslint/no-unused-vars
+   7:3   error  'ArrowUpRight' is defined but never used   @typescript-eslint/no-unused-vars
+   8:3   error  'History' is defined but never used        @typescript-eslint/no-unused-vars
+   9:3   error  'Lock' is defined but never used           @typescript-eslint/no-unused-vars
+  11:3   error  'ChevronRight' is defined but never used   @typescript-eslint/no-unused-vars
+  12:3   error  'RefreshCw' is defined but never used      @typescript-eslint/no-unused-vars
+  16:3   error  'Box' is defined but never used            @typescript-eslint/no-unused-vars
+  17:3   error  'Link' is defined but never used           @typescript-eslint/no-unused-vars
+  18:3   error  'Maximize2' is defined but never used      @typescript-eslint/no-unused-vars
+  19:3   error  'Scan' is defined but never used           @typescript-eslint/no-unused-vars
+  20:3   error  'Compass' is defined but never used        @typescript-eslint/no-unused-vars
+  25:10  error  'cn' is defined but never used             @typescript-eslint/no-unused-vars
+  30:3   error  'XAxis' is defined but never used          @typescript-eslint/no-unused-vars
+  31:3   error  'YAxis' is defined but never used          @typescript-eslint/no-unused-vars
+  32:3   error  'CartesianGrid' is defined but never used  @typescript-eslint/no-unused-vars
+  33:3   error  'Tooltip' is defined but never used        @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\StructuredProductsPage.tsx
+  110:26  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\SupportPage.tsx
+   6:3   error  'Mail' is defined but never used  @typescript-eslint/no-unused-vars
+  14:10  error  'cn' is defined but never used    @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\ThresholdSignaturesPage.tsx
+  18:10  error  'activeTab' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  18:21  error  'setActiveTab' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\TransactionsPage.tsx
+   5:3   error    'ChevronDown' is defined but never used   @typescript-eslint/no-unused-vars
+  32:50  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\TravelLifestylePage.tsx
+   4:3   error  'MapPin' is defined but never used                 @typescript-eslint/no-unused-vars
+   7:3   error  'ArrowUpRight' is defined but never used           @typescript-eslint/no-unused-vars
+   8:3   error  'History' is defined but never used                @typescript-eslint/no-unused-vars
+   9:3   error  'Lock' is defined but never used                   @typescript-eslint/no-unused-vars
+  12:3   error  'Zap' is defined but never used                    @typescript-eslint/no-unused-vars
+  13:3   error  'RefreshCw' is defined but never used              @typescript-eslint/no-unused-vars
+  15:3   error  'Briefcase' is defined but never used              @typescript-eslint/no-unused-vars
+  38:10  error  'activeTab' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  38:21  error  'setActiveTab' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\VerifiableCredentialsPage.tsx
+  12:10  error  'activeTab' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  12:21  error  'setActiveTab' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\src\pages\WellnessFinancePage.tsx
+   1:17  error  'useState' is defined but never used       @typescript-eslint/no-unused-vars
+   6:3   error  'ArrowUpRight' is defined but never used   @typescript-eslint/no-unused-vars
+   7:3   error  'History' is defined but never used        @typescript-eslint/no-unused-vars
+   8:3   error  'Lock' is defined but never used           @typescript-eslint/no-unused-vars
+  10:3   error  'ChevronRight' is defined but never used   @typescript-eslint/no-unused-vars
+  11:3   error  'Zap' is defined but never used            @typescript-eslint/no-unused-vars
+  12:3   error  'RefreshCw' is defined but never used      @typescript-eslint/no-unused-vars
+  13:3   error  'Globe2' is defined but never used         @typescript-eslint/no-unused-vars
+  15:3   error  'Dumbbell' is defined but never used       @typescript-eslint/no-unused-vars
+  19:3   error  'Target' is defined but never used         @typescript-eslint/no-unused-vars
+  20:3   error  'Clock' is defined but never used          @typescript-eslint/no-unused-vars
+  21:3   error  'CheckCircle2' is defined but never used   @typescript-eslint/no-unused-vars
+  31:3   error  'YAxis' is defined but never used          @typescript-eslint/no-unused-vars
+  32:3   error  'CartesianGrid' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech ÔÇö AI-powered Cross-Border Transaction Risk & Compliance Monitoring\tailwind.config.js
+  2:7  error  'defaultTheme' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Ô£û 554 problems (531 errors, 23 warnings)
+
+ÔÇëELIFECYCLEÔÇë Command failed with exit code 1.

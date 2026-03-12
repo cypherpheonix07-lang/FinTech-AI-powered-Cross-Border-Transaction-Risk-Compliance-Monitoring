@@ -7,8 +7,8 @@ exports.triggerRetrain = void 0;
 const child_process_1 = require("child_process");
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
-const database_js_1 = require("../../config/database.js");
-const logger_js_1 = require("../../config/logger.js");
+const database_1 = require("../../config/database");
+const logger_1 = require("../../config/logger");
 // POST /api/risk/train  (ADMIN only)
 const triggerRetrain = async (req, res) => {
     // optional: accept body params to customize training (e.g., contamination)
@@ -20,19 +20,19 @@ const triggerRetrain = async (req, res) => {
         // Try absolute path or different relative path
         const altPath = path_1.default.resolve(process.cwd(), "ml", "train_supervised.py");
         if (!fs_1.default.existsSync(altPath)) {
-            logger_js_1.logger.error(`Training script not found at ${trainScript} or ${altPath}`);
+            logger_1.logger.error(`Training script not found at ${trainScript} or ${altPath}`);
             return res.status(500).json({ success: false, error: "Training script not found" });
         }
     }
-    logger_js_1.logger.info(`Starting training using ${trainScript}`);
+    logger_1.logger.info(`Starting training using ${trainScript}`);
     (0, child_process_1.exec)(`python ${trainScript}`, { cwd: path_1.default.resolve(process.cwd(), ".."), env: process.env }, async (err, stdout, stderr) => {
         if (err) {
-            logger_js_1.logger.error("Training failed: " + err.message);
-            logger_js_1.logger.error(stderr);
+            logger_1.logger.error("Training failed: " + err.message);
+            logger_1.logger.error(stderr);
         }
         else {
-            logger_js_1.logger.info("Training finished");
-            logger_js_1.logger.info(stdout);
+            logger_1.logger.info("Training finished");
+            logger_1.logger.info(stdout);
         }
         // After training completes (success or fail), attempt to read model_meta.json
         try {
@@ -41,21 +41,21 @@ const triggerRetrain = async (req, res) => {
                 const metaRaw = fs_1.default.readFileSync(metaPath, "utf-8");
                 const meta = JSON.parse(metaRaw);
                 const version = meta.model_version || `v${Date.now()}`;
-                await database_js_1.prisma.modelVersion.create({
+                await database_1.prisma.modelVersion.create({
                     data: {
                         id: version, // Using version string as ID if unique, or rename to name
                         name: version,
                         metrics: meta,
                     }
                 });
-                logger_js_1.logger.info("Saved model metadata to DB", version);
+                logger_1.logger.info("Saved model metadata to DB", version);
             }
             else {
-                logger_js_1.logger.warn("model_meta.json not found after training");
+                logger_1.logger.warn("model_meta.json not found after training");
             }
         }
         catch (dbErr) {
-            logger_js_1.logger.error("Failed to write model meta to DB: " + dbErr);
+            logger_1.logger.error("Failed to write model meta to DB: " + dbErr);
         }
     });
     // stream training stdout back? For simplicity respond immediately with accepted.

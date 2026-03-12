@@ -52,6 +52,7 @@ model User {
 
   escalations Escalation[]
   auditLogs   AuditLog[]
+  zeroTrustSessions ZeroTrustSession[]
   createdAt   DateTime @default(now())
 }
 
@@ -62,15 +63,18 @@ model Account {
   tenant        Tenant   @relation(fields: [tenantId], references: [id])
 
   status        String   @default("ACTIVE")
+  currency      String   @default("USD")
+  balance       Decimal  @default(0) @db.Decimal(20, 8)
   metadata      Json?
 
-  transactions Transaction[]
+  transactions  Transaction[]
+  ledgerEntries LedgerEntry[]
 }
 
 model Transaction {
   id            String   @id @default(uuid())
   transactionRef String
-  amount        Float
+  amount        Decimal  @db.Decimal(20, 8)
   currency      String
   senderCountry String?
   receiverCountry String?
@@ -89,8 +93,130 @@ model Transaction {
 
   riskResult    RiskResult?
   escalation    Escalation?
+  ledgerEntries LedgerEntry[]
+  proof         TransactionProof?
 
   createdAt     DateTime @default(now())
+}
+
+model LedgerEntry {
+  id            String     @id @default(uuid())
+  transactionId String
+  transaction   Transaction @relation(fields: [transactionId], references: [id])
+  accountId     String
+  account       Account     @relation(fields: [accountId], references: [id])
+  
+  type          String     // DEBIT or CREDIT
+  amount        Decimal    @db.Decimal(20, 8)
+  currency      String
+  description   String?
+  auditHash     String?    // Cryptographic link
+  
+  createdAt     DateTime   @default(now())
+}
+
+model CurrencyRegistry {
+  id            String   @id @default(uuid())
+  code          String   @unique // USD, EUR, etc.
+  name          String
+  symbol        String
+  precision     Int      @default(2)
+  isActive      Boolean  @default(true)
+  
+  rates         ExchangeRate[]
+  createdAt     DateTime @default(now())
+}
+
+model ExchangeRate {
+  id            String   @id @default(uuid())
+  fromCurrency  String
+  toCurrency    String
+  rate          Decimal  @db.Decimal(20, 10)
+  source        String?
+  
+  currencyId    String
+  currency      CurrencyRegistry @relation(fields: [currencyId], references: [id])
+  
+  createdAt     DateTime @default(now())
+}
+
+model TransactionProof {
+  id            String   @id @default(uuid())
+  transactionId String   @unique
+  transaction   Transaction @relation(fields: [transactionId], references: [id])
+  
+  proofType     String   // ZK_SNARK, MULTI_SIG
+  proofData     Json
+  publicSignals Json?
+  verifier      String?
+  
+  createdAt     DateTime @default(now())
+}
+
+model FeatureStore {
+  id          String   @id @default(uuid())
+  featureName String   @unique
+  valueType   String
+  group       String   // e.g., 'TRANSACTION_BEHAVIOR'
+  metadata    Json?
+  
+  values      FeatureValue[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model FeatureValue {
+  id             String       @id @default(uuid())
+  featureStoreId String
+  featureStore   FeatureStore @relation(fields: [featureStoreId], references: [id])
+  entityId       String       // e.g., AccountId or UserId
+  value          Json
+  timestamp      DateTime     @default(now())
+}
+
+model MLModel {
+  id            String   @id @default(uuid())
+  name          String
+  type          String   // LSTM, RF, RL, etc.
+  version       String
+  status        String   // ACTIVE, DRAINING, RETIRING
+  config        Json
+  
+  versions      ModelVersion[]
+  retrainingJob RetrainingJob[]
+  createdAt     DateTime @default(now())
+}
+
+model RetrainingJob {
+  id          String   @id @default(uuid())
+  modelId     String
+  model       MLModel  @relation(fields: [modelId], references: [id])
+  status      String   // QUEUED, RUNNING, COMPLETED, FAILED
+  metrics     Json?
+  startedAt   DateTime @default(now())
+  finishedAt  DateTime?
+}
+
+model ZeroTrustSession {
+  id            String   @id @default(uuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id])
+  deviceFingerprint String
+  riskScore     Float    @default(0)
+  lastVerifiedAt DateTime @default(now())
+  
+  verifications ContinuousVerification[]
+  createdAt     DateTime @default(now())
+}
+
+model ContinuousVerification {
+  id                 String           @id @default(uuid())
+  sessionId          String
+  session            ZeroTrustSession @relation(fields: [sessionId], references: [id])
+  verificationType   String           // BIOMETRIC, BEHAVIORAL, GEO
+  status             String
+  resultData         Json?
+  timestamp          DateTime         @default(now())
 }
 
 model RiskResult {
@@ -156,6 +282,8 @@ model DecisionRule {
 
 model ModelVersion {
   id          String   @id @default(uuid())
+  modelId     String
+  model       MLModel  @relation(fields: [modelId], references: [id])
   name        String
   metrics     Json
   createdAt   DateTime @default(now())

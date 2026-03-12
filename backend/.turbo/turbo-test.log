@@ -1,0 +1,27 @@
+
+> transacttrace-nexus-backend@1.0.0 test C:\Users\user\OneDrive\Desktop\CODING PROJECTS\PROJECT-THANDAV\TransactTrace-Nexus\FinTech — AI-powered Cross-Border Transaction Risk & Compliance Monitoring\backend
+> node node_modules/jest/bin/jest.js
+
+PASS src/services/__tests__/decision-engine.test.ts (11.945 s)
+PASS src/modules/orchestrator/__tests__/orchestrator.service.test.ts (12.782 s)
+PASS src/services/__tests__/encryption-service.test.ts (13.723 s)
+  ● Console
+
+    console.log
+      2026-03-08 16:17:35:1735 [31merror[39m: [31mDecryption failed[39m
+
+      at Console.log (../node_modules/.pnpm/winston@3.19.0/node_modules/winston/lib/winston/transports/console.js:87:23)
+
+    console.log
+      2026-03-08 16:17:35:1735 [31merror[39m: [31mDecryption failed[39m
+
+      at Console.log (../node_modules/.pnpm/winston@3.19.0/node_modules/winston/lib/winston/transports/console.js:87:23)
+
+PASS src/modules/ingestion/__tests__/ingestion.service.test.ts (18.7 s)
+A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with --detectOpenHandles to find leaks. Active timers can also cause this, ensure that .unref() was called on them.
+
+Test Suites: 4 passed, 4 total
+Tests:       14 passed, 14 total
+Snapshots:   0 total
+Time:        22.259 s
+Ran all test suites.

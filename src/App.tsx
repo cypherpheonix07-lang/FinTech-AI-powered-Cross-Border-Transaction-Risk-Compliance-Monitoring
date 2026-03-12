@@ -1,5 +1,6 @@
 import React from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
+import { ShieldCheck, Lock, Activity, ArrowRight, Search, CheckCircle } from 'lucide-react';
 import Login from './components/Login';
 import Visualizer from './pages/Visualizer';
 import DashboardLayout from './components/layout/DashboardLayout';
@@ -20,21 +21,6 @@ export default function App() {
           />
         } />
         
-        {/* Protected Dashboard Routes */}
-        <Route path="/" element={<DashboardLayout />}>
-           <Route path="*" element={<AppRoutes onTrackTransaction={(id) => navigate(`/visualizer/${id}`)} />} />
-        </Route>
-
-        <Route path="/visualizer/:code" element={<Visualizer />} />
-      </Routes>
-      <Toaster />
-    </>
-  );
-}
-
-        <Route path="/visualizer/:code" element={<Visualizer />} />
-        <Route path="/visualizer" element={<Visualizer />} />
-
         {/* Landing Page */}
         <Route path="/welcome" element={
           <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-200">
@@ -75,7 +61,9 @@ export default function App() {
               <div className="w-full max-w-2xl bg-white p-2 md:p-3 rounded-2xl shadow-lg border border-slate-200 mb-16">
                 <form onSubmit={(e) => {
                   e.preventDefault();
-                  const val = (e.currentTarget.elements.namedItem('trackingId') as HTMLInputElement).value;
+                  const form = e.currentTarget;
+                  const input = form.elements.namedItem('trackingId') as HTMLInputElement;
+                  const val = input.value;
                   if (val) navigate(`/visualizer/${val}`);
                 }} className="flex flex-col md:flex-row gap-3">
                   <div className="relative flex-grow">
@@ -126,8 +114,13 @@ export default function App() {
           </div>
         } />
 
-        {/* Default Redirect */}
-        <Route path="*" element={<Navigate to="/welcome" replace />} />
+        {/* Protected Dashboard Routes */}
+        <Route path="/" element={<DashboardLayout />}>
+           <Route path="*" element={<AppRoutes onTrackTransaction={(id) => navigate(`/visualizer/${id}`)} />} />
+        </Route>
+
+        <Route path="/visualizer/:code" element={<Visualizer />} />
+        <Route path="/visualizer" element={<Visualizer />} />
       </Routes>
       <Toaster />
     </>
