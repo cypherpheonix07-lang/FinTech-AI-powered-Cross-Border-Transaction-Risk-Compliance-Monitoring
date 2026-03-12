@@ -36,7 +36,7 @@ export default function AICoachDashboard() {
       id: 1,
       type: 'HABIT',
       title: 'Loss Aversion Alert',
-      message: 'You've spent 15% more on dining this week. Redirecting $50 to your "Japan Trip" goal now would offset the impact.',
+      message: "You've spent 15% more on dining this week. Redirecting $50 to your \"Japan Trip\" goal now would offset the impact.",
       icon: AlertCircle,
       color: 'orange'
     },
