@@ -1,10 +1,42 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TransactionService = void 0;
 const database_1 = require("../../config/database");
 const fraud_ml_client_1 = require("../../integrations/fraud-ml.client");
 const decision_engine_1 = require("../../services/decision-engine");
-const orchestrator_service_1 = require("../orchestrator/orchestrator.service"); // Added import
 const server_1 = require("../../server");
 // backend/src/modules/transaction/transaction.service.ts
 class TransactionService {
@@ -61,27 +93,23 @@ class TransactionService {
         // 6. Update Transaction Status / Create Escalation
         const updatedStatus = decision.decision === decision_engine_1.RiskDecision.BLOCK ? 'BLOCKED' :
             decision.decision === decision_engine_1.RiskDecision.FLAG ? 'FLAGGED' : 'APPROVED';
+        // Simulation: Generate Post-Quantum Signature for the approved/flagged transaction
+        let pqcSignature = null;
+        if (updatedStatus !== 'BLOCKED') {
+            const { quantumService } = await Promise.resolve().then(() => __importStar(require('../../services/quantumService')));
+            pqcSignature = quantumService.simulateDilithiumSignature(JSON.stringify({
+                id: transaction.id,
+                amount: transaction.amount,
+                sender: transaction.identifier
+            }));
+        }
         const updated = await database_1.prisma.transaction.update({
             where: { id: transaction.id },
             data: { status: updatedStatus },
             include: { riskResult: true },
         });
-        // Trigger Autonomous Defense for CRITICAL risks
-        if (riskResult.riskLevel === 'CRITICAL') {
-            await orchestrator_service_1.OrchestratorService.triggerDefense(transaction.id);
-        }
-        if (decision.decision !== decision_engine_1.RiskDecision.APPROVE) {
-            await database_1.prisma.escalation.create({
-                data: {
-                    transactionId: transaction.id,
-                    tenantId,
-                    status: 'PENDING',
-                    notes: decision.reason,
-                },
-            });
-        }
         // 7. Emit WebSocket events
-        server_1.io.emit('transaction-created', updated);
+        server_1.io.emit('transaction-created', { ...updated, pqcSignature });
         if (updated.status !== 'APPROVED') {
             server_1.io.emit('risk-alert', {
                 type: updated.status,
@@ -90,7 +118,7 @@ class TransactionService {
                 tenantId,
             });
         }
-        return updated;
+        return { ...updated, pqcSignature };
     }
     static async list(tenantId, filters = {}) {
         return database_1.prisma.transaction.findMany({

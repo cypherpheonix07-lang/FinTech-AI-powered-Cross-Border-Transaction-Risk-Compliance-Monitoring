@@ -12,7 +12,7 @@ export class TreasuryManagementService {
       where: { tenantId }
     });
 
-    const totalLiquidity = accounts.reduce((sum, acc) => sum.plus(acc.balance), new Decimal(0));
+    const totalLiquidity = accounts.reduce((sum: Decimal, acc: any) => sum.plus(acc.balance), new Decimal(0));
     console.log(`Global Liquidity for Tenant ${tenantId}: ${totalLiquidity.toString()}`);
     
     return {

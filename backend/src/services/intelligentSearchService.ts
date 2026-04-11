@@ -13,7 +13,7 @@ export class IntelligentSearchService {
     return await prisma.transaction.findMany({
       where: {
         accountId: { in: await this.getUserAccountIds(userId) },
-        description: { contains: intent.category, mode: 'insensitive' },
+        transactionRef: { contains: intent.category, mode: 'insensitive' },
         createdAt: { gte: intent.startDate, lte: intent.endDate }
       }
     });

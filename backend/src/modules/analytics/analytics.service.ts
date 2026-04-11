@@ -1,7 +1,7 @@
-// backend/src/modules/analytics/analytics.service.ts
 import { prisma } from '../../config/database';
 import axios from 'axios';
 import { env } from '../../config/env';
+import { Decimal } from '@prisma/client/runtime/library';
 
 export class AnalyticsService {
   static async getFraudTrends(tenantId: string, period: string) {
@@ -76,7 +76,7 @@ export class AnalyticsService {
         corridors[key] = { count: 0, totalAmount: 0, avgRisk: 0, flagged: 0 };
       }
       corridors[key].count++;
-      corridors[key].totalAmount += tx.amount;
+      corridors[key].totalAmount = new Decimal(corridors[key].totalAmount).plus(tx.amount).toNumber();
       corridors[key].avgRisk += tx.riskScore;
       if (tx.status === 'FLAGGED' || tx.status === 'BLOCKED') corridors[key].flagged++;
     }

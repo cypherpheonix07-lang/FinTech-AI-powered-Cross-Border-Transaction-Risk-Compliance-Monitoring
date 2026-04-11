@@ -81,6 +81,26 @@ export class ExistentialRiskService {
       active: true
     };
   }
+
+  /**
+   * Monitor specialized nanotech/biotech threats.
+   */
+  async getNanotechStatus() {
+    return {
+      globalRiskLevel: 'STABLE',
+      containmentBreachDetected: false,
+      timestamp: new Date().toISOString()
+    };
+  }
+
+  /**
+   * Retrieve bonds linked to AGI Emergence.
+   */
+  async getAGIBonds() {
+    return [
+      { id: 'AGI-001', name: 'OpenAI-Singularity-Bond', principal: 1000000, trigger: 'AGI_EMERGENCE' }
+    ];
+  }
 }
 
 export const existentialRiskService = ExistentialRiskService.getInstance();

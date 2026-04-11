@@ -1,6 +1,6 @@
-// backend/src/modules/compliance/compliance.service.ts
 import { prisma } from '../../config/database';
 import { logger } from '../../config/logger';
+import { Decimal } from '@prisma/client/runtime/library';
 
 interface GenerateSARInput {
   transactionIds: string[];
@@ -29,7 +29,7 @@ export class ComplianceService {
       throw new Error('No valid transactions found');
     }
 
-    const totalAmount = transactions.reduce((sum, tx) => sum + tx.amount, 0);
+    const totalAmount = transactions.reduce((sum, tx) => sum.plus(tx.amount), new Decimal(0));
     const currencies = [...new Set(transactions.map(tx => tx.currency))];
     const dateRange = {
       from: new Date(Math.min(...transactions.map(tx => tx.createdAt.getTime()))).toISOString(),
@@ -40,7 +40,7 @@ export class ComplianceService {
     if (transactions.some(tx => tx.anomalyFlag)) riskIndicators.push('Anomaly detected by ML model');
     if (transactions.some(tx => tx.graphFlag)) riskIndicators.push('Network graph anomaly (shared identifiers)');
     if (transactions.some(tx => tx.riskScore >= 80)) riskIndicators.push('Critical risk score detected');
-    if (totalAmount >= 100000) riskIndicators.push(`High cumulative amount: $${totalAmount.toLocaleString()}`);
+    if (totalAmount.greaterThanOrEqualTo(100000)) riskIndicators.push(`High cumulative amount: $${totalAmount.toLocaleString()}`);
 
     const content = {
       subjectName: transactions[0].senderName || 'Unknown',

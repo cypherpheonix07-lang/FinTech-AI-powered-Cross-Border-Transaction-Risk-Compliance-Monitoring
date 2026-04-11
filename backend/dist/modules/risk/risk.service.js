@@ -2,13 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RiskService = void 0;
 const database_1 = require("../../config/database");
+const library_1 = require("@prisma/client/runtime/library");
 class RiskService {
     static async getSummary(tenantId) {
         const transactions = await database_1.prisma.transaction.findMany({
             where: { tenantId },
             select: { riskScore: true, amount: true, status: true, senderCountry: true, receiverCountry: true }
         });
-        const totalVolume = transactions.reduce((acc, t) => acc + t.amount, 0);
+        const totalVolume = transactions.reduce((acc, t) => acc.plus(t.amount), new library_1.Decimal(0));
         const avgRiskScore = transactions.length
             ? transactions.reduce((acc, t) => acc + t.riskScore, 0) / transactions.length
             : 0;
@@ -30,7 +31,7 @@ class RiskService {
                 corridorMap.set(key, { name: key, volume: 0, avgRisk: 0, count: 0 });
             }
             const val = corridorMap.get(key);
-            val.volume += t.amount;
+            val.volume = new library_1.Decimal(val.volume).plus(t.amount);
             val.avgRisk += t.riskScore;
             val.count += 1;
         });

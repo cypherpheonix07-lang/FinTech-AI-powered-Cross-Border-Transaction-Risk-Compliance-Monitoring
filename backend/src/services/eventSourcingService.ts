@@ -61,7 +61,7 @@ export class EventSourcingService {
         default:
           return { ...acc, ...event.payload };
       }
-    }, {});
+    }, {} as any);
 
     return { aggregateId, eventCount: events.length, currentState: state };
   }

@@ -41,11 +41,18 @@ const triggerRetrain = async (req, res) => {
                 const metaRaw = fs_1.default.readFileSync(metaPath, "utf-8");
                 const meta = JSON.parse(metaRaw);
                 const version = meta.model_version || `v${Date.now()}`;
+                let model = await database_1.prisma.mLModel.findFirst({ where: { name: 'PathGuard-Risk-Model' } });
+                if (!model) {
+                    model = await database_1.prisma.mLModel.create({
+                        data: { name: 'PathGuard-Risk-Model', type: 'XGBOOST', version: '1.0.0', status: 'ACTIVE', config: {} }
+                    });
+                }
                 await database_1.prisma.modelVersion.create({
                     data: {
-                        id: version, // Using version string as ID if unique, or rename to name
+                        id: version,
                         name: version,
                         metrics: meta,
+                        modelId: model.id
                     }
                 });
                 logger_1.logger.info("Saved model metadata to DB", version);

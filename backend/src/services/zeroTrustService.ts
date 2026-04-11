@@ -21,8 +21,8 @@ export class ZeroTrustService {
     if (timeSinceLastVeif > 1000 * 60 * 60) riskScore += 0.3; // 1 hour threshold
 
     // 2. Check recent behavioral anomalies (Feature 4.4 - simulated)
-    const behavioralVeifs = session.verifications.filter(v => v.verificationType === 'BEHAVIORAL');
-    const failedBehavioral = behavioralVeifs.filter(v => v.status === 'FAILED').length;
+    const behavioralVeifs = session.verifications.filter((v: any) => v.verificationType === 'BEHAVIORAL');
+    const failedBehavioral = behavioralVeifs.filter((v: any) => v.status === 'FAILED').length;
     riskScore += (failedBehavioral * 0.2);
 
     // 3. Update session risk

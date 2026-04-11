@@ -1,4 +1,5 @@
 import { prisma } from '../../config/database';
+import { Decimal } from '@prisma/client/runtime/library';
 
 export class RiskService {
   static async getSummary(tenantId: string) {
@@ -7,7 +8,7 @@ export class RiskService {
       select: { riskScore: true, amount: true, status: true, senderCountry: true, receiverCountry: true }
     });
 
-    const totalVolume = transactions.reduce((acc, t) => acc + t.amount, 0);
+    const totalVolume = transactions.reduce((acc, t) => acc.plus(t.amount), new Decimal(0));
     const avgRiskScore = transactions.length 
       ? transactions.reduce((acc, t) => acc + t.riskScore, 0) / transactions.length 
       : 0;
@@ -33,7 +34,7 @@ export class RiskService {
         corridorMap.set(key, { name: key, volume: 0, avgRisk: 0, count: 0 });
       }
       const val = corridorMap.get(key);
-      val.volume += t.amount;
+      val.volume = new Decimal(val.volume).plus(t.amount);
       val.avgRisk += t.riskScore;
       val.count += 1;
     });

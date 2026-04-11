@@ -7,7 +7,7 @@ export class MLOpsService {
    * Feature 2.2: Model versioning & lineage
    */
   async registerModel(name: string, type: string, config: any) {
-    return await prisma.mlModel.create({
+    return await prisma.mLModel.create({
       data: {
         name,
         type,
@@ -60,7 +60,7 @@ export class MLOpsService {
    * Feature 2.4: A/B Model testing stubs (Champion/Challenger)
    */
   async getModelForPrediction(modelId: string): Promise<string> {
-    const model = await prisma.mlModel.findUnique({
+    const model = await prisma.mLModel.findUnique({
       where: { id: modelId },
       include: { versions: { orderBy: { createdAt: 'desc' }, take: 2 } }
     });

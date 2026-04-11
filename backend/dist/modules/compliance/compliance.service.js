@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ComplianceService = void 0;
-// backend/src/modules/compliance/compliance.service.ts
 const database_1 = require("../../config/database");
 const logger_1 = require("../../config/logger");
+const library_1 = require("@prisma/client/runtime/library");
 class ComplianceService {
     static async generateSAR(input) {
         // Fetch transactions for the report
@@ -13,7 +13,7 @@ class ComplianceService {
         if (transactions.length === 0) {
             throw new Error('No valid transactions found');
         }
-        const totalAmount = transactions.reduce((sum, tx) => sum + tx.amount, 0);
+        const totalAmount = transactions.reduce((sum, tx) => sum.plus(tx.amount), new library_1.Decimal(0));
         const currencies = [...new Set(transactions.map(tx => tx.currency))];
         const dateRange = {
             from: new Date(Math.min(...transactions.map(tx => tx.createdAt.getTime()))).toISOString(),
@@ -26,7 +26,7 @@ class ComplianceService {
             riskIndicators.push('Network graph anomaly (shared identifiers)');
         if (transactions.some(tx => tx.riskScore >= 80))
             riskIndicators.push('Critical risk score detected');
-        if (totalAmount >= 100000)
+        if (totalAmount.greaterThanOrEqualTo(100000))
             riskIndicators.push(`High cumulative amount: $${totalAmount.toLocaleString()}`);
         const content = {
             subjectName: transactions[0].senderName || 'Unknown',

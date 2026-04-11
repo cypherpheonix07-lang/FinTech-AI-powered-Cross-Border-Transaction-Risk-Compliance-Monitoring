@@ -4,10 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AnalyticsService = void 0;
-// backend/src/modules/analytics/analytics.service.ts
 const database_1 = require("../../config/database");
 const axios_1 = __importDefault(require("axios"));
 const env_1 = require("../../config/env");
+const library_1 = require("@prisma/client/runtime/library");
 class AnalyticsService {
     static async getFraudTrends(tenantId, period) {
         const days = parseInt(period) || 30;
@@ -75,7 +75,7 @@ class AnalyticsService {
                 corridors[key] = { count: 0, totalAmount: 0, avgRisk: 0, flagged: 0 };
             }
             corridors[key].count++;
-            corridors[key].totalAmount += tx.amount;
+            corridors[key].totalAmount = new library_1.Decimal(corridors[key].totalAmount).plus(tx.amount).toNumber();
             corridors[key].avgRisk += tx.riskScore;
             if (tx.status === 'FLAGGED' || tx.status === 'BLOCKED')
                 corridors[key].flagged++;

@@ -22,6 +22,8 @@ const escalation_routes_1 = __importDefault(require("./modules/escalation/escala
 const compliance_routes_1 = __importDefault(require("./modules/compliance/compliance.routes"));
 const analytics_routes_1 = __importDefault(require("./modules/analytics/analytics.routes"));
 const ingestion_routes_1 = __importDefault(require("./modules/ingestion/ingestion.routes"));
+const web3bridge_routes_1 = __importDefault(require("./modules/web3bridge/web3bridge.routes"));
+const vanguard_routes_1 = __importDefault(require("./modules/vanguard/vanguard.routes"));
 const app = (0, express_1.default)();
 // Standard Middleware
 app.use((0, helmet_1.default)());
@@ -43,6 +45,8 @@ app.use('/api/escalations', escalation_routes_1.default);
 app.use('/api/compliance', compliance_routes_1.default);
 app.use('/api/v1/analytics', analytics_routes_1.default);
 app.use('/api/ingest', ingestion_routes_1.default);
+app.use('/api/web3-bridge', web3bridge_routes_1.default);
+app.use('/api/vanguard', vanguard_routes_1.default);
 // Health Endpoint
 app.get('/api/health', async (req, res) => {
     try {

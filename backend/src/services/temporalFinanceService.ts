@@ -107,6 +107,7 @@ export class TemporalFinanceService {
     settlementWindowPrices: { window: string; priceUSD: number }[]
   ): Promise<TemporalArbitrageOpportunity[]> {
     const opportunities: TemporalArbitrageOpportunity[] = [];
+    const asset = assetSymbol;
 
     for (let i = 0; i < settlementWindowPrices.length; i++) {
       for (let j = i + 1; j < settlementWindowPrices.length; j++) {
@@ -133,7 +134,6 @@ export class TemporalFinanceService {
       }
     }
 
-    const asset = assetSymbol;
     return opportunities.sort((a, b) => b.expectedProfitUSD - a.expectedProfitUSD);
   }
 

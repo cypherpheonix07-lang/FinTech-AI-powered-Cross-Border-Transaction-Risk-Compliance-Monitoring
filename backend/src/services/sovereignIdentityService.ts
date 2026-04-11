@@ -4,7 +4,7 @@
  * and Verifiable Credentials (VC) logic for institutional actors.
  */
 
-import { crypto } from 'crypto';
+import * as crypto from 'crypto';
 
 export interface DIDDocument {
   id: string; // did:pg:<hash>
