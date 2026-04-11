@@ -2663,3 +2663,5 @@
 2026-04-11 10:41:58:4158 [31merror[39m: [31m❌ Redis error:[39m
 2026-04-11 10:42:01:421 [32minfo[39m: [32m🚀 Server running on http://localhost:5000 in development mode[39m
 2026-04-11 10:42:08:428 [33mwarn[39m: [33m⚠️ Redis connection failed after 3 attempts. Continuing without Redis caching.[39m
+2026-04-11 10:46:47:4647 [32minfo[39m: [32m🚀 Server running on http://localhost:5000 in development mode[39m
+2026-04-11 10:46:53:4653 [33mwarn[39m: [33m⚠️ Redis connection failed after 3 attempts. Continuing without Redis caching.[39m
