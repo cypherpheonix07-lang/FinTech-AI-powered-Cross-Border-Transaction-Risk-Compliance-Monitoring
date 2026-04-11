@@ -1,5 +1,6 @@
 packages:
   - 'backend'
+  - 'frontend'
   - 'functions'
   - 'gemini-supabase-connector'
 
