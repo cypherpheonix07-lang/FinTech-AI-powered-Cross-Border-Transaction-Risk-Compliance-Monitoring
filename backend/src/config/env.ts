@@ -14,6 +14,8 @@ const envSchema = z.object({
   JWT_REFRESH_EXPIRY: z.string().default('7d'),
   ML_SERVICE_URL: z.string().url(),
   FRONTEND_URL: z.string().url(),
+  OLLAMA_URL: z.string().url().default('http://ollama:11434'),
+  OLLAMA_MODEL: z.string().default('llama3.1'),
 });
 
 const parsed = envSchema.safeParse(process.env);
