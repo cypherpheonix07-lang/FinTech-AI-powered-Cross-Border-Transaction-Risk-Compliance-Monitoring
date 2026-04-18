@@ -16,8 +16,6 @@ import {
   Activity,
   ShieldAlert,
   Building,
-  ShieldAlert,
-  Building,
   Factory,
   Box,
   Globe,
@@ -33,7 +31,11 @@ import {
   Dna,
   Network,
   GitBranch,
-  Cpu
+  Rocket,
+  CloudRain,
+  BrainCircuit,
+  Orbit,
+  History
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
