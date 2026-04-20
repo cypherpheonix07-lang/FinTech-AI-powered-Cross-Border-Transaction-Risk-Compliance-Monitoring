@@ -5,3 +5,12 @@ backend/logs/
 frontend/dist/
 *.tsbuildinfo
 .pnpm-debug.log
+
+# Local Database and Logs
+data/neo4j/
+*.log
+*_lint_output.txt
+.env*
+.DS_Store
+dist/
+build/

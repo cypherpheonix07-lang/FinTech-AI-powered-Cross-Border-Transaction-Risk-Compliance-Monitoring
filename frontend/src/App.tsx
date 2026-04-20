@@ -27,7 +27,7 @@ export default function App() {
             <nav className="bg-white border-b border-slate-200 px-6 py-4 flex justify-between items-center sticky top-0 z-50">
               <div className="flex items-center gap-2 text-blue-950">
                 <ShieldCheck className="w-8 h-8 text-blue-700" />
-                <span className="text-xl font-bold tracking-tight">PathGuard</span>
+                <span className="text-xl font-bold tracking-tight">TransactTrace-Nexus</span>
               </div>
               <div className="flex items-center gap-4">
                 <div className="hidden md:flex items-center gap-1 text-sm text-emerald-600 font-medium bg-emerald-50 px-3 py-1 rounded-full">
@@ -46,7 +46,7 @@ export default function App() {
             <main className="max-w-5xl mx-auto px-6 py-16 md:py-24 flex flex-col items-center text-center">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-semibold mb-8">
                 <Activity className="w-4 h-4" />
-                Next-Gen Fintech Beta
+                TransactTrace Beta
               </div>
               
               <h1 className="text-4xl md:text-6xl font-extrabold text-blue-950 tracking-tight mb-6">
@@ -116,7 +116,7 @@ export default function App() {
 
         {/* Protected Dashboard Routes */}
         <Route path="/" element={<DashboardLayout />}>
-           <Route path="*" element={<AppRoutes onTrackTransaction={(id) => navigate(`/visualizer/${id}`)} />} />
+           <Route path="/*" element={<AppRoutes onTrackTransaction={(id) => navigate(`/visualizer/${id}`)} />} />
         </Route>
 
         <Route path="/visualizer/:code" element={<Visualizer />} />

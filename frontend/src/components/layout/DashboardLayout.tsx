@@ -3,6 +3,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import { Sidebar, SidebarContent } from './Sidebar';
 import Header from './Header';
 import CommandCenter from './CommandCenter';
+import { ErrorBoundary } from '../ErrorBoundary';
 import { cn } from '@/lib/utils';
 import { X } from 'lucide-react';
 
@@ -68,7 +69,9 @@ export default function DashboardLayout() {
         />
         
         <main className="flex-1 p-4 md:p-8 overflow-x-hidden">
-          <Outlet />
+          <ErrorBoundary>
+            <Outlet />
+          </ErrorBoundary>
         </main>
       </div>
     </div>

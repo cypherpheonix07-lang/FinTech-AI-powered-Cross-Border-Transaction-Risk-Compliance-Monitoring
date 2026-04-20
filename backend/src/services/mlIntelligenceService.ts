@@ -58,7 +58,7 @@ export class MLIntelligenceService {
     const alerts = [];
     const subscriptionSpend = features.find(f => f.featureStore.featureName === 'SUBSCRIPTION_SPEND');
     
-    if (subscriptionSpend && (subscriptionSpend.value as any).amount > 100) {
+    if (subscriptionSpend && (subscriptionSpend.value as Record<string, unknown>).amount as number > 100) {
       alerts.push({
         type: 'OPTIMIZATION',
         message: 'You have $100+ in active subscriptions. Would you like our AI to negotiate these rates?',
@@ -69,7 +69,7 @@ export class MLIntelligenceService {
     return alerts;
   }
 
-  private calculateAverageDailyBurn(transactions: any[]): number {
+  private calculateAverageDailyBurn(transactions: unknown[]): number {
     if (transactions.length === 0) return 0;
     const totalOutflow = transactions
       .filter(t => t.amount.lessThan(0))

@@ -91,7 +91,7 @@ export function SidebarContent() {
         <div className="p-2 bg-blue-700 rounded-xl">
           <ShieldCheck className="w-6 h-6 text-white" />
         </div>
-        <span className="text-xl font-bold tracking-tight">PathGuard</span>
+        <span className="text-xl font-bold tracking-tight">TransactTrace-Nexus</span>
       </div>
 
       <nav className="flex-1 px-4 py-4 space-y-1 overflow-y-auto">

@@ -29,7 +29,7 @@ export default function DashboardOverview({ onTrackTransaction }: DashboardOverv
           <p className="text-slate-500 mt-1 font-medium">Monitoring your global assets with cryptographic precision.</p>
         </div>
         <div className="flex items-center gap-3">
-          <button className="bg-white border border-slate-200 text-slate-600 px-5 py-2.5 rounded-xl font-bold text-sm hover:bg-slate-50 transition-all active:scale-95 shadow-sm">
+          <button className="bg-white border border-slate-200 text-slate-600 px-5 py-2.5 rounded-xl font-bold text-sm hover:bg-slate-50 hover:border-slate-300 transition-all active:scale-95 shadow-sm flex items-center gap-2">
             Download Statements
           </button>
           <button 
@@ -70,7 +70,7 @@ export default function DashboardOverview({ onTrackTransaction }: DashboardOverv
                 </thead>
                 <tbody className="divide-y divide-slate-50">
                   {MOCK_TRANSACTIONS.map((txn) => (
-                    <tr key={txn.id} className="hover:bg-blue-50/30 transition-colors group">
+                    <tr key={txn.id} className="hover:bg-slate-50/80 transition-all group cursor-pointer border-b border-transparent hover:border-slate-100/50">
                       <td className="px-8 py-5">
                         <button 
                           onClick={() => onTrackTransaction(txn.id)}
@@ -109,9 +109,9 @@ export default function DashboardOverview({ onTrackTransaction }: DashboardOverv
           <ScheduledPayments />
           
           {/* Priority Support CTA */}
-          <div className="bg-blue-950 p-8 rounded-[2.5rem] text-white shadow-xl shadow-blue-900/20 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-4 opacity-10 transition-transform group-hover:scale-125 duration-700">
-               <ShieldCheckIcon className="w-20 h-20" />
+          <div className="bg-gradient-to-br from-blue-950 to-slate-950 p-8 rounded-[2.5rem] text-white shadow-xl shadow-blue-900/20 relative overflow-hidden group border border-white/5">
+            <div className="absolute top-0 right-0 p-4 opacity-[0.03] transition-transform group-hover:scale-110 duration-1000 group-hover:rotate-12">
+               <ShieldCheckIcon className="w-40 h-40" />
             </div>
             <h4 className="font-extrabold text-lg mb-2">Priority Support</h4>
             <p className="text-xs text-blue-200/70 mb-6 leading-relaxed font-medium">Dedicated compliance officer available for your account verification.</p>
@@ -132,7 +132,7 @@ export default function DashboardOverview({ onTrackTransaction }: DashboardOverv
 
 function ShieldCheckIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor font-black">
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04M12 21.355r-.343-.194L11.657 20.94a11.955 11.955 0 01-8.618-3.04m8.961-3.04a11.959 11.959 0 013.535 3.04m-7.07 0L12 21.355" />
     </svg>
   );

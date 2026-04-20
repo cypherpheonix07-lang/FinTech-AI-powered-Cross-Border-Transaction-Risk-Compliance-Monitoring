@@ -38,10 +38,12 @@ export default function Header({ onMenuClick, onSearchClick }: HeaderProps) {
 
         {/* Feature 01.01: Contextual Nav (Breadcrumbs) */}
         <div className="hidden lg:flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400">
-          <span className="hover:text-blue-600 cursor-pointer" onClick={() => navigate('/')}>PATHGUARD</span>
+          <span className="hover:text-blue-600 cursor-pointer" onClick={() => navigate('/')}>TRANSACTTRACE-NEXUS</span>
           <span className="text-slate-200">/</span>
           <span className="text-slate-900 bg-slate-100 px-2 py-0.5 rounded-md">
-            {location.pathname === '/' ? 'DASHBOARD' : location.pathname.split('/').pop()?.toUpperCase().replace(/-/g, ' ')}
+            {location.pathname === '/' || location.pathname === '/dashboard' 
+              ? 'DASHBOARD' 
+              : (location.pathname.split('/').pop() || 'DASHBOARD').toUpperCase().replace(/-/g, ' ')}
           </span>
         </div>
 
@@ -52,16 +54,16 @@ export default function Header({ onMenuClick, onSearchClick }: HeaderProps) {
            <ChevronDown className="w-3 h-3 text-blue-400 cursor-pointer hover:text-blue-600 transition-colors" />
         </div>
         
-        <div 
+        <button 
           onClick={onSearchClick}
-          className="hidden md:flex items-center gap-3 bg-slate-100 px-4 py-2.5 rounded-2xl flex-1 border border-transparent hover:border-blue-200 hover:bg-white cursor-text transition-all group"
+          className="hidden md:flex items-center gap-3 bg-slate-100 px-4 py-2.5 rounded-2xl flex-1 border border-transparent hover:border-blue-200 hover:bg-white cursor-text transition-all group focus:outline-none focus:ring-2 focus:ring-blue-500/20"
         >
           <Search className="w-4 h-4 text-slate-400 group-hover:text-blue-500" />
           <div className="text-sm text-slate-400 font-medium italic">Search with AI Intent...</div>
           <kbd className="hidden sm:inline-flex h-5 select-none items-center gap-1 rounded border bg-white px-1.5 font-mono text-[10px] font-medium text-slate-400 opacity-100 ml-auto">
             <span className="text-xs">⌘</span>K
           </kbd>
-        </div>
+        </button>
       </div>
 
       {/* Right Actions */}
@@ -111,7 +113,7 @@ export default function Header({ onMenuClick, onSearchClick }: HeaderProps) {
             <div className="absolute right-0 top-full mt-4 w-56 bg-white rounded-[2rem] shadow-2xl border border-slate-200 p-2 z-[60] animate-in slide-in-from-top-4 duration-300 origin-top-right">
               <div className="px-4 py-3 border-b border-slate-50">
                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none mb-1">Signed in as</p>
-                 <p className="text-xs font-bold text-slate-900 truncate">alex.rivera@pathguard.io</p>
+                 <p className="text-xs font-bold text-slate-900 truncate">alex.rivera@transacttrace.io</p>
               </div>
               <div className="p-2 space-y-1">
                 <button 

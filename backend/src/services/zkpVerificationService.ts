@@ -10,7 +10,7 @@ export interface ZKPWitness {
   userId: string;
   conditionId: string; // e.g., 'MIN_BALANCE_100K'
   proof: string;       // The mathematical proof string
-  publicInputs: any;   // Public parameters required for verification
+  publicInputs: unknown;   // Public parameters required for verification
 }
 
 export interface ZKPResult {
@@ -75,7 +75,7 @@ export class ZKPVerificationService {
   /**
    * Compliance check: "Is user on a sanction list?" without revealing the user's name to the list provider.
    */
-  async verifyNonSanctioned(userHash: string, listProviderProof: string): Promise<boolean> {
+  async verifyNonSanctioned(/* userHash: string, listProviderProof: string */): Promise<boolean> {
     // Logic for anonymous set-membership verification
     return true; 
   }

@@ -128,7 +128,7 @@ export class ComplianceService {
     return prisma.complianceReport.findFirst({ where: { id, tenantId } });
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+   
   static async submitReport(reportId: string, _submittedBy: string) {
     return prisma.complianceReport.update({
       where: { id: reportId },

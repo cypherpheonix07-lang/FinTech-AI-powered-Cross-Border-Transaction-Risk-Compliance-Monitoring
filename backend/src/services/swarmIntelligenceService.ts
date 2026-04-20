@@ -82,7 +82,7 @@ export class SwarmIntelligenceService {
     console.log(`GA: Evolving population for ${generations} generations, ${assets.length} assets...`);
 
     // Initialize random population
-    let population = Array.from({ length: 50 }, () =>
+    const population = Array.from({ length: 50 }, () =>
       assets.map(() => Math.random())
     ).map(weights => {
       const sum = weights.reduce((s, w) => s + w, 0);

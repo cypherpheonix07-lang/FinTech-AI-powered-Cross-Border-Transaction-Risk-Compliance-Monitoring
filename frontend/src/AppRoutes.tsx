@@ -89,15 +89,30 @@ const BehavioralNudgePage = lazy(() => import('./pages/PersonalizationHubPage'))
 const EventSourcingPage = lazy(() => import('./pages/LedgerForensics'));
 const SemanticSearchPage = lazy(() => import('./pages/AdvancedAnalyticsPage'));
 const InterplanetaryBankingPage = lazy(() => import('./pages/SpaceEconomyDashboard'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
-const PageLoader = () => (
-  <div className="h-full w-full flex items-center justify-center">
-    <div className="flex flex-col items-center gap-4">
-      <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
-      <p className="text-sm font-black text-slate-400 uppercase tracking-widest animate-pulse italic">Connecting to Hub...</p>
+// Mapping missing pages to existing components
+const RegulatoryCompliancePage = ComplianceSuitePage;
+const AnalyticsDashboard = AnalyticsPage;
+const InsurancePage = InsuranceHubPage;
+const SecurityAuditPage = SecuritySettingsPage;
+const HealthcarePage = WellnessFinancePage;
+
+
+const PageLoader = () => {
+  React.useEffect(() => {
+    console.log("[AppRoutes] Suspense triggered: Loading view...");
+  }, []);
+  
+  return (
+    <div className="h-full w-full flex items-center justify-center">
+      <div className="flex flex-col items-center gap-4">
+        <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
+        <p className="text-sm font-black text-slate-400 uppercase tracking-widest animate-pulse italic">Connecting to Hub...</p>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export const AppRoutes = ({ onTrackTransaction }: { onTrackTransaction: (id: string) => void }) => (
   <Suspense fallback={<PageLoader />}>
@@ -285,6 +300,9 @@ export const AppRoutes = ({ onTrackTransaction }: { onTrackTransaction: (id: str
         <Route path="omega-heartbeat" element={<SecurityAuditPage />} />
         <Route path="omega-thought-control" element={<ComplianceSuitePage />} />
         <Route path="omega-consciousness" element={<ComplianceSuitePage />} />
+
+        {/* Catch-all Not Found Route */}
+        <Route path="*" element={<NotFound />} />
 
     </Routes>
 

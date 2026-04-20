@@ -55,7 +55,7 @@ export default function StatsCards() {
         />
         <button 
           onClick={() => setShowBalance(!showBalance)}
-          className="absolute top-6 right-6 p-2 text-white/80 hover:text-white transition-colors"
+          className="absolute top-6 right-6 p-2 text-slate-400 hover:text-blue-600 transition-colors"
         >
           {showBalance ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
         </button>

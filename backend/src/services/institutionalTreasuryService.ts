@@ -50,7 +50,7 @@ export class InstitutionalTreasuryService {
     const txId = `TXN-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
     
     // Policy logic: Large amounts require higher quorum or challenges
-    let requiredSigs = 2; // Default 2-of-3
+    const requiredSigs = 2; // Default 2-of-3
     let challenge: string | undefined;
 
     if (amount >= 500000) {
