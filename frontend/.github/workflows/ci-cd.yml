@@ -1,0 +1,48 @@
+name: OMEGA V2.0 PRODUCTION PIPELINE
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        
+    - name: 🛡️ SECURITY SCAN (NPM AUDIT)
+      run: npm audit --audit-level=critical
+      
+    - name: 🧪 TEST CRYPTO & AI ROUTER
+      run: npm test -- src/lib/crypto.ts src/lib/ai-router.ts
+      
+    - name: 🏗️ BUILD (SLSA LEVEL 3 PREP)
+      run: npm run build
+      
+    - name: 📦 GENERATE SBOM
+      run: npm run sbom
+      
+    - name: 🚀 DEPLOY TO VERCEL (FRONTEND)
+      if: github.ref == 'refs/heads/main'
+      run: vercel --token ${{ secrets.VERCEL_TOKEN }} --prod --confirm
+      
+    - name: 🚀 DEPLOY TO FIREBASE (BACKEND)
+      if: github.ref == 'refs/heads/main'
+      run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }} --non-interactive
+      
+    - name: 📢 SLACK NOTIFICATION
+      if: always()
+      uses: 8398a7/action-slack@v3
+      with:
+        status: ${{ job.status }}
+        fields: repo,message,commit,author,action,eventName,ref,workflow
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}

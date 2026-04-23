@@ -1,0 +1,38 @@
+# 🛡️ PATHGUARD (PROJECT AEGIS): ULTRA-NUCLEAR EVOLUTION V2.0
+# CHAOS-CONFIG.YML - Zero-Downtime Resilience Testing
+#
+# ☢️ NUCLEAR WARNING:
+# Chaos engineering experiments should start in staging.
+# Running 'Region-Kill' in production requires executive sign-off.
+
+version: 2.0
+experiments:
+  - name: "REGION_FAILOVER_STRESS"
+    target: "EU-West-1 (Primary)"
+    action: "LATENCY_INJECTION"
+    params:
+      delay: "500ms"
+      jitter: "100ms"
+    stop_condition:
+      - metric: "p99_latency"
+        threshold: "1000ms"
+
+  - name: "HSM_CONNECTION_LOSS"
+    target: "Vault-Cluster-Alpha"
+    action: "CONNECTION_BLOCK"
+    params:
+      port: 11434 # Ollama Port Access simulation
+    recovery_mechanism: "FAILOVER_TO_OFFLINE_SECRET_SHARDS"
+
+  - name: "DATABASE_SPLIT_BRAIN"
+    target: "Firestore-Shard-EU"
+    action: "PARTITION_INJECTION"
+    duration: "60s"
+    validation:
+      - query: "MMR_ROOT_CONSISTENCY"
+        expected: "STABLE"
+
+chaos_mesh:
+  monitoring:
+    prometheus_endpoint: "/metrics/resilience"
+    slack_channel: "#omega-alerts-nuclear"

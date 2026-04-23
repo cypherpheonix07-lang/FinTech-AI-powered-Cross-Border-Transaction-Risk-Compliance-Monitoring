@@ -28,21 +28,21 @@ export default function DashboardLayout() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex">
+    <div className="min-h-screen bg-transparent flex">
       {/* Desktop Sidebar */}
       <Sidebar />
 
       {/* Mobile Sidebar Overlay */}
       {isMobileMenuOpen && (
         <div 
-          className="fixed inset-0 bg-blue-950/40 backdrop-blur-sm z-[60] lg:hidden"
+          className="fixed inset-0 bg-black/60 backdrop-blur-xl z-[60] lg:hidden"
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
 
       {/* Mobile Sidebar Content */}
       <div className={cn(
-        "fixed inset-y-0 left-0 w-72 bg-blue-950 z-[70] lg:hidden transition-transform duration-300 ease-in-out transform",
+        "fixed inset-y-0 left-0 w-80 bg-black z-[70] lg:hidden transition-transform duration-300 ease-in-out transform flex flex-col border-r border-white/5 glass-omega",
         isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
       )}>
         <div className="flex justify-end p-4">
@@ -57,7 +57,7 @@ export default function DashboardLayout() {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 lg:ml-64 flex flex-col min-h-screen relative">
+      <div className="flex-1 lg:ml-72 flex flex-col min-h-screen relative">
         <Header 
           onMenuClick={() => setIsMobileMenuOpen(true)} 
           onSearchClick={() => setIsCommandOpen(true)}
@@ -70,7 +70,9 @@ export default function DashboardLayout() {
         
         <main className="flex-1 p-4 md:p-8 overflow-x-hidden">
           <ErrorBoundary>
-            <Outlet />
+            <div className="animate-fade-up">
+              <Outlet />
+            </div>
           </ErrorBoundary>
         </main>
       </div>
