@@ -69,7 +69,7 @@ export class MLIntelligenceService {
     return alerts;
   }
 
-  private calculateAverageDailyBurn(transactions: unknown[]): number {
+  private calculateAverageDailyBurn(transactions: any[]): number {
     if (transactions.length === 0) return 0;
     const totalOutflow = transactions
       .filter(t => t.amount.lessThan(0))

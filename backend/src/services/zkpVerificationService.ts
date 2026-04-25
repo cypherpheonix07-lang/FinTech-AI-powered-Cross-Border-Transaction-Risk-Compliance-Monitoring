@@ -60,10 +60,10 @@ export class ZKPVerificationService {
     
     // Simulation logic: Re-verify the hash construction
     const expected = crypto.createHash('sha256')
-      .update(`${witness.userId}:${witness.publicInputs.result}:${witness.publicInputs.salt}`)
+      .update(`${witness.userId}:${(witness.publicInputs as any).result}:${(witness.publicInputs as any).salt}`)
       .digest('hex');
 
-    const isValid = (witness.proof === expected) && witness.publicInputs.result === true;
+    const isValid = (witness.proof === expected) && (witness.publicInputs as any).result === true;
 
     return {
       verified: isValid,

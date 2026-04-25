@@ -21,7 +21,7 @@ redis.on('connect', () => {
 });
 
 redis.on('error', (error) => {
-  if (error.code === 'ECONNREFUSED') {
+  if ((error as any).code === 'ECONNREFUSED') {
     // Log only once if connection refused
     return;
   }

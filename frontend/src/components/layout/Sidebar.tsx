@@ -61,11 +61,49 @@ const GALACTIC_SECTORS = [
   }
 ];
 
-export default function GalacticSidebar() {
+export function SidebarContent() {
   const [expandedSector, setExpandedSector] = useState<string | null>('planetary');
 
   return (
-    <aside className="w-80 h-screen bg-zinc-950/50 border-r border-white/5 flex flex-col backdrop-blur-xl">
+    <nav className="flex-1 overflow-y-auto p-4 custom-scrollbar">
+      {GALACTIC_SECTORS.map((sector) => (
+        <div key={sector.id} className="mb-2">
+          <button
+            onClick={() => setExpandedSector(expandedSector === sector.id ? null : sector.id)}
+            className={cn(
+              "w-full flex items-center gap-3 p-3 rounded-lg text-sm transition-all",
+              expandedSector === sector.id ? "bg-white/5 text-white" : "text-zinc-500 hover:text-zinc-300"
+            )}
+          >
+            {sector.icon}
+            <span className="font-medium flex-1 text-left">{sector.label}</span>
+            {expandedSector === sector.id ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+          </button>
+
+          {expandedSector === sector.id && (
+            <div className="mt-1 ml-7 space-y-1 border-l border-white/5 pl-4">
+              {sector.subsectors.map((sub) => (
+                <button
+                  key={sub.id}
+                  className="w-full group flex items-center justify-between p-2 rounded-md text-[11px] text-zinc-500 hover:bg-white/5 hover:text-blue-400 transition-all text-left"
+                >
+                  <span>{sub.label}</span>
+                  <span className="text-[9px] font-mono opacity-0 group-hover:opacity-50">
+                    {sub.featuresCount} FEATURES
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </nav>
+  );
+}
+
+export function Sidebar() {
+  return (
+    <aside className="w-72 h-screen bg-zinc-950/50 border-r border-white/5 flex flex-col backdrop-blur-xl hidden lg:flex fixed left-0 top-0">
       {/* HEADER: NEURAL COMMAND TRIGGER */}
       <div className="p-6 border-b border-white/5">
         <div className="flex items-center gap-3 mb-6">
@@ -88,40 +126,7 @@ export default function GalacticSidebar() {
         </button>
       </div>
 
-      {/* NAVIGATION: MULTI-SECTOR ACCORDION */}
-      <nav className="flex-1 overflow-y-auto p-4 custom-scrollbar">
-        {GALACTIC_SECTORS.map((sector) => (
-          <div key={sector.id} className="mb-2">
-            <button
-              onClick={() => setExpandedSector(expandedSector === sector.id ? null : sector.id)}
-              className={cn(
-                "w-full flex items-center gap-3 p-3 rounded-lg text-sm transition-all",
-                expandedSector === sector.id ? "bg-white/5 text-white" : "text-zinc-500 hover:text-zinc-300"
-              )}
-            >
-              {sector.icon}
-              <span className="font-medium flex-1 text-left">{sector.label}</span>
-              {expandedSector === sector.id ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
-            </button>
-
-            {expandedSector === sector.id && (
-              <div className="mt-1 ml-7 space-y-1 border-l border-white/5 pl-4">
-                {sector.subsectors.map((sub) => (
-                  <button
-                    key={sub.id}
-                    className="w-full group flex items-center justify-between p-2 rounded-md text-[11px] text-zinc-500 hover:bg-white/5 hover:text-blue-400 transition-all text-left"
-                  >
-                    <span>{sub.label}</span>
-                    <span className="text-[9px] font-mono opacity-0 group-hover:opacity-50">
-                      {sub.featuresCount} FEATURES
-                    </span>
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
-      </nav>
+      <SidebarContent />
 
       {/* FOOTER: SYSTEM STATUS */}
       <div className="p-4 border-t border-white/5 bg-black/20">
@@ -137,3 +142,5 @@ export default function GalacticSidebar() {
     </aside>
   );
 }
+
+export default Sidebar;
