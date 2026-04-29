@@ -15,6 +15,7 @@ import {
   TrendingUp, Activity, Lock, Database, Search,
   ChevronRight, ChevronDown, Command
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
 const GALACTIC_SECTORS = [
@@ -23,9 +24,9 @@ const GALACTIC_SECTORS = [
     label: 'Planetary Systems (Core)',
     icon: <Globe className="w-4 h-4" />,
     subsectors: [
-      { id: 'banking', label: 'Universal Banking', featuresCount: 40 },
-      { id: 'compliance', label: 'Global Compliance', featuresCount: 30 },
-      { id: 'risk', label: 'Predictive Risk', featuresCount: 25 },
+      { id: 'banking', label: 'Universal Banking', featuresCount: 40, path: '/dashboard' },
+      { id: 'compliance', label: 'Global Compliance', featuresCount: 30, path: '/compliance' },
+      { id: 'risk', label: 'Predictive Risk', featuresCount: 25, path: '/advanced-analytics' },
     ]
   },
   {
@@ -33,9 +34,9 @@ const GALACTIC_SECTORS = [
     label: 'Quantum Dimension (Security)',
     icon: <Atom className="w-4 h-4" />,
     subsectors: [
-      { id: 'pqc', label: 'Quantum-Resistant Crypto', featuresCount: 30, sector: 51 },
-      { id: 'entanglement', label: 'Quantum Entanglement', featuresCount: 30, sector: 75 },
-      { id: 'annealing', label: 'Quantum Annealing', featuresCount: 30, sector: 86 },
+      { id: 'pqc', label: 'Quantum-Resistant Crypto', featuresCount: 30, sector: 51, path: '/pq-crypto' },
+      { id: 'entanglement', label: 'Quantum Entanglement', featuresCount: 30, sector: 75, path: '/entanglement-settle' },
+      { id: 'annealing', label: 'Quantum Annealing', featuresCount: 30, sector: 86, path: '/quantum-annealer' },
     ]
   },
   {
@@ -43,9 +44,9 @@ const GALACTIC_SECTORS = [
     label: 'Neural & Bio Convergence',
     icon: <Brain className="w-4 h-4" />,
     subsectors: [
-      { id: 'neural-intl', label: 'Neural Interface Banking', featuresCount: 30, sector: 52 },
-      { id: 'biometric-behavioral', label: 'Biometric Analytics', featuresCount: 30, sector: 57 },
-      { id: 'synthetic-bio', label: 'Synthetic Biology Finance', featuresCount: 30, sector: 60 },
+      { id: 'neural-intl', label: 'Neural Interface Banking', featuresCount: 30, sector: 52, path: '/neural-interface-banking' },
+      { id: 'biometric-behavioral', label: 'Biometric Analytics', featuresCount: 30, sector: 57, path: '/biometric' },
+      { id: 'synthetic-bio', label: 'Synthetic Biology Finance', featuresCount: 30, sector: 60, path: '/bio-finance-vault' },
     ]
   },
   {
@@ -53,16 +54,17 @@ const GALACTIC_SECTORS = [
     label: 'Universal & Exotic Paradigms',
     icon: <Zap className="w-4 h-4" />,
     subsectors: [
-      { id: 'space-econ', label: 'Space Economy Finance', featuresCount: 30, sector: 62 },
-      { id: 'nano-tech', label: 'Nanotechnology Finance', featuresCount: 30, sector: 63 },
-      { id: 'agi-finance', label: 'AGI (General Intelligence)', featuresCount: 30, sector: 64 },
-      { id: 'post-scarcity', label: 'Post-Scarcity Economics', featuresCount: 30, sector: 70 },
+      { id: 'space-econ', label: 'Space Economy Finance', featuresCount: 30, sector: 62, path: '/space-economy' },
+      { id: 'nano-tech', label: 'Nanotechnology Finance', featuresCount: 30, sector: 63, path: '/natural-resources' },
+      { id: 'agi-finance', label: 'AGI (General Intelligence)', featuresCount: 30, sector: 64, path: '/agi-symbiosis' },
+      { id: 'post-scarcity', label: 'Post-Scarcity Economics', featuresCount: 30, sector: 70, path: '/post-scarcity' },
     ]
   }
 ];
 
 export function SidebarContent() {
   const [expandedSector, setExpandedSector] = useState<string | null>('planetary');
+  const navigate = useNavigate();
 
   return (
     <nav className="flex-1 overflow-y-auto p-4 custom-scrollbar">
@@ -85,6 +87,7 @@ export function SidebarContent() {
               {sector.subsectors.map((sub) => (
                 <button
                   key={sub.id}
+                  onClick={() => navigate(sub.path)}
                   className="w-full group flex items-center justify-between p-2 rounded-md text-[11px] text-zinc-500 hover:bg-white/5 hover:text-blue-400 transition-all text-left"
                 >
                   <span>{sub.label}</span>
