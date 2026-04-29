@@ -9,16 +9,23 @@ interface NexusState {
   threatLevel: ThreatLevel;
   neuralState: NeuralState;
   cognitiveLoad: number;
+  stressLevel: number; // 0-100
+  focusScore: number; // 0-100
   wealthTicker: number;
   biometricVerified: boolean;
   activeContext: string;
   isOmegaProtocol: boolean;
+  protocolVersion: string;
+  // Biometric Telemetry
+  heartRate: number;
+  retinalSync: boolean;
+  neuralSignature: string;
   // Quantum & Network Telemetry
-  networkLatency: number; // in ms
-  quantumEncryptionLevel: number; // 0-100%
+  networkLatency: number;
+  quantumEncryptionLevel: number;
   activeNodes: number;
-  globalFlowVolume: number; // in BTC/USD equivalent
-  privacyScore: number; // 0-100
+  globalFlowVolume: number;
+  privacyScore: number;
 }
 
 interface NexusContextType {
@@ -38,10 +45,16 @@ export const NexusProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     threatLevel: 'Stable',
     neuralState: 'Calm',
     cognitiveLoad: 12,
+    stressLevel: 8,
+    focusScore: 94,
     wealthTicker: 14204992.00,
     biometricVerified: true,
     activeContext: 'London_Office',
     isOmegaProtocol: false,
+    protocolVersion: 'V4.0_AEGIS_PRIME',
+    heartRate: 68,
+    retinalSync: true,
+    neuralSignature: 'SIG_AEGIS_0x84',
     networkLatency: 0.24,
     quantumEncryptionLevel: 99.9,
     activeNodes: 14204,
@@ -49,16 +62,18 @@ export const NexusProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     privacyScore: 98,
   });
 
-  // Simulate telemetry fluctuations
+  // Simulate complex telemetry fluctuations
   useEffect(() => {
     const interval = setInterval(() => {
       setState(prev => ({
         ...prev,
-        wealthTicker: prev.wealthTicker + (Math.random() * 10 - 5),
-        networkLatency: 0.20 + Math.random() * 0.1,
-        globalFlowVolume: prev.globalFlowVolume + (Math.random() * 1000 - 500)
+        wealthTicker: prev.wealthTicker + (Math.random() * 20 - 10),
+        networkLatency: 0.20 + Math.random() * 0.08,
+        heartRate: 65 + Math.random() * 10,
+        cognitiveLoad: Math.max(5, Math.min(95, prev.cognitiveLoad + (Math.random() * 4 - 2))),
+        globalFlowVolume: prev.globalFlowVolume + (Math.random() * 5000 - 2500)
       }));
-    }, 2000);
+    }, 1500);
     return () => clearInterval(interval);
   }, []);
 

@@ -9,7 +9,9 @@ import {
   Compass, Layers, Terminal, Server, Link as LinkIcon,
   Workflow, Globe2, ShieldAlert, Fingerprint,
   PieChart, Settings, HelpCircle, Map,
-  Key, Target, FileText, Code, Users, BellRing
+  Key, Target, FileText, Code, Users, BellRing,
+  CreditCard, UserPlus, History, BarChart3,
+  Wallet, Layers2, Box
 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
@@ -17,15 +19,28 @@ import { useNexus } from '@/context/NexusStateContext';
 
 const DIMENSIONAL_SECTORS = [
   {
+    id: 'core',
+    label: 'Nexus Core Assets',
+    icon: Wallet,
+    color: 'text-blue-400',
+    nodes: [
+      { id: 'dashboard', label: 'Command Center', path: '/dashboard', shortcut: 'C+C', type: 'HUD' },
+      { id: 'transactions', label: 'Transaction Ledger', path: '/transactions', shortcut: 'T+L', type: 'TRACE' },
+      { id: 'recipients', label: 'Verified Entities', path: '/recipients', shortcut: 'V+E', type: 'OSINT' },
+      { id: 'cards', label: 'Neural Cards', path: '/cards', shortcut: 'N+C', type: 'HARDWARE' },
+      { id: 'crypto', label: 'Quantum Assets', path: '/crypto', shortcut: 'Q+A', type: 'BLOCKCHAIN' },
+    ]
+  },
+  {
     id: 'security',
     label: 'Quantum Guard & Verification',
     icon: Shield,
-    color: 'text-blue-500',
+    color: 'text-cyan-500',
     nodes: [
       { id: 'pq-crypto', label: 'PQ-Cryptography', path: '/pq-crypto', shortcut: 'Q+C', type: 'SECURITY' },
       { id: 'qkd-network', label: 'QKD Networks', path: '/qkd-networks', shortcut: 'Q+N', type: 'CORE' },
-      { id: 'verified-paths', label: 'Verified Paths', path: '/governance-compliance', shortcut: 'V+P', type: 'TRACE' },
-      { id: 'audit-trail', label: 'Immutable Audit', path: '/governance-compliance', shortcut: 'I+A', type: 'COMPLIANCE' },
+      { id: 'biometric', label: 'Bio-Auth Systems', path: '/biometric', shortcut: 'B+A', type: 'BIO' },
+      { id: 'privacy', label: 'ZK-Privacy Shield', path: '/privacy-shield', shortcut: 'P+S', type: 'PRIVACY' },
     ]
   },
   {
@@ -34,46 +49,34 @@ const DIMENSIONAL_SECTORS = [
     icon: Brain,
     color: 'text-purple-500',
     nodes: [
-      { id: 'global-flow', label: 'Live Global Flow', path: '/dashboard', shortcut: 'G+F', type: 'MONITOR' },
-      { id: 'predictive-trace', label: 'Predictive Tracing', path: '/ai-orchestration', shortcut: 'P+T', type: 'AI' },
-      { id: 'risk-engine', label: 'Anomaly Detection', path: '/ai-orchestration', shortcut: 'A+D', type: 'RISK' },
-      { id: 'entity-resolve', label: 'Entity Resolution', path: '/natural-resources', shortcut: 'E+R', type: 'OSINT' },
+      { id: 'orchestration', label: 'AI Orchestration', path: '/ai-orchestration', shortcut: 'A+O', type: 'ORCH' },
+      { id: 'analytics', label: 'Deep Analytics', path: '/advanced-analytics', shortcut: 'D+A', type: 'INTEL' },
+      { id: 'trace-nexus', label: 'Forensic Tracing', path: '/ledger-forensics', shortcut: 'F+T', type: 'FORENSIC' },
+      { id: 'prediction', label: 'Prediction Markets', path: '/prediction-markets', shortcut: 'P+M', type: 'QUANT' },
     ]
   },
   {
-    id: 'privacy',
-    label: 'Privacy & Governance',
-    icon: Lock,
+    id: 'governance',
+    label: 'Protocols & Governance',
+    icon: FileText,
     color: 'text-emerald-500',
     nodes: [
-      { id: 'zk-vault', label: 'Zero-Knowledge Vault', path: '/governance-compliance', shortcut: 'Z+V', type: 'PRIVACY' },
-      { id: 'compliance-hub', label: 'Reg-Tech Matrix', path: '/governance-compliance', shortcut: 'R+M', type: 'LAW' },
-      { id: 'data-privacy', label: 'Data Sovereignty', path: '/ip-digital-rights', shortcut: 'D+S', type: 'SOVEREIGN' },
-      { id: 'consent-mgr', label: 'Consent Manager', path: '/governance-compliance', shortcut: 'C+M', type: 'USER' },
+      { id: 'compliance', label: 'Compliance Suite', path: '/compliance', shortcut: 'C+S', type: 'LAW' },
+      { id: 'policy', label: 'Governance Policy', path: '/governance', shortcut: 'G+P', type: 'DAO' },
+      { id: 'vault', label: 'Ownership Vault', path: '/governance-vault', shortcut: 'O+V', type: 'ASSET' },
+      { id: 'crisis', label: 'Crisis Management', path: '/emergency', shortcut: 'E+M', type: 'OMEGA' },
     ]
   },
   {
-    id: 'portals',
-    label: 'Dimensional Gateways',
+    id: 'frontiers',
+    label: 'Interstellar Frontiers',
     icon: Globe,
-    color: 'text-cyan-500',
-    nodes: [
-      { id: 'earth-ops', label: 'Earth Operations', path: '/dashboard', shortcut: 'E+1', type: 'DIMENSION' },
-      { id: 'mars-nexus', label: 'Mars Colony Fund', path: '/real-assets', shortcut: 'M+2', type: 'COLONY' },
-      { id: 'orbital-station', label: 'Orbital Assets', path: '/real-assets', shortcut: 'O+3', type: 'STATION' },
-      { id: 'multiverse-hedge', label: 'Multiverse Hedge', path: '/multiverse-arbitrage', shortcut: 'X+4', type: 'EXOTIC' },
-    ]
-  },
-  {
-    id: 'ops',
-    label: 'Operations & Identity',
-    icon: Cpu,
     color: 'text-amber-500',
     nodes: [
-      { id: 'nexus-identity', label: 'Neural Identity', path: '/neural-interface-banking', shortcut: 'N+I', type: 'BIO' },
-      { id: 'collab-hub', label: 'Workspace Manager', path: '/dashboard', shortcut: 'W+M', type: 'TEAM' },
-      { id: 'api-nexus', label: 'Integration Hub', path: '/dashboard', shortcut: 'A+I', type: 'DEV' },
-      { id: 'performance', label: 'System Telemetry', path: '/dashboard', shortcut: 'S+T', type: 'OPS' },
+      { id: 'space', label: 'Space Economy', path: '/space-economy', shortcut: 'S+E', type: 'ORBITAL' },
+      { id: 'multiverse', label: 'Multiverse Arb', path: '/multiverse-arbitrage', shortcut: 'M+A', type: 'EXOTIC' },
+      { id: 'metaverse', label: 'Metaverse Hub', path: '/metaverse-banking', shortcut: 'M+H', type: 'VIRTUAL' },
+      { id: 'natural', label: 'Natural Resources', path: '/natural-resources', shortcut: 'N+R', type: 'GEO' },
     ]
   }
 ];
@@ -95,7 +98,7 @@ const SwarmIntelFeed = () => {
          {[
            { label: 'Global Liquidity', val: (state.globalFlowVolume / 1000).toFixed(1) + 'M', color: 'text-blue-400' },
            { label: 'Privacy Index', val: state.privacyScore + '.00%', color: 'text-emerald-400' },
-           { label: 'Threat Surface', val: 'Minimal', color: 'text-slate-500' }
+           { label: 'Network Latency', val: state.networkLatency.toFixed(2) + 'ms', color: 'text-cyan-400' }
          ].map((item, i) => (
            <div key={i} className="flex justify-between items-center group cursor-pointer hover:translate-x-1 transition-transform">
               <span className="text-[9px] font-bold text-slate-600 uppercase tracking-widest">{item.label}</span>
@@ -108,6 +111,7 @@ const SwarmIntelFeed = () => {
 };
 
 const QuickIntentOrb = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   
   return (
@@ -150,11 +154,15 @@ const QuickIntentOrb = () => {
              className="absolute bottom-full left-6 right-6 mb-4 p-4 glass-omega rounded-[2rem] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] z-50 flex flex-col gap-2"
            >
               {[
-                { label: 'Correlate Chains', icon: LinkIcon, type: 'DEEP_TRACE' },
-                { label: 'Compliance Audit', icon: FileText, type: 'LAW' },
-                { label: 'Neural Scan', icon: Eye, type: 'FORENSIC' },
+                { label: 'Support Nexus', icon: HelpCircle, path: '/support', type: 'HELP' },
+                { id: 'settings', label: 'Security Hub', icon: Settings, path: '/settings', type: 'CONFIG' },
+                { id: 'forensics', label: 'Deep Trace', icon: Search, path: '/ledger-forensics', type: 'FORENSIC' },
               ].map((act, i) => (
-                <button key={i} className="flex items-center justify-between p-4 hover:bg-white/5 rounded-2xl transition-all group/item">
+                <button 
+                  key={i} 
+                  onClick={() => { navigate(act.path); setIsOpen(false); }}
+                  className="flex items-center justify-between p-4 hover:bg-white/5 rounded-2xl transition-all group/item"
+                >
                    <div className="flex items-center gap-3">
                       <act.icon className="w-4 h-4 text-slate-500 group-hover/item:text-blue-400" />
                       <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest group-hover/item:text-white">{act.label}</span>
@@ -170,27 +178,17 @@ const QuickIntentOrb = () => {
 };
 
 const QuantumSidebar = () => {
-  const [expanded, setExpanded] = useState<string | null>('security');
+  const [expanded, setExpanded] = useState<string | null>('core');
   const { state } = useNexus();
   const navigate = useNavigate();
   const location = useLocation();
 
   return (
     <aside className={cn(
-      "w-80 h-screen fixed left-0 top-0 pt-28 border-r border-white/5 flex flex-col z-[90] backdrop-blur-[60px] transition-all duration-700",
+      "w-80 h-screen fixed left-0 top-0 pt-32 border-r border-white/5 flex flex-col z-[90] backdrop-blur-[80px] transition-all duration-700",
       state.isOmegaProtocol ? "bg-red-950/20" : "bg-black/40"
     )}>
        <div className="flex-1 overflow-y-auto custom-scrollbar px-4 py-8 space-y-8">
-          <div className="px-4 flex items-center justify-between">
-             <div className="flex flex-col">
-                <span className="text-[11px] font-black text-white uppercase tracking-[0.2em]">Absolute Navigation</span>
-                <span className="text-[7px] font-black text-slate-600 uppercase tracking-[0.5em] mt-1 italic">Dimensional Spine v1.0</span>
-             </div>
-             <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center border border-white/5">
-                <MenuIcon />
-             </div>
-          </div>
-
           <nav className="space-y-4">
              {DIMENSIONAL_SECTORS.map((sector) => {
                const isActive = sector.nodes.some(n => location.pathname === n.path);
@@ -262,10 +260,9 @@ const QuantumSidebar = () => {
              })}
           </nav>
 
-          {/* Performance Heatmap Simulation */}
           <div className="px-4 py-6 glass-omega rounded-2xl border border-white/5 space-y-4">
              <div className="flex items-center justify-between">
-                <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">Network Heatmap</span>
+                <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest">Global Entropy</span>
                 <Activity className="w-3 h-3 text-slate-600" />
              </div>
              <div className="grid grid-cols-8 gap-1">
@@ -280,10 +277,6 @@ const QuantumSidebar = () => {
                   />
                 ))}
              </div>
-             <div className="flex justify-between text-[7px] font-black text-slate-700 uppercase tracking-widest">
-                <span>London_Node</span>
-                <span>Active_Pulse</span>
-             </div>
           </div>
        </div>
 
@@ -292,14 +285,5 @@ const QuantumSidebar = () => {
     </aside>
   );
 };
-
-const MenuIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-slate-500">
-     <rect x="2" y="2" width="3" height="3" rx="0.5" fill="currentColor" fillOpacity="0.5" />
-     <rect x="7" y="2" width="3" height="3" rx="0.5" fill="currentColor" fillOpacity="0.5" />
-     <rect x="2" y="7" width="3" height="3" rx="0.5" fill="currentColor" fillOpacity="0.5" />
-     <rect x="7" y="7" width="3" height="3" rx="0.5" fill="currentColor" />
-  </svg>
-);
 
 export default QuantumSidebar;
