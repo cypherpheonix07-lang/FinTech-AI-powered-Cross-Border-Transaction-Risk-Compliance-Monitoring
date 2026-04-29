@@ -117,7 +117,7 @@ const PageLoader = () => {
 export const AppRoutes = ({ onTrackTransaction }: { onTrackTransaction: (id: string) => void }) => (
   <Suspense fallback={<PageLoader />}>
     <Routes>
-      <Route index element={<Navigate to="/dashboard" replace />} />
+      <Route index element={<DashboardOverview onTrackTransaction={onTrackTransaction} />} />
       <Route path="dashboard" element={<DashboardOverview onTrackTransaction={onTrackTransaction} />} />
       <Route path="transactions" element={<TransactionsPage />} />
       <Route path="recipients" element={<RecipientsPage />} />

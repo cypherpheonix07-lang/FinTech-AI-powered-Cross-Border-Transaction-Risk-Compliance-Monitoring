@@ -22,8 +22,8 @@ export default function App() {
           />
         } />
         
-        {/* Landing Page */}
-        <Route path="/welcome" element={
+        {/* Default Landing Page */}
+        <Route path="/" element={
           <div className="min-h-screen bg-[#020617] text-white font-sans selection:bg-blue-500/30 overflow-hidden relative">
             {/* Ambient Background Elements */}
             <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/20 rounded-full blur-[120px] animate-pulse" />
@@ -45,7 +45,7 @@ export default function App() {
                   <a href="#" className="hover:text-white transition-colors">Security</a>
                 </div>
                 <button 
-                  onClick={() => navigate('/login')}
+                  onClick={() => navigate('/dashboard')}
                   className="px-6 py-2.5 bg-white text-black text-xs font-black uppercase tracking-widest rounded-full hover:bg-slate-200 transition-all active:scale-95 shadow-xl shadow-white/10"
                 >
                   Enter Nexus
@@ -195,9 +195,9 @@ export default function App() {
           </div>
         } />
 
-        {/* Protected Dashboard Routes */}
-        <Route path="/" element={<DashboardLayout />}>
-           <Route path="/*" element={<AppRoutes onTrackTransaction={(id) => navigate(`/visualizer/${id}`)} />} />
+        {/* Dashboard & App System (Absolute Path Handling) */}
+        <Route path="/*" element={<DashboardLayout />}>
+           <Route path="*" element={<AppRoutes onTrackTransaction={(id) => navigate(`/visualizer/${id}`)} />} />
         </Route>
 
         <Route path="/visualizer/:code" element={<Visualizer />} />
