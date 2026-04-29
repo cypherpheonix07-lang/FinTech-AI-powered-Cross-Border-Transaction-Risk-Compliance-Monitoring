@@ -71,6 +71,26 @@ export default function MPCWalletsPage() {
         </div>
       </div>
 
+      {/* Tab Navigation */}
+      <div className="flex bg-slate-100 p-1.5 rounded-2xl w-fit border border-slate-200">
+        {[
+          { id: 'topology', label: 'Network Topology', icon: Activity },
+          { id: 'shares', label: 'Key Shares', icon: Key },
+          { id: 'rotation', label: 'Rotation Policy', icon: Lock },
+        ].map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id as any)}
+            className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold uppercase transition-all ${
+              activeTab === tab.id ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'
+            }`}
+          >
+            <tab.icon className="w-4 h-4" />
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm lg:col-span-2">
           <h3 className="font-bold text-slate-900 mb-6 flex items-center gap-2">
@@ -104,46 +124,66 @@ export default function MPCWalletsPage() {
         </div>
 
         <div className="space-y-6">
-           <div className="bg-slate-900 rounded-3xl p-8 text-white relative overflow-hidden group shadow-2xl">
-              <div className="absolute top-0 right-0 p-8 text-blue-500/20 group-hover:text-blue-400/30 transition-colors">
-                 <Shield className="w-32 h-32" />
-              </div>
-              <h3 className="text-xl font-bold mb-4 relative">MPC Nodes Topology</h3>
-              <p className="text-slate-400 text-sm mb-8 leading-relaxed relative">
-                 Active orchestration of key shares across cloud-agnostic trusted execution environments (TEE).
-              </p>
-              <div className="space-y-4 relative">
-                 {mpcNodes.map((node) => (
-                    <div key={node.id} className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/10">
-                       <div className="flex items-center gap-3">
-                          <div className={`w-2 h-2 rounded-full ${node.health === 'Optimal' ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]' : 'bg-amber-500 animate-pulse'}`}></div>
-                          <div className="text-xs">
-                             <div className="font-bold text-white">{node.location}</div>
-                             <div className="text-[10px] text-slate-500">{node.type}</div>
-                          </div>
-                       </div>
-                       <div className="text-xs font-mono text-blue-400">{node.share}</div>
-                    </div>
-                 ))}
-              </div>
-           </div>
+           {activeTab === 'topology' && (
+             <div className="bg-slate-900 rounded-3xl p-8 text-white relative overflow-hidden group shadow-2xl animate-in fade-in duration-500">
+                <div className="absolute top-0 right-0 p-8 text-blue-500/20 group-hover:text-blue-400/30 transition-colors">
+                   <Shield className="w-32 h-32" />
+                </div>
+                <h3 className="text-xl font-bold mb-4 relative">MPC Nodes Topology</h3>
+                <p className="text-slate-400 text-sm mb-8 leading-relaxed relative">
+                   Active orchestration of key shares across cloud-agnostic trusted execution environments (TEE).
+                </p>
+                <div className="space-y-4 relative">
+                   {mpcNodes.map((node) => (
+                      <div key={node.id} className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/10">
+                         <div className="flex items-center gap-3">
+                            <div className={`w-2 h-2 rounded-full ${node.health === 'Optimal' ? 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]' : 'bg-amber-500 animate-pulse'}`}></div>
+                            <div className="text-xs">
+                               <div className="font-bold text-white">{node.location}</div>
+                               <div className="text-[10px] text-slate-500">{node.type}</div>
+                            </div>
+                         </div>
+                         <div className="text-xs font-mono text-blue-400">{node.share}</div>
+                      </div>
+                   ))}
+                </div>
+             </div>
+           )}
 
-           <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
-              <div className="flex items-center gap-3 mb-4">
-                 <AlertCircle className="w-5 h-5 text-amber-600" />
-                 <h3 className="font-bold text-slate-900">Security Compliance</h3>
-              </div>
-              <div className="space-y-4">
-                 <div className="flex justify-between items-center text-xs">
-                    <span className="text-slate-500">Key Refresh Interval</span>
-                    <span className="font-bold text-slate-700">30 Days</span>
-                 </div>
-                 <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
-                    <div className="h-full bg-blue-600 transition-all duration-1000" style={{ width: '85%' }}></div>
-                 </div>
-                 <div className="text-[10px] text-slate-400 text-center">Next rotation in 4 days</div>
-              </div>
-           </div>
+           {activeTab === 'shares' && (
+             <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm animate-in fade-in duration-500">
+                <h3 className="text-xl font-bold text-slate-900 mb-4">Key Share Distribution</h3>
+                <p className="text-sm text-slate-500 mb-6">Each institutional signer holds a cryptographically unique share generated via FROST.</p>
+                <div className="space-y-3">
+                   {['Custodian Share Alpha', 'Custodian Share Beta', 'Recovery Share'].map((s, i) => (
+                      <div key={s} className="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-100">
+                         <span className="text-xs font-bold text-slate-700">{s}</span>
+                         <span className="text-[10px] font-mono text-slate-400">0x...{i}F9</span>
+                      </div>
+                   ))}
+                </div>
+             </div>
+           )}
+
+           {activeTab === 'rotation' && (
+             <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm animate-in fade-in duration-500">
+                <div className="flex items-center gap-3 mb-4">
+                   <AlertCircle className="w-5 h-5 text-amber-600" />
+                   <h3 className="font-bold text-slate-900">Rotation Schedule</h3>
+                </div>
+                <div className="space-y-4">
+                   <div className="flex justify-between items-center text-xs">
+                      <span className="text-slate-500">Key Refresh Interval</span>
+                      <span className="font-bold text-slate-700">30 Days</span>
+                   </div>
+                   <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                      <div className="h-full bg-blue-600 transition-all duration-1000" style={{ width: '85%' }}></div>
+                   </div>
+                   <div className="text-[10px] text-slate-400 text-center">Next rotation in 4 days</div>
+                   <button className="w-full py-2 bg-indigo-600 text-white rounded-lg text-xs font-bold shadow-lg shadow-indigo-600/20 active:scale-95 transition-all">Rotate Now</button>
+                </div>
+             </div>
+           )}
         </div>
       </div>
 

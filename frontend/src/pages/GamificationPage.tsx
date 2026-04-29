@@ -14,7 +14,9 @@ import {
   Award,
   Medal,
   RefreshCw,
-  Coins
+  Coins,
+  Lock,
+  History
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -228,5 +230,3 @@ export default function GamificationPage() {
     </div>
   );
 }
-
-import { Lock, History } from 'lucide-react';

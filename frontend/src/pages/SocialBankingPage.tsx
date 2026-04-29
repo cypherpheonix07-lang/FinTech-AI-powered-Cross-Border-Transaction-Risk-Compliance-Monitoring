@@ -117,45 +117,76 @@ export default function SocialBankingPage() {
              </div>
            )}
 
-           {activeTab === 'groups' && (
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[
-                  { name: 'Ibiza Trip 🏝️', balance: '£1,420 / £2,500', members: 6, color: 'bg-emerald-500' },
-                  { name: 'Rent & Utilities 🏠', balance: '£850 / £850', members: 3, color: 'bg-blue-600', completed: true },
-                  { name: 'Dinner Group 🍱', balance: '£42.50', members: 4, color: 'bg-amber-500' },
-                ].map((group) => (
-                  <div key={group.name} className="bg-white p-8 rounded-[3rem] border border-slate-200 shadow-sm relative overflow-hidden group hover:border-blue-200 transition-all">
-                     <div className={cn("absolute top-0 right-0 w-24 h-24 blur-3xl opacity-10 -mr-8 -mt-8", group.color)} />
-                     <div className="flex justify-between items-start mb-8 relative z-10">
-                        <div className={cn("p-3 rounded-2.5xl text-white shadow-lg", group.color)}>
-                           <Users2 className="w-6 h-6" />
-                        </div>
-                        <div className="flex -space-x-3">
-                           {[1, 2, 3].map(i => (
-                             <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-[10px] font-black text-slate-400 shadow-sm">
-                                {String.fromCharCode(64 + i)}
-                             </div>
-                           ))}
-                           <div className="w-10 h-10 rounded-full border-2 border-white bg-slate-900 flex items-center justify-center text-[10px] font-black text-white shadow-sm">
-                              +{group.members - 3}
-                           </div>
-                        </div>
-                     </div>
-                     <h3 className="text-xl font-black text-slate-900 mb-2">{group.name}</h3>
-                     <div className="space-y-2">
-                        <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-slate-400">
-                           <span>Pool Balance</span>
-                           <span className="text-slate-900">{group.balance}</span>
-                        </div>
-                        <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                           <div className={cn("h-full transition-all duration-1000", group.color, group.completed ? 'w-full' : 'w-3/5')} />
-                        </div>
-                     </div>
-                  </div>
-                ))}
-             </div>
-           )}
-        </div>
+            {activeTab === 'groups' && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-in slide-in-from-bottom-2 duration-500">
+                 {[
+                   { name: 'Ibiza Trip 🏝️', balance: '£1,420 / £2,500', members: 6, color: 'bg-emerald-500' },
+                   { name: 'Rent & Utilities 🏠', balance: '£850 / £850', members: 3, color: 'bg-blue-600', completed: true },
+                   { name: 'Dinner Group 🍱', balance: '£42.50', members: 4, color: 'bg-amber-500' },
+                 ].map((group) => (
+                   <div key={group.name} className="bg-white p-8 rounded-[3rem] border border-slate-200 shadow-sm relative overflow-hidden group hover:border-blue-200 transition-all">
+                      <div className={cn("absolute top-0 right-0 w-24 h-24 blur-3xl opacity-10 -mr-8 -mt-8", group.color)} />
+                      <div className="flex justify-between items-start mb-8 relative z-10">
+                         <div className={cn("p-3 rounded-2.5xl text-white shadow-lg", group.color)}>
+                            <Users2 className="w-6 h-6" />
+                         </div>
+                         <div className="flex -space-x-3">
+                            {[1, 2, 3].map(i => (
+                              <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-[10px] font-black text-slate-400 shadow-sm">
+                                 {String.fromCharCode(64 + i)}
+                              </div>
+                            ))}
+                            <div className="w-10 h-10 rounded-full border-2 border-white bg-slate-900 flex items-center justify-center text-[10px] font-black text-white shadow-sm">
+                               +{group.members - 3}
+                            </div>
+                         </div>
+                      </div>
+                      <h3 className="text-xl font-black text-slate-900 mb-2">{group.name}</h3>
+                      <div className="space-y-2">
+                         <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-slate-400">
+                            <span>Pool Balance</span>
+                            <span className="text-slate-900">{group.balance}</span>
+                         </div>
+                         <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                            <div className={cn("h-full transition-all duration-1000", group.color, group.completed ? 'w-full' : 'w-3/5')} />
+                         </div>
+                      </div>
+                   </div>
+                 ))}
+              </div>
+            )}
+
+            {activeTab === 'requests' && (
+              <div className="space-y-4 animate-in slide-in-from-bottom-2 duration-500">
+                 {[
+                   { name: 'Dinesh K.', for: 'Uber to Airport', amount: '£18.50', time: '12h ago', status: 'Pending' },
+                   { name: 'Chloe M.', for: 'Birthday Gift', amount: '£40.00', time: '1d ago', status: 'Pending' },
+                   { name: 'Marcus T.', for: 'Joint Pizza Night', amount: '£12.00', time: '3d ago', status: 'Action Required' },
+                 ].map((req) => (
+                   <div key={req.name + req.for} className="bg-white p-6 rounded-[2.5rem] border border-slate-200 shadow-sm flex items-center justify-between group hover:border-orange-200 transition-all">
+                      <div className="flex items-center gap-4">
+                         <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100">
+                            <Repeat className="w-5 h-5 text-slate-400" />
+                         </div>
+                         <div>
+                            <p className="text-sm font-black text-slate-900">{req.name}</p>
+                            <p className="text-xs text-slate-400 font-medium italic">"{req.for}"</p>
+                         </div>
+                      </div>
+                      <div className="text-right">
+                         <p className="text-lg font-black text-slate-900">{req.amount}</p>
+                         <div className="flex gap-2 mt-2">
+                            <Button className="bg-blue-600 text-white rounded-xl px-4 py-1.5 font-black text-[10px] uppercase h-8">Pay</Button>
+                            <Button variant="ghost" className="rounded-xl px-4 py-1.5 font-bold text-[10px] uppercase h-8 text-slate-400">Decline</Button>
+                         </div>
+                      </div>
+                   </div>
+                 ))}
+                 <div className="p-8 text-center border-2 border-dashed border-slate-100 rounded-[2.5rem]">
+                    <p className="text-xs font-bold text-slate-300 uppercase tracking-widest">No more pending requests</p>
+                 </div>
+              </div>
+            )}
 
         {/* Right Column: Challenges & Requests */}
         <div className="lg:col-span-4 space-y-6">

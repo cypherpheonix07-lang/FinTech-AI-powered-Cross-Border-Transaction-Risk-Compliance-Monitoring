@@ -15,7 +15,7 @@ import {
   TrendingUp, Activity, Lock, Database, Search,
   ChevronRight, ChevronDown, Command
 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
 const GALACTIC_SECTORS = [
@@ -65,41 +65,51 @@ const GALACTIC_SECTORS = [
 export function SidebarContent() {
   const [expandedSector, setExpandedSector] = useState<string | null>('planetary');
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <nav className="flex-1 overflow-y-auto p-4 custom-scrollbar">
-      {GALACTIC_SECTORS.map((sector) => (
-        <div key={sector.id} className="mb-2">
-          <button
-            onClick={() => setExpandedSector(expandedSector === sector.id ? null : sector.id)}
-            className={cn(
-              "w-full flex items-center gap-3 p-3 rounded-lg text-sm transition-all",
-              expandedSector === sector.id ? "bg-white/5 text-white" : "text-zinc-500 hover:text-zinc-300"
-            )}
-          >
-            {sector.icon}
-            <span className="font-medium flex-1 text-left">{sector.label}</span>
-            {expandedSector === sector.id ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
-          </button>
+      {GALACTIC_SECTORS.map((sector) => {
+        const isSectorActive = sector.subsectors.some(sub => location.pathname === sub.path);
+        
+        return (
+          <div key={sector.id} className="mb-2">
+            <button
+              onClick={() => setExpandedSector(expandedSector === sector.id ? null : sector.id)}
+              className={cn(
+                "w-full flex items-center gap-3 p-3 rounded-lg text-sm transition-all",
+                (expandedSector === sector.id || isSectorActive) ? "bg-white/5 text-white" : "text-zinc-500 hover:text-zinc-300"
+              )}
+            >
+              {sector.icon}
+              <span className="font-medium flex-1 text-left">{sector.label}</span>
+              {expandedSector === sector.id ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+            </button>
 
-          {expandedSector === sector.id && (
-            <div className="mt-1 ml-7 space-y-1 border-l border-white/5 pl-4">
-              {sector.subsectors.map((sub) => (
-                <button
-                  key={sub.id}
-                  onClick={() => navigate(sub.path)}
-                  className="w-full group flex items-center justify-between p-2 rounded-md text-[11px] text-zinc-500 hover:bg-white/5 hover:text-blue-400 transition-all text-left"
-                >
-                  <span>{sub.label}</span>
-                  <span className="text-[9px] font-mono opacity-0 group-hover:opacity-50">
-                    {sub.featuresCount} FEATURES
-                  </span>
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-      ))}
+            {expandedSector === sector.id && (
+              <div className="mt-1 ml-7 space-y-1 border-l border-white/5 pl-4">
+                {sector.subsectors.map((sub) => (
+                  <button
+                    key={sub.id}
+                    onClick={() => navigate(sub.path)}
+                    className={cn(
+                      "w-full group flex items-center justify-between p-2 rounded-md text-[11px] transition-all text-left",
+                      location.pathname === sub.path 
+                        ? "bg-blue-600/10 text-blue-400 border-l-2 border-blue-600 -ml-[17px] pl-[15px]" 
+                        : "text-zinc-500 hover:bg-white/5 hover:text-blue-400"
+                    )}
+                  >
+                    <span>{sub.label}</span>
+                    <span className="text-[9px] font-mono opacity-0 group-hover:opacity-50">
+                      {sub.featuresCount} FEATURES
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      })}
     </nav>
   );
 }

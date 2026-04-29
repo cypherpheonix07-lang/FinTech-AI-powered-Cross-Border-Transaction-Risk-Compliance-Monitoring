@@ -68,13 +68,31 @@ export default function TravelLifestylePage() {
                     <Plane className="w-6 h-6 text-blue-600" /> Planned Mobility
                  </h3>
                  <div className="flex bg-slate-100 p-1 rounded-2xl">
-                    <button className="px-4 py-2 text-[10px] font-black uppercase rounded-xl bg-white shadow-sm text-slate-900">Active</button>
-                    <button className="px-4 py-2 text-[10px] font-black uppercase text-slate-400">Past</button>
+                    <button 
+                      onClick={() => setActiveTab('upcoming')}
+                      className={cn(
+                        "px-4 py-2 text-[10px] font-black uppercase rounded-xl transition-all",
+                        activeTab === 'upcoming' ? "bg-white shadow-sm text-slate-900" : "text-slate-400 hover:text-slate-600"
+                      )}
+                    >
+                      Active
+                    </button>
+                    <button 
+                      onClick={() => setActiveTab('past')}
+                      className={cn(
+                        "px-4 py-2 text-[10px] font-black uppercase rounded-xl transition-all",
+                        activeTab === 'past' ? "bg-white shadow-sm text-slate-900" : "text-slate-400 hover:text-slate-600"
+                      )}
+                    >
+                      Past
+                    </button>
                  </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                 {travels.map((plan) => (
+                 {travels
+                   .filter(plan => activeTab === 'upcoming' ? plan.status !== 'Past' : plan.status === 'Past')
+                   .map((plan) => (
                    <div key={plan.id} className="bg-white rounded-[3.5rem] border border-slate-200 shadow-sm hover:border-blue-200 transition-all group overflow-hidden flex flex-col cursor-pointer">
                       <div className={cn("h-40 flex items-center justify-center text-5xl group-hover:scale-110 transition-transform duration-700", plan.color)}>
                          {plan.image}
@@ -98,6 +116,11 @@ export default function TravelLifestylePage() {
                       </div>
                    </div>
                  ))}
+                 {travels.filter(plan => activeTab === 'upcoming' ? plan.status !== 'Past' : plan.status === 'Past').length === 0 && (
+                   <div className="col-span-2 py-20 text-center border-2 border-dashed border-slate-100 rounded-[3rem]">
+                     <p className="text-sm font-bold text-slate-400 uppercase tracking-widest italic">No {activeTab} adventures found.</p>
+                   </div>
+                 )}
               </div>
            </div>
 
