@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { Sidebar, SidebarContent } from './Sidebar';
-import Header from './Header';
+import NeuralNavbar from './NeuralNavbar';
+import QuantumSidebar from './QuantumSidebar';
 import CommandCenter from './CommandCenter';
 import { ErrorBoundary } from '../ErrorBoundary';
 import { cn } from '@/lib/utils';
-import { X } from 'lucide-react';
 
 export default function DashboardLayout() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCommandOpen, setIsCommandOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -23,58 +21,37 @@ export default function DashboardLayout() {
     return () => document.removeEventListener('keydown', down);
   }, []);
 
-  const handleLogout = () => {
-    navigate('/login');
-  };
-
   return (
-    <div className="min-h-screen bg-transparent flex">
-      {/* Desktop Sidebar */}
-      <Sidebar />
+    <div className="min-h-screen bg-[#050505] text-white selection:bg-blue-500/30">
+      {/* 🌌 Neural HUD Layer (Top) */}
+      <NeuralNavbar onOpenCommand={() => setIsCommandOpen(true)} />
 
-      {/* Mobile Sidebar Overlay */}
-      {isMobileMenuOpen && (
-        <div 
-          className="fixed inset-0 bg-black/60 backdrop-blur-xl z-[60] lg:hidden"
-          onClick={() => setIsMobileMenuOpen(false)}
-        />
-      )}
+      {/* 🌀 Quantum Navigation Layer (Side) */}
+      <QuantumSidebar />
 
-      {/* Mobile Sidebar Content */}
-      <div className={cn(
-        "fixed inset-y-0 left-0 w-80 bg-black z-[70] lg:hidden transition-transform duration-300 ease-in-out transform flex flex-col border-r border-white/5 glass-omega",
-        isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-      )}>
-        <div className="flex justify-end p-4">
-          <button 
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="p-2 text-blue-200 hover:text-white transition-colors"
-          >
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-        <SidebarContent />
+      {/* 🌫️ Background Atmosphere */}
+      <div className="fixed inset-0 pointer-events-none -z-10">
+        <div className="absolute top-0 left-1/4 w-[1000px] h-[600px] bg-blue-600/5 rounded-full blur-[150px] animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-[800px] h-[500px] bg-purple-600/5 rounded-full blur-[150px] animate-pulse delay-1000" />
       </div>
 
-      {/* Main Content Area */}
-      <div className="flex-1 lg:ml-72 flex flex-col min-h-screen relative">
-        <Header 
-          onMenuClick={() => setIsMobileMenuOpen(true)} 
-          onSearchClick={() => setIsCommandOpen(true)}
-        />
-        
+      {/* 🚀 Main Command Area */}
+      <div className="flex flex-col min-h-screen pt-24 ml-72 relative">
         <CommandCenter 
           isOpen={isCommandOpen} 
           onClose={() => setIsCommandOpen(false)} 
         />
         
-        <main className="flex-1 p-4 md:p-8 overflow-x-hidden">
+        <main className="flex-1 p-8 overflow-x-hidden relative">
           <ErrorBoundary>
             <div className="animate-fade-up">
               <Outlet />
             </div>
           </ErrorBoundary>
         </main>
+
+        {/* Floating Scanlines / Noise Overlay for Aesthetic */}
+        <div className="fixed inset-0 pointer-events-none z-[200] opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
       </div>
     </div>
   );

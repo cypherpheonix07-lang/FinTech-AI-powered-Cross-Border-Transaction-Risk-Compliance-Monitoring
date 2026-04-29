@@ -1,6 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Rajdhani', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
+}
 
 @layer base {
   :root {
@@ -171,6 +183,26 @@
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
     background-size: 200% 100%;
     animation: shimmer 2s infinite;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .translate-z-24 {
+    transform: translateZ(24px);
+  }
+
+  .-translate-z-24 {
+    transform: translateZ(-24px);
+  }
+
+  .holographic-glow {
+    text-shadow: 0 0 10px hsla(var(--aegis-blue), 0.5), 0 0 20px hsla(var(--aegis-cyan), 0.3);
+  }
+
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
   }
 
   @keyframes shimmer {
