@@ -8,11 +8,17 @@ interface NexusState {
   mode: SystemMode;
   threatLevel: ThreatLevel;
   neuralState: NeuralState;
-  cognitiveLoad: number; // 0-100
+  cognitiveLoad: number;
   wealthTicker: number;
   biometricVerified: boolean;
   activeContext: string;
   isOmegaProtocol: boolean;
+  // Quantum & Network Telemetry
+  networkLatency: number; // in ms
+  quantumEncryptionLevel: number; // 0-100%
+  activeNodes: number;
+  globalFlowVolume: number; // in BTC/USD equivalent
+  privacyScore: number; // 0-100
 }
 
 interface NexusContextType {
@@ -21,6 +27,7 @@ interface NexusContextType {
   setThreatLevel: (level: ThreatLevel) => void;
   setNeuralState: (state: NeuralState) => void;
   toggleOmegaProtocol: () => void;
+  updateTelemetry: (telemetry: Partial<NexusState>) => void;
 }
 
 const NexusContext = createContext<NexusContextType | undefined>(undefined);
@@ -35,16 +42,23 @@ export const NexusProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     biometricVerified: true,
     activeContext: 'London_Office',
     isOmegaProtocol: false,
+    networkLatency: 0.24,
+    quantumEncryptionLevel: 99.9,
+    activeNodes: 14204,
+    globalFlowVolume: 842049.22,
+    privacyScore: 98,
   });
 
-  // Simulate real-time wealth fluctuation
+  // Simulate telemetry fluctuations
   useEffect(() => {
     const interval = setInterval(() => {
       setState(prev => ({
         ...prev,
-        wealthTicker: prev.wealthTicker + (Math.random() * 10 - 5)
+        wealthTicker: prev.wealthTicker + (Math.random() * 10 - 5),
+        networkLatency: 0.20 + Math.random() * 0.1,
+        globalFlowVolume: prev.globalFlowVolume + (Math.random() * 1000 - 500)
       }));
-    }, 3000);
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 
@@ -52,9 +66,10 @@ export const NexusProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const setThreatLevel = (threatLevel: ThreatLevel) => setState(prev => ({ ...prev, threatLevel }));
   const setNeuralState = (neuralState: NeuralState) => setState(prev => ({ ...prev, neuralState }));
   const toggleOmegaProtocol = () => setState(prev => ({ ...prev, isOmegaProtocol: !prev.isOmegaProtocol }));
+  const updateTelemetry = (telemetry: Partial<NexusState>) => setState(prev => ({ ...prev, ...telemetry }));
 
   return (
-    <NexusContext.Provider value={{ state, setMode, setThreatLevel, setNeuralState, toggleOmegaProtocol }}>
+    <NexusContext.Provider value={{ state, setMode, setThreatLevel, setNeuralState, toggleOmegaProtocol, updateTelemetry }}>
       {children}
     </NexusContext.Provider>
   );
