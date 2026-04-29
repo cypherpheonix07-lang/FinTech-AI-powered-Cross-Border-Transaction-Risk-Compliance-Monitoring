@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { AlertTriangle } from 'lucide-react';
 import NeuralNavbar from './NeuralNavbar';
 import QuantumSidebar from './QuantumSidebar';
 import CommandCenter from './CommandCenter';
@@ -78,7 +80,7 @@ function DashboardLayoutContent() {
           onClose={() => setIsCommandOpen(false)} 
         />
         
-        <main className="flex-1 p-10 overflow-x-hidden relative">
+        <main className="flex-1 p-10 overflow-x-hidden relative text-white">
           <ErrorBoundary>
             <div className="animate-fade-up">
               <Outlet />
@@ -92,8 +94,6 @@ function DashboardLayoutContent() {
     </div>
   );
 }
-
-import { motion } from 'framer-motion';
 
 export default function DashboardLayout() {
   return (
