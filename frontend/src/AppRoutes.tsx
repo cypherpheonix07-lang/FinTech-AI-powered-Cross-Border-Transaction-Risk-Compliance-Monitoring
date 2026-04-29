@@ -301,6 +301,42 @@ export const AppRoutes = ({ onTrackTransaction }: { onTrackTransaction: (id: str
         <Route path="omega-thought-control" element={<ComplianceSuitePage />} />
         <Route path="omega-consciousness" element={<ComplianceSuitePage />} />
 
+        {/* Command Palette Sub-route Mappings (Resolving 404s) */}
+        <Route path="cbdc-conversion" element={<CBDCIntegrationPage />} />
+        <Route path="cbdc-history" element={<CBDCIntegrationPage />} />
+        <Route path="cbdc-interest" element={<CBDCIntegrationPage />} />
+        <Route path="cbdc-smart" element={<CBDCIntegrationPage />} />
+        <Route path="cbdc-crossborder" element={<CBDCIntegrationPage />} />
+        <Route path="cbdc-tax" element={<CBDCIntegrationPage />} />
+        <Route path="cbdc-privacy" element={<CBDCIntegrationPage />} />
+
+        <Route path="quantum-encryption" element={<QuantumSafeSecurityPage />} />
+        <Route path="quantum-keydist" element={<QuantumSafeSecurityPage />} />
+        <Route path="quantum-rng" element={<QuantumSafeSecurityPage />} />
+        <Route path="quantum-auth" element={<QuantumSafeSecurityPage />} />
+        <Route path="quantum-monitor" element={<QuantumSafeSecurityPage />} />
+        <Route path="quantum-upgrade" element={<QuantumSafeSecurityPage />} />
+        <Route path="quantum-cert" element={<QuantumSafeSecurityPage />} />
+        <Route path="quantum-backup" element={<QuantumSafeSecurityPage />} />
+
+        <Route path="neural-bci" element={<NeuralInterfaceBankingPage />} />
+        <Route path="neural-auth" element={<NeuralInterfaceBankingPage />} />
+        <Route path="neural-alerts" element={<NeuralInterfaceBankingPage />} />
+        <Route path="neural-coach" element={<NeuralInterfaceBankingPage />} />
+        <Route path="neural-control" element={<NeuralInterfaceBankingPage />} />
+        <Route path="neural-patterns" element={<NeuralInterfaceBankingPage />} />
+        <Route path="neural-security" element={<NeuralInterfaceBankingPage />} />
+        <Route path="neural-accessibility" element={<NeuralInterfaceBankingPage />} />
+
+        <Route path="holo-portfolio" element={<HolographicFinancialAdvisorPage />} />
+        <Route path="holo-budget" element={<HolographicFinancialAdvisorPage />} />
+        <Route path="holo-timeline" element={<HolographicFinancialAdvisorPage />} />
+        <Route path="holo-goals" element={<HolographicFinancialAdvisorPage />} />
+        <Route path="holo-meetings" element={<HolographicFinancialAdvisorPage />} />
+        <Route path="holo-education" element={<HolographicFinancialAdvisorPage />} />
+        <Route path="holo-explore" element={<HolographicFinancialAdvisorPage />} />
+        <Route path="holo-present" element={<HolographicFinancialAdvisorPage />} />
+
         {/* Catch-all Not Found Route */}
         <Route path="*" element={<NotFound />} />
 
