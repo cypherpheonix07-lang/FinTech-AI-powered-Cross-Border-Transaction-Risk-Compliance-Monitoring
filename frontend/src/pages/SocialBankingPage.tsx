@@ -189,9 +189,10 @@ export default function SocialBankingPage() {
                  </div>
               </div>
             )}
+         </div>
 
-        {/* Right Column: Challenges & Requests */}
-        <div className="lg:col-span-4 space-y-6">
+         {/* Right Column: Challenges & Requests */}
+         <div className="lg:col-span-4 space-y-6">
            <div className="bg-blue-950 p-8 rounded-[3rem] text-white shadow-2xl shadow-blue-900/40 group overflow-hidden relative">
               <div className="absolute inset-0 bg-blue-600/10 blur-[60px]" />
               <div className="relative z-10 space-y-6">

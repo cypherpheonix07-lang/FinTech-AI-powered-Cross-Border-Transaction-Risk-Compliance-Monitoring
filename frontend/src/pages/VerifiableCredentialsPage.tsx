@@ -28,8 +28,6 @@ export default function VerifiableCredentialsPage() {
         </div>
       </div>
 
-      </div>
-
       {/* Tab Navigation */}
       <div className="flex bg-slate-100 p-1.5 rounded-2xl w-fit border border-slate-200">
         {[
@@ -49,42 +47,46 @@ export default function VerifiableCredentialsPage() {
           </button>
         ))}
       </div>
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group">
-          <div className="flex items-center gap-3 mb-2">
-            <UserCheck className="w-5 h-5 text-emerald-600" />
-            <h3 className="font-semibold text-slate-700">Verified Wallets</h3>
-          </div>
-          <div className="text-3xl font-bold text-slate-900">12,504</div>
-          <p className="text-xs text-emerald-600 font-medium mt-2">Compliance verified</p>
-        </div>
 
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group">
-          <div className="flex items-center gap-3 mb-2">
-            <ShieldCheck className="w-5 h-5 text-blue-600" />
-            <h3 className="font-semibold text-slate-700">ZK-Proofs Generated</h3>
+      {activeTab === 'issuance' && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-in slide-in-from-bottom-2 duration-500">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group">
+            <div className="flex items-center gap-3 mb-2">
+              <UserCheck className="w-5 h-5 text-emerald-600" />
+              <h3 className="font-semibold text-slate-700">Verified Wallets</h3>
+            </div>
+            <div className="text-3xl font-bold text-slate-900">12,504</div>
+            <p className="text-xs text-emerald-600 font-medium mt-2">Compliance verified</p>
           </div>
-          <div className="text-3xl font-bold text-slate-900">84.2K</div>
-          <p className="text-xs text-slate-500 mt-2">Privacy-preserving checks</p>
-        </div>
 
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group">
-          <div className="flex items-center gap-3 mb-2">
-            <ShieldAlert className="w-5 h-5 text-amber-600" />
-            <h3 className="font-semibold text-slate-700">Watchlist Hits</h3>
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group">
+            <div className="flex items-center gap-3 mb-2">
+              <ShieldCheck className="w-5 h-5 text-blue-600" />
+              <h3 className="font-semibold text-slate-700">ZK-Proofs Generated</h3>
+            </div>
+            <div className="text-3xl font-bold text-slate-900">84.2K</div>
+            <p className="text-xs text-slate-500 mt-2">Privacy-preserving checks</p>
           </div>
-          <div className="text-3xl font-bold text-slate-900">3</div>
-          <p className="text-xs text-rose-600 font-medium mt-2">Blocked (Sanctioned DID)</p>
-        </div>
 
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group">
-          <div className="flex items-center gap-3 mb-2">
-            <RefreshCcw className="w-5 h-5 text-indigo-600" />
-            <h3 className="font-semibold text-slate-700">Auto-Renewals</h3>
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group">
+            <div className="flex items-center gap-3 mb-2">
+              <ShieldAlert className="w-5 h-5 text-amber-600" />
+              <h3 className="font-semibold text-slate-700">Watchlist Hits</h3>
+            </div>
+            <div className="text-3xl font-bold text-slate-900">3</div>
+            <p className="text-xs text-rose-600 font-medium mt-2">Blocked (Sanctioned DID)</p>
           </div>
-          <div className="text-3xl font-bold text-slate-900">92%</div>
-          <p className="text-xs text-slate-500 mt-2">Success rate (24h)</p>
+
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden group">
+            <div className="flex items-center gap-3 mb-2">
+              <RefreshCcw className="w-5 h-5 text-indigo-600" />
+              <h3 className="font-semibold text-slate-700">Auto-Renewals</h3>
+            </div>
+            <div className="text-3xl font-bold text-slate-900">92%</div>
+            <p className="text-xs text-slate-500 mt-2">Success rate (24h)</p>
+          </div>
         </div>
-      </div>
+      )}
 
       {activeTab === 'verification' && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in slide-in-from-bottom-2 duration-500">
