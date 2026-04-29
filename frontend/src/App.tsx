@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import { ShieldCheck, Lock, Activity, ArrowRight, Search, CheckCircle } from 'lucide-react';
+import { cn } from '@/lib/utils';
 import Login from './components/Login';
 import Visualizer from './pages/Visualizer';
 import DashboardLayout from './components/layout/DashboardLayout';

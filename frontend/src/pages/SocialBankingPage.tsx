@@ -12,6 +12,8 @@ import {
   Repeat,
   ShieldCheck,
   Zap,
+  Search,
+  CheckCircle,
   Clock,
   ChevronRight,
   Target
