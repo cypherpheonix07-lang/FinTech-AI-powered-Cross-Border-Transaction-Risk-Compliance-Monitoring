@@ -1,204 +1,186 @@
 import React, { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { AlertTriangle, Activity, Globe, Shield, Zap } from 'lucide-react';
 import NeuralNavbar from './NeuralNavbar';
 import QuantumSidebar from './QuantumSidebar';
 import CommandCenter from './CommandCenter';
-import { ErrorBoundary } from '../ErrorBoundary';
-import { NexusProvider, useNexus } from '@/context/NexusStateContext';
+import { useNexus } from '@/context/NexusStateContext';
 import { cn } from '@/lib/utils';
+import { ShieldCheck, Activity, Brain, Infinity as InfinityIcon } from 'lucide-react';
 
-const GlobalFlowBackground = () => {
+const OntologicalSecurityLayer = () => {
   const { state } = useNexus();
-  
   return (
-    <div className="fixed inset-0 pointer-events-none -z-20 overflow-hidden bg-[#020202]">
-       {/* 🌀 Neural Mesh Animation */}
-       <div className="absolute inset-0 opacity-20">
-          <svg width="100%" height="100%" className="absolute inset-0">
-             <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
-                <path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="0.5"/>
-             </pattern>
-             <rect width="100%" height="100%" fill="url(#grid)" />
-          </svg>
+    <div className="fixed bottom-12 right-12 z-[200] flex items-center gap-6">
+       <div className="flex flex-col items-end">
+          <div className="flex items-center gap-3 mb-1">
+             <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
+             <span className="text-[9px] font-black text-white uppercase tracking-[0.4em]">Reality_Stable</span>
+          </div>
+          <span className="text-[7px] font-black text-slate-500 uppercase tracking-widest italic">Ontological_Security_Active</span>
        </div>
-
-       {/* 🚀 Dynamic Flow Particles */}
-       {[...Array(15)].map((_, i) => (
-         <motion.div
-           key={i}
-           initial={{ 
-             x: Math.random() * 100 + '%', 
-             y: Math.random() * 100 + '%',
-             opacity: 0,
-             scale: 0
-           }}
-           animate={{ 
-             x: [null, Math.random() * 100 + '%'],
-             y: [null, Math.random() * 100 + '%'],
-             opacity: [0, 0.4, 0],
-             scale: [0, 1.5, 0]
-           }}
-           transition={{ 
-             duration: 10 + Math.random() * 20, 
-             repeat: Infinity, 
-             ease: "linear",
-             delay: Math.random() * 5
-           }}
-           className={cn(
-             "absolute w-1 h-1 rounded-full blur-sm",
-             state.isOmegaProtocol ? "bg-red-500" : "bg-blue-500"
-           )}
-         />
-       ))}
-
-       {/* 🌫️ Atmosphere Glows */}
-       <motion.div 
-         animate={{ 
-           scale: state.isOmegaProtocol ? [1, 1.3, 1] : [1, 1.1, 1],
-           opacity: state.isOmegaProtocol ? [0.1, 0.3, 0.1] : [0.05, 0.1, 0.05]
-         }}
-         transition={{ duration: 15, repeat: Infinity }}
-         className={cn(
-           "absolute top-0 left-1/3 w-[1500px] h-[1000px] rounded-full blur-[250px]",
-           state.isOmegaProtocol ? "bg-red-900/20" : "bg-blue-900/10"
-         )} 
-       />
-       <div className={cn(
-         "absolute -bottom-1/4 -right-1/4 w-[1200px] h-[800px] rounded-full blur-[200px] animate-pulse",
-         state.isOmegaProtocol ? "bg-red-600/5" : "bg-purple-600/5"
-       )} />
-
-       {/* Scanline Overlay */}
-       <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%] pointer-events-none opacity-[0.03]" />
+       
+       <div className="w-20 h-20 glass-omega rounded-3xl border border-white/10 flex items-center justify-center relative group cursor-pointer hover:border-emerald-500/50 transition-all shadow-2xl">
+          <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <ShieldCheck className="w-8 h-8 text-emerald-500/50 group-hover:text-emerald-500 transition-colors" />
+          
+          {/* Animated Scanning Ring */}
+          <motion.div 
+            animate={{ rotate: 360 }}
+            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            className="absolute -inset-2 border border-dashed border-emerald-500/20 rounded-full"
+          />
+       </div>
     </div>
   );
 };
 
-const NeuralLatencyOverlay = () => {
+const HyperDimensionalBackground = () => {
   const { state } = useNexus();
+  
   return (
-    <AnimatePresence>
-       {state.networkLatency > 0.28 && (
-         <motion.div 
-           initial={{ opacity: 0 }}
-           animate={{ opacity: 1 }}
-           exit={{ opacity: 0 }}
-           className="fixed inset-0 z-[1000] pointer-events-none mix-blend-overlay opacity-20"
-         >
-            <div className="absolute inset-0 bg-blue-500/10 backdrop-blur-[1px]" />
-         </motion.div>
-       )}
-    </AnimatePresence>
+    <div className="fixed inset-0 -z-50 pointer-events-none overflow-hidden bg-[#020202]">
+       {/* Multiversal Starfield */}
+       <div className="absolute inset-0 opacity-[0.15]">
+          {[...Array(50)].map((_, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0 }}
+              animate={{ 
+                opacity: [0.2, 1, 0.2],
+                scale: [0.8, 1.2, 0.8],
+                x: Math.random() * 100 - 50,
+                y: Math.random() * 100 - 50
+              }}
+              transition={{ 
+                duration: 5 + Math.random() * 10, 
+                repeat: Infinity,
+                delay: Math.random() * 5
+              }}
+              className="absolute rounded-full bg-blue-400"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                width: `${Math.random() * 3 + 1}px`,
+                height: `${Math.random() * 3 + 1}px`,
+              }}
+            />
+          ))}
+       </div>
+
+       {/* Quantum Wave Interference */}
+       <svg className="absolute inset-0 w-full h-full opacity-[0.03]">
+          <defs>
+             <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#3b82f6" />
+                <stop offset="100%" stopColor="#a855f7" />
+             </linearGradient>
+          </defs>
+          {[...Array(5)].map((_, i) => (
+            <motion.circle
+              key={i}
+              cx="50%"
+              cy="50%"
+              r="20%"
+              fill="none"
+              stroke="url(#waveGrad)"
+              strokeWidth="0.5"
+              animate={{ 
+                r: ['20%', '80%', '20%'],
+                opacity: [0.1, 0.5, 0.1],
+                rotate: [0, 360]
+              }}
+              transition={{ 
+                duration: 20 + i * 5, 
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+          ))}
+       </svg>
+
+       {/* Tesseract Overlay */}
+       <div className="absolute inset-0 flex items-center justify-center opacity-[0.02]">
+          <motion.div 
+            animate={{ rotateX: [0, 360], rotateY: [0, 360], scale: [0.8, 1.2, 0.8] }}
+            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+            className="w-[800px] h-[800px] border-2 border-white rounded-[10rem] flex items-center justify-center"
+          >
+             <div className="w-[400px] h-[400px] border-2 border-white rounded-[5rem]" />
+          </motion.div>
+       </div>
+
+       {/* Omega Protocol Shatter Effect */}
+       <AnimatePresence>
+          {state.isOmegaProtocol && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-red-950/20 backdrop-invert-[0.05] z-0"
+            />
+          )}
+       </AnimatePresence>
+    </div>
   );
 };
 
-function DashboardLayoutContent() {
-  const [isCommandOpen, setIsCommandOpen] = useState(false);
+interface DashboardLayoutProps {
+  children: React.ReactNode;
+}
+
+export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const { state } = useNexus();
+  const [isCommandOpen, setIsCommandOpen] = useState(false);
 
   useEffect(() => {
-    const down = (e: KeyboardEvent) => {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
-        setIsCommandOpen((open) => !open);
+        setIsCommandOpen(prev => !prev);
       }
     };
-    document.addEventListener('keydown', down);
-    return () => document.removeEventListener('keydown', down);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   return (
     <div className={cn(
-      "min-h-screen selection:bg-blue-500/30 font-rajdhani",
-      state.isOmegaProtocol ? "bg-[#0a0000]" : "bg-[#020202]"
+      "min-h-screen relative font-rajdhani overflow-x-hidden selection:bg-blue-500/30",
+      state.isOmegaProtocol ? "cursor-crosshair" : "cursor-default"
     )}>
-      <GlobalFlowBackground />
-      <NeuralLatencyOverlay />
-
-      {/* 🚀 TransactTrace HUD Layer */}
+      <HyperDimensionalBackground />
+      
       <NeuralNavbar onOpenCommand={() => setIsCommandOpen(true)} />
-
-      {/* 🌀 Dimensional Spine (Sidebar) */}
-      <QuantumSidebar />
-
-      {/* 🚨 Omega Protocol Overlay */}
-      <AnimatePresence>
-        {state.isOmegaProtocol && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[1000] pointer-events-none border-[30px] border-red-600/10 backdrop-invert-[0.02] animate-glitch"
-          >
-             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                <Shield className="w-40 h-40 text-red-600 animate-pulse" />
-                <h1 className="text-8xl font-black text-red-600 uppercase italic tracking-tighter mt-10 skew-x-12">Omega Active</h1>
-                <div className="flex items-center gap-4 mt-4">
-                   <div className="w-12 h-1 bg-red-600 animate-ping" />
-                   <span className="text-2xl font-black text-red-500 uppercase tracking-[1.5em]">System Lockdown</span>
-                   <div className="w-12 h-1 bg-red-600 animate-ping" />
-                </div>
-             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* 🚀 Main Dimensional Stage */}
-      <div className="flex flex-col min-h-screen pt-28 ml-80 relative transition-all duration-700">
-        <CommandCenter 
-          isOpen={isCommandOpen} 
-          onClose={() => setIsCommandOpen(false)} 
-        />
+      
+      <div className="flex">
+        <QuantumSidebar />
         
-        <main className="flex-1 p-12 overflow-x-hidden relative text-white">
-          <ErrorBoundary>
-            <div className="animate-fade-up max-w-[1600px] mx-auto">
-              <Outlet />
-            </div>
-          </ErrorBoundary>
+        <main className="flex-1 ml-80 pt-48 px-12 pb-32 relative z-10">
+          <AnimatePresence mode="wait">
+             <motion.div
+               key={state.mode}
+               initial={{ opacity: 0, scale: 0.98, filter: 'blur(10px)' }}
+               animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+               exit={{ opacity: 0, scale: 1.02, filter: 'blur(10px)' }}
+               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+             >
+               {children}
+             </motion.div>
+          </AnimatePresence>
         </main>
-
-        {/* Floating Atmospheric Particles (Noise) */}
-        <div className="fixed inset-0 pointer-events-none z-[200] opacity-[0.02] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
       </div>
 
-      {/* Dimensional Telemetry Footer HUD */}
-      <footer className="fixed bottom-0 left-80 right-0 h-10 border-t border-white/5 bg-black/40 backdrop-blur-md z-[80] flex items-center justify-between px-10">
-         <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2">
-               <div className="w-1 h-1 bg-emerald-500 rounded-full" />
-               <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest">Consensus Finalized: 0.2ms ago</span>
-            </div>
-            <div className="w-px h-3 bg-white/5" />
-            <div className="flex items-center gap-2">
-               <Zap className="w-3 h-3 text-blue-500" />
-               <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest">TPS: 1.4M / S</span>
-            </div>
-         </div>
-         <div className="flex items-center gap-8">
-            <div className="flex items-center gap-2">
-               <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest">Entropy:</span>
-               <div className="w-20 h-1 bg-white/5 rounded-full overflow-hidden">
-                  <motion.div 
-                    animate={{ width: ['20%', '60%', '40%'] }}
-                    transition={{ duration: 5, repeat: Infinity }}
-                    className="h-full bg-blue-500" 
-                  />
-               </div>
-            </div>
-            <span className="text-[8px] font-black text-blue-500/60 uppercase tracking-[0.3em]">Absolute Transparency Mode Active</span>
-         </div>
-      </footer>
-    </div>
-  );
-}
+      <OntologicalSecurityLayer />
+      
+      <CommandCenter 
+        isOpen={isCommandOpen} 
+        onClose={() => setIsCommandOpen(false)} 
+      />
 
-export default function DashboardLayout() {
-  return (
-    <NexusProvider>
-      <DashboardLayoutContent />
-    </NexusProvider>
+      {/* Global Particle Overlay */}
+      <div className="fixed inset-0 pointer-events-none z-[500] opacity-[0.05]">
+         <div className="w-full h-full bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
+      </div>
+    </div>
   );
 }

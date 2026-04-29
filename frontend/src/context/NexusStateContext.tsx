@@ -1,31 +1,48 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-type SystemMode = 'Planetary' | 'Orbital' | 'Quantum' | 'Bio' | 'Work' | 'Personal' | 'Multiverse' | 'Crisis' | 'Deep-Work' | 'Sleep';
-type ThreatLevel = 'Stable' | 'Advisory' | 'Elevated' | 'Critical' | 'Omega';
-type NeuralState = 'Calm' | 'Focused' | 'Stressed' | 'Fatigued' | 'REM';
+type SystemMode = 
+  | 'Planetary' | 'Orbital' | 'Quantum' | 'Bio' | 'Work' | 'Personal' 
+  | 'Multiverse' | 'Crisis' | 'Deep-Work' | 'Sleep' | 'Nirvana' | 'God-Mode'
+  | 'Omega-Point' | 'Temporal-Shift';
+
+type ThreatLevel = 'Stable' | 'Advisory' | 'Elevated' | 'Critical' | 'Omega' | 'Singularity' | 'Ontological-Breach';
+type NeuralState = 'Calm' | 'Focused' | 'Stressed' | 'Fatigued' | 'REM' | 'Flow' | 'Ascended' | 'Unity';
 
 interface NexusState {
   mode: SystemMode;
   threatLevel: ThreatLevel;
   neuralState: NeuralState;
+  
+  // 🧠 Consciousness & Bio Metrics
   cognitiveLoad: number;
-  stressLevel: number; // 0-100
-  focusScore: number; // 0-100
-  wealthTicker: number;
-  biometricVerified: boolean;
-  activeContext: string;
-  isOmegaProtocol: boolean;
-  protocolVersion: string;
-  // Biometric Telemetry
+  stressLevel: number; 
+  focusScore: number; 
   heartRate: number;
-  retinalSync: boolean;
   neuralSignature: string;
-  // Quantum & Network Telemetry
+  consciousnessBandwidth: number; // 0-100%
+  
+  // 💰 Omni-Value Metrics
+  wealthTicker: number; // Fiat/Crypto
+  energyCredits: number; // kWh
+  karmaScore: number; // 0-1000
+  reputationIndex: number; // 0-100
+  timeCapital: number; // Years/Days/Sec remaining
+  
+  // ⚛️ Quantum & Temporal Metrics
   networkLatency: number;
   quantumEncryptionLevel: number;
+  probabilityCoherence: number; // 0-100%
+  timelineBranch: string; // 'Alpha', 'Beta', 'Gamma'
+  temporalDrift: number; // ms
+  
+  // 🚀 System & Protocol
   activeNodes: number;
   globalFlowVolume: number;
   privacyScore: number;
+  isOmegaProtocol: boolean;
+  protocolVersion: string;
+  autopoieticHealth: number; // 0-100% (self-healing)
+  hiveMindSync: number; // 0-100%
 }
 
 interface NexusContextType {
@@ -47,33 +64,44 @@ export const NexusProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     cognitiveLoad: 12,
     stressLevel: 8,
     focusScore: 94,
-    wealthTicker: 14204992.00,
-    biometricVerified: true,
-    activeContext: 'London_Office',
-    isOmegaProtocol: false,
-    protocolVersion: 'V4.0_AEGIS_PRIME',
     heartRate: 68,
-    retinalSync: true,
-    neuralSignature: 'SIG_AEGIS_0x84',
+    neuralSignature: 'SIG_OMNI_0x∞',
+    consciousnessBandwidth: 92,
+    wealthTicker: 14204992.00,
+    energyCredits: 8420.5,
+    karmaScore: 742,
+    reputationIndex: 98.4,
+    timeCapital: 42.4, // Years
     networkLatency: 0.24,
-    quantumEncryptionLevel: 99.9,
+    quantumEncryptionLevel: 99.999,
+    probabilityCoherence: 98.2,
+    timelineBranch: 'Alpha-Prime',
+    temporalDrift: 0.002,
     activeNodes: 14204,
     globalFlowVolume: 842049.22,
-    privacyScore: 98,
+    privacyScore: 100,
+    isOmegaProtocol: false,
+    protocolVersion: 'V2.0_OMNI_OMNIPOTENT',
+    autopoieticHealth: 99.4,
+    hiveMindSync: 88.2,
   });
 
-  // Simulate complex telemetry fluctuations
+  // Simulate Multi-Dimensional Telemetry
   useEffect(() => {
     const interval = setInterval(() => {
       setState(prev => ({
         ...prev,
-        wealthTicker: prev.wealthTicker + (Math.random() * 20 - 10),
-        networkLatency: 0.20 + Math.random() * 0.08,
-        heartRate: 65 + Math.random() * 10,
-        cognitiveLoad: Math.max(5, Math.min(95, prev.cognitiveLoad + (Math.random() * 4 - 2))),
-        globalFlowVolume: prev.globalFlowVolume + (Math.random() * 5000 - 2500)
+        wealthTicker: prev.wealthTicker + (Math.random() * 50 - 25),
+        energyCredits: prev.energyCredits + (Math.random() * 2 - 1),
+        networkLatency: 0.10 + Math.random() * 0.14,
+        heartRate: 60 + Math.random() * 15,
+        cognitiveLoad: Math.max(5, Math.min(95, prev.cognitiveLoad + (Math.random() * 6 - 3))),
+        probabilityCoherence: Math.max(90, Math.min(100, prev.probabilityCoherence + (Math.random() * 2 - 1))),
+        temporalDrift: Math.max(0, prev.temporalDrift + (Math.random() * 0.001 - 0.0005)),
+        globalFlowVolume: prev.globalFlowVolume + (Math.random() * 10000 - 5000),
+        hiveMindSync: Math.max(80, Math.min(100, prev.hiveMindSync + (Math.random() * 0.5 - 0.25)))
       }));
-    }, 1500);
+    }, 1000);
     return () => clearInterval(interval);
   }, []);
 
