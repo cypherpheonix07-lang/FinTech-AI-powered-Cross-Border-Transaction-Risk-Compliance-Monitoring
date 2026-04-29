@@ -25,7 +25,7 @@ const GALACTIC_SECTORS = [
     icon: <Shield className="w-4 h-4 text-blue-500" />,
     subsectors: [
       { id: 'omega-status', label: 'Omega Protocol Status', featuresCount: 120, path: '/dashboard' },
-      { id: 'global-ops', label: 'Global Ops Center', featuresCount: 85, path: '/advanced-analytics' },
+      { id: 'trace-nexus', label: 'Trace Nexus Forensics', featuresCount: 85, path: '/ledger-forensics' },
       { id: 'threat-detect', label: 'Autonomous Threat Response', featuresCount: 64, path: '/automation-rules' },
     ]
   },
@@ -35,8 +35,8 @@ const GALACTIC_SECTORS = [
     icon: <Brain className="w-4 h-4 text-purple-500" />,
     subsectors: [
       { id: 'neural-auth', label: 'Neural Authentication Layer', featuresCount: 512, path: '/neural-interface-banking' },
-      { id: 'predictive-neural', label: 'Predictive Neural Analytics', featuresCount: 240, path: '/agi-symbiosis' },
-      { id: 'neural-interface', label: 'Neural Command Interface', featuresCount: 180, path: '/bci-finance' },
+      { id: 'predictive-neural', label: 'Predictive Neural Analytics', featuresCount: 240, path: '/bci-finance' },
+      { id: 'neural-interface', label: 'Neural Command Interface', featuresCount: 180, path: '/neural-interface-banking' },
     ]
   },
   {
@@ -60,13 +60,43 @@ const GALACTIC_SECTORS = [
     ]
   },
   {
-    id: 'neural-bio',
-    label: 'Neural & Bio Convergence',
-    icon: <Atom className="w-4 h-4 text-rose-500" />,
+    id: 'ai-orchestration',
+    label: 'Advanced AI Orchestration',
+    icon: <Cpu className="w-4 h-4 text-indigo-500" />,
     subsectors: [
-      { id: 'bio-financial', label: 'Bio-Financial Integration', featuresCount: 150, path: '/bio-finance-vault' },
-      { id: 'synthetic-bio', label: 'Synthetic Biology Finance', featuresCount: 120, path: '/natural-resources' },
-      { id: 'neurosymbiotic', label: 'Neurosymbiotic Financial AI', featuresCount: 210, path: '/holographic-advisor' },
+      { id: 'collective-superintel', label: 'Collective Super-Intelligence', featuresCount: 1200, path: '/ai-orchestration' },
+      { id: 'meta-learning', label: 'Meta-Learning Systems', featuresCount: 450, path: '/ai-orchestration' },
+      { id: 'autonomous-agents', label: 'Autonomous Financial Agents', featuresCount: 880, path: '/ai-orchestration' },
+    ]
+  },
+  {
+    id: 'governance-compliance',
+    label: 'Governance & Compliance',
+    icon: <Shield className="w-4 h-4 text-emerald-400" />,
+    subsectors: [
+      { id: 'auto-compliance', label: 'Autonomous Compliance', featuresCount: 320, path: '/governance-compliance' },
+      { id: 'governance-vault', label: 'Governance Ownership Vault', featuresCount: 150, path: '/governance-compliance' },
+      { id: 'regulatory-ai', label: 'Regulatory AI Agents', featuresCount: 240, path: '/governance-compliance' },
+    ]
+  },
+  {
+    id: 'ecosystem-integration',
+    label: 'Ecosystem Integration',
+    icon: <Network className="w-4 h-4 text-blue-400" />,
+    subsectors: [
+      { id: 'inter-protocol', label: 'Inter-Protocol Interop', featuresCount: 580, path: '/ecosystem-integration' },
+      { id: 'api-mesh', label: 'Global API Mesh', featuresCount: 920, path: '/ecosystem-integration' },
+      { id: 'cloud-sovereign', label: 'Cloud Sovereignty Control', featuresCount: 210, path: '/ecosystem-integration' },
+    ]
+  },
+  {
+    id: 'immersive-viz',
+    label: 'Immersive Experiences',
+    icon: <Eye className="w-4 h-4 text-blue-400" />,
+    subsectors: [
+      { id: 'holographic-viz', label: 'Holographic Visualization', featuresCount: 140, path: '/immersive-viz' },
+      { id: 'spatial-audio', label: 'Spatial Audio Engine', featuresCount: 85, path: '/immersive-viz' },
+      { id: 'vr-interface', label: 'Virtual Reality Interface', featuresCount: 120, path: '/immersive-viz' },
     ]
   },
   {
@@ -77,16 +107,6 @@ const GALACTIC_SECTORS = [
       { id: 'temporal-finance', label: 'Temporal Finance Systems', featuresCount: 95, path: '/post-scarcity' },
       { id: 'dimensional-finance', label: 'Dimensional Finance', featuresCount: 110, path: '/multiverse-arbitrage' },
       { id: 'metaphysical', label: 'Metaphysical Finance', featuresCount: 75, path: '/identity-reputation' },
-    ]
-  },
-  {
-    id: 'ai-orchestration',
-    label: 'Advanced AI Orchestration',
-    icon: <Cpu className="w-4 h-4 text-indigo-500" />,
-    subsectors: [
-      { id: 'collective-superintel', label: 'Collective Super-Intelligence', featuresCount: 1200, path: '/collaborative-finance' },
-      { id: 'meta-learning', label: 'Meta-Learning Systems', featuresCount: 450, path: '/ai-coach' },
-      { id: 'autonomous-agents', label: 'Autonomous Financial Agents', featuresCount: 880, path: '/automation-rules' },
     ]
   }
 ];
