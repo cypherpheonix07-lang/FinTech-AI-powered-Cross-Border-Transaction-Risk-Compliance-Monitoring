@@ -62,6 +62,14 @@
     --quantum-neon: 190 100% 50%;
     --molecular-glow: 150 100% 40% / 0.4;
     --neural-bypass: 270 100% 60%;
+    
+    /* AEGIS AE-3 ACCENTS */
+    --aegis-blue: 217 91% 60%;
+    --aegis-indigo: 239 84% 67%;
+    --aegis-cyan: 188 86% 53%;
+    --aegis-emerald: 160 84% 39%;
+    --crisis-red: 0 84% 60%;
+    --crisis-glow: 0 100% 50% / 0.5;
   }
 
   .dark {
@@ -93,6 +101,15 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 224.3 76.3% 48%;
   }
+
+  .crisis-mode {
+    --background: 0 50% 5%;
+    --foreground: 0 100% 90%;
+    --primary: 0 100% 50%;
+    --border: 0 100% 20%;
+    --card: 0 50% 8%;
+    --accent: 0 100% 30%;
+  }
 }
 
 @layer base {
@@ -105,7 +122,21 @@
       radial-gradient(at 50% 100%, hsla(190, 100%, 5%, 0.3) 0, transparent 50%);
     background-attachment: fixed;
     font-feature-settings: "rlig" 1, "calt" 1;
+    transition: background-color 0.5s ease, color 0.5s ease;
   }
+  
+  body.crisis-active {
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(0, 100%, 10%, 0.9) 0, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(0, 100%, 5%, 0.7) 0, transparent 50%),
+      radial-gradient(at 50% 100%, hsla(0, 100%, 15%, 0.4) 0, transparent 50%);
+    animation: crisis-pulse 4s infinite alternate;
+  }
+}
+
+@keyframes crisis-pulse {
+  from { opacity: 1; }
+  to { opacity: 0.8; }
 }
 
 @layer utilities {
@@ -119,9 +150,31 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.02);
   }
+
+  .glass-crisis {
+    background-color: hsla(0, 100%, 10%, 0.3);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 0, 0, 0.2);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.1);
+  }
   
   .neon-pulse {
     box-shadow: 0 0 20px -5px hsl(var(--primary));
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .neural-glow {
+    filter: drop-shadow(0 0 10px hsla(var(--neural-bypass), 0.5));
+  }
+
+  .quantum-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
   }
 }

@@ -1,7 +1,11 @@
 import React, { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-const DashboardOverview = lazy(() => import('./components/DashboardOverview'));
+const AegisCommandCenter = lazy(() => import('./pages/AegisCommandCenter'));
+const NeuralCommandPage = lazy(() => import('./pages/NeuralCommandPage'));
+const QuantumDimensionPage = lazy(() => import('./pages/QuantumDimensionPage'));
+const PlanetarySystemsPage = lazy(() => import('./pages/PlanetarySystemsPage'));
+const ExoticParadigmsPage = lazy(() => import('./pages/ExoticParadigmsPage'));
 const TransactionsPage = lazy(() => import('./pages/TransactionsPage'));
 const RecipientsPage = lazy(() => import('./pages/RecipientsPage'));
 const CardsPage = lazy(() => import('./pages/CardsPage'));
@@ -117,8 +121,8 @@ const PageLoader = () => {
 export const AppRoutes = ({ onTrackTransaction }: { onTrackTransaction: (id: string) => void }) => (
   <Suspense fallback={<PageLoader />}>
     <Routes>
-      <Route index element={<DashboardOverview onTrackTransaction={onTrackTransaction} />} />
-      <Route path="dashboard" element={<DashboardOverview onTrackTransaction={onTrackTransaction} />} />
+      <Route index element={<AegisCommandCenter />} />
+      <Route path="dashboard" element={<AegisCommandCenter />} />
       <Route path="transactions" element={<TransactionsPage />} />
       <Route path="recipients" element={<RecipientsPage />} />
       <Route path="cards" element={<CardsPage />} />
@@ -151,17 +155,17 @@ export const AppRoutes = ({ onTrackTransaction }: { onTrackTransaction: (id: str
       <Route path="travel-lifestyle" element={<TravelLifestylePage />} />
       <Route path="wellness-finance" element={<WellnessFinancePage />} />
       <Route path="metaverse-banking" element={<MetaverseBankingPage />} />
-      <Route path="space-economy" element={<SpaceEconomyPage />} />
+      <Route path="space-economy" element={<PlanetarySystemsPage />} />
       <Route path="natural-resources" element={<NaturalResourcesPage />} />
       <Route path="ip-digital-rights" element={<IPDigitalRightsPage />} />
-      <Route path="bci-finance" element={<BCIFinancePage />} />
+      <Route path="bci-finance" element={<NeuralCommandPage />} />
       <Route path="merchant-hub" element={<MerchantHubPage />} />
       <Route path="dev-console" element={<DeveloperConsolePage />} />
       <Route path="business-analytics" element={<BusinessAnalyticsPage />} />
       <Route path="identity-protection" element={<IdentityProtectionPage />} />
       <Route path="legacy-planning" element={<LegacyPlanningPage />} />
-        <Route path="quantum-safe-security" element={<QuantumSafeSecurityPage />} />
-        <Route path="neural-interface-banking" element={<NeuralInterfaceBankingPage />} />
+        <Route path="quantum-safe-security" element={<QuantumDimensionPage />} />
+        <Route path="neural-interface-banking" element={<NeuralCommandPage />} />
         <Route path="holographic-advisor" element={<HolographicFinancialAdvisorPage />} />
         <Route path="bio-finance-vault" element={<BioFinanceHealthVaultPage />} />
         {/* Phase 16 Routes */}
@@ -338,7 +342,14 @@ export const AppRoutes = ({ onTrackTransaction }: { onTrackTransaction: (id: str
         <Route path="holo-present" element={<HolographicFinancialAdvisorPage />} />
 
         {/* Catch-all Not Found Route */}
-        <Route path="*" element={<NotFound />} />
+        <Route path="qkd-networks" element={<QuantumDimensionPage />} />
+        <Route path="cbdc-integration" element={<PlanetarySystemsPage />} />
+        <Route path="multiverse-arbitrage" element={<ExoticParadigmsPage />} />
+        <Route path="pq-crypto" element={<QuantumDimensionPage />} />
+        <Route path="quantum-annealer" element={<QuantumDimensionPage />} />
+        <Route path="real-assets" element={<PlanetarySystemsPage />} />
+        <Route path="post-scarcity" element={<ExoticParadigmsPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
 
     </Routes>
 

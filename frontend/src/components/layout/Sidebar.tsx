@@ -20,50 +20,79 @@ import { cn } from '@/lib/utils';
 
 const GALACTIC_SECTORS = [
   {
-    id: 'planetary',
-    label: 'Planetary Systems (Core)',
-    icon: <Globe className="w-4 h-4" />,
+    id: 'command-center',
+    label: 'Aegis Command Center',
+    icon: <Shield className="w-4 h-4 text-blue-500" />,
     subsectors: [
-      { id: 'banking', label: 'Universal Banking', featuresCount: 40, path: '/dashboard' },
-      { id: 'compliance', label: 'Global Compliance', featuresCount: 30, path: '/compliance' },
-      { id: 'risk', label: 'Predictive Risk', featuresCount: 25, path: '/advanced-analytics' },
+      { id: 'omega-status', label: 'Omega Protocol Status', featuresCount: 120, path: '/dashboard' },
+      { id: 'global-ops', label: 'Global Ops Center', featuresCount: 85, path: '/advanced-analytics' },
+      { id: 'threat-detect', label: 'Autonomous Threat Response', featuresCount: 64, path: '/automation-rules' },
     ]
   },
   {
-    id: 'quantum',
-    label: 'Quantum Dimension (Security)',
-    icon: <Atom className="w-4 h-4" />,
+    id: 'neural-command',
+    label: 'Neural Command Core',
+    icon: <Brain className="w-4 h-4 text-purple-500" />,
     subsectors: [
-      { id: 'pqc', label: 'Quantum-Resistant Crypto', featuresCount: 30, sector: 51, path: '/pq-crypto' },
-      { id: 'entanglement', label: 'Quantum Entanglement', featuresCount: 30, sector: 75, path: '/entanglement-settle' },
-      { id: 'annealing', label: 'Quantum Annealing', featuresCount: 30, sector: 86, path: '/quantum-annealer' },
+      { id: 'neural-auth', label: 'Neural Authentication Layer', featuresCount: 512, path: '/neural-interface-banking' },
+      { id: 'predictive-neural', label: 'Predictive Neural Analytics', featuresCount: 240, path: '/agi-symbiosis' },
+      { id: 'neural-interface', label: 'Neural Command Interface', featuresCount: 180, path: '/bci-finance' },
     ]
   },
   {
-    id: 'neural',
+    id: 'quantum-dimension',
+    label: 'Quantum Dimension Security',
+    icon: <Zap className="w-4 h-4 text-cyan-500" />,
+    subsectors: [
+      { id: 'quantum-infra', label: 'Quantum-Resistant Infra', featuresCount: 420, path: '/pq-crypto' },
+      { id: 'quantum-compute', label: 'Quantum Computing Integr.', featuresCount: 310, path: '/quantum-annealer' },
+      { id: 'quantum-networks', label: 'Quantum Comm Networks', featuresCount: 195, path: '/qkd-networks' },
+    ]
+  },
+  {
+    id: 'planetary-systems',
+    label: 'Planetary Systems Core',
+    icon: <Globe className="w-4 h-4 text-emerald-500" />,
+    subsectors: [
+      { id: 'multi-planetary', label: 'Multi-Planetary Network', featuresCount: 280, path: '/space-economy' },
+      { id: 'global-fabric', label: 'Global Payment Fabric', featuresCount: 640, path: '/cbdc-integration' },
+      { id: 'planetary-scale', label: 'Planetary-Scale Infra', featuresCount: 450, path: '/real-assets' },
+    ]
+  },
+  {
+    id: 'neural-bio',
     label: 'Neural & Bio Convergence',
-    icon: <Brain className="w-4 h-4" />,
+    icon: <Atom className="w-4 h-4 text-rose-500" />,
     subsectors: [
-      { id: 'neural-intl', label: 'Neural Interface Banking', featuresCount: 30, sector: 52, path: '/neural-interface-banking' },
-      { id: 'biometric-behavioral', label: 'Biometric Analytics', featuresCount: 30, sector: 57, path: '/biometric' },
-      { id: 'synthetic-bio', label: 'Synthetic Biology Finance', featuresCount: 30, sector: 60, path: '/bio-finance-vault' },
+      { id: 'bio-financial', label: 'Bio-Financial Integration', featuresCount: 150, path: '/bio-finance-vault' },
+      { id: 'synthetic-bio', label: 'Synthetic Biology Finance', featuresCount: 120, path: '/natural-resources' },
+      { id: 'neurosymbiotic', label: 'Neurosymbiotic Financial AI', featuresCount: 210, path: '/holographic-advisor' },
     ]
   },
   {
     id: 'universal-exotic',
     label: 'Universal & Exotic Paradigms',
-    icon: <Zap className="w-4 h-4" />,
+    icon: <Activity className="w-4 h-4 text-amber-500" />,
     subsectors: [
-      { id: 'space-econ', label: 'Space Economy Finance', featuresCount: 30, sector: 62, path: '/space-economy' },
-      { id: 'nano-tech', label: 'Nanotechnology Finance', featuresCount: 30, sector: 63, path: '/natural-resources' },
-      { id: 'agi-finance', label: 'AGI (General Intelligence)', featuresCount: 30, sector: 64, path: '/agi-symbiosis' },
-      { id: 'post-scarcity', label: 'Post-Scarcity Economics', featuresCount: 30, sector: 70, path: '/post-scarcity' },
+      { id: 'temporal-finance', label: 'Temporal Finance Systems', featuresCount: 95, path: '/post-scarcity' },
+      { id: 'dimensional-finance', label: 'Dimensional Finance', featuresCount: 110, path: '/multiverse-arbitrage' },
+      { id: 'metaphysical', label: 'Metaphysical Finance', featuresCount: 75, path: '/identity-reputation' },
+    ]
+  },
+  {
+    id: 'ai-orchestration',
+    label: 'Advanced AI Orchestration',
+    icon: <Cpu className="w-4 h-4 text-indigo-500" />,
+    subsectors: [
+      { id: 'collective-superintel', label: 'Collective Super-Intelligence', featuresCount: 1200, path: '/collaborative-finance' },
+      { id: 'meta-learning', label: 'Meta-Learning Systems', featuresCount: 450, path: '/ai-coach' },
+      { id: 'autonomous-agents', label: 'Autonomous Financial Agents', featuresCount: 880, path: '/automation-rules' },
     ]
   }
 ];
 
 export function SidebarContent() {
-  const [expandedSector, setExpandedSector] = useState<string | null>('planetary');
+  const [expandedSector, setExpandedSector] = useState<string | null>('command-center');
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -115,17 +144,22 @@ export function SidebarContent() {
 }
 
 export function Sidebar() {
+  const navigate = useNavigate();
+
   return (
     <aside className="w-72 h-screen bg-zinc-950/50 border-r border-white/5 flex flex-col backdrop-blur-xl hidden lg:flex fixed left-0 top-0">
       {/* HEADER: NEURAL COMMAND TRIGGER */}
       <div className="p-6 border-b border-white/5">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-8 h-8 rounded bg-blue-600 flex items-center justify-center">
+        <div 
+          onClick={() => navigate('/dashboard')}
+          className="flex items-center gap-3 mb-6 cursor-pointer group"
+        >
+          <div className="w-8 h-8 rounded bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform">
             <Shield className="w-5 h-5 text-white" />
           </div>
           <div>
             <h2 className="text-sm font-bold tracking-tight">PROJECT AEGIS</h2>
-            <p className="text-[10px] text-zinc-500 font-mono">OMEGA PROTOCOL V2.0</p>
+            <p className="text-[10px] text-zinc-500 font-mono">OMEGA PROTOCOL V3.0</p>
           </div>
         </div>
         
